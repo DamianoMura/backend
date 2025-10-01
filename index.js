@@ -1,4 +1,5 @@
 const {APP_PORT}=process.env;
+const db_connection = require("./db/db.js");
 console.log("starting up app.js") //debug
 //importing express
 const express = require("express");
@@ -16,6 +17,11 @@ const corsOptions = {
   methods: 'GET,POST,PUT,DELETE'
   
 };
+//main route set
+app.get('/',(req,res)=>{
+  console.log("home page")
+  res.send('API server main page');
+})
 
 app.use(cors(corsOptions));
 
