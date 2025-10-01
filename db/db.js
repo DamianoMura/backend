@@ -12,19 +12,20 @@ const connection = mysql.createConnection({
 })
 
 const generate = require('./nerdNest_ER_db');
+
 connection.connect(function(err) {
   if (err) throw err;
-  console.log("(db.js)Connected!");
+  console.log(`mysql connected to ${DB_HOST}:${DB_PORT}`);
   connection.query(`CREATE DATABASE ${DB_NAME}`, function (err, result) {
     if (err) {
-      connection.database=DB_NAME;
-      console.log("DB already exists... proceed to connect....",connection.database)
+      connection.config.database=DB_NAME;//setting the database name 
+      console.log("connecting to database ",connection.config.database)
+      
     }
     else {
       //here we have created the new db so we need to create also all tables 
-      console.log("Database created");
-      connection.database=DB_NAME;
-      console.log(`connecting to database ${DB_NAME}`)
+      console.log(`Database : ${DB_NAME} created`);
+      //function from nerNest_db.js
       generate();
     }
   });

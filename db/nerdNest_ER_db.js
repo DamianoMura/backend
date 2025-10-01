@@ -26,6 +26,8 @@ const mysql = require("mysql2")
       "ALTER TABLE `orders_items` ADD FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);",
       "ALTER TABLE `orders_items` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);"
     ]
+
+    
     const db_connection = mysql.createConnection({
       host: DB_HOST,
       port: DB_PORT,
