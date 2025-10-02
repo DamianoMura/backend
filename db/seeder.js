@@ -15,15 +15,6 @@ const pool = mysql.createConnection({
 	database: DB_NAME,
 });
 
-<<<<<<< HEAD
-pool.connect((err)=>{
-  if (err) console.log("connection error",err)
-  else {
-    seedCategories();
-  }
-  
-})
-=======
 pool.connect((err) => {
 	if (err) console.log("connection error", err);
 	else {
@@ -31,7 +22,6 @@ pool.connect((err) => {
 		seedProducts();
 	}
 });
->>>>>>> 21-contenuto-database-seeder-script
 
 const seedProducts = () => {
 	products.forEach((product, index) => {
