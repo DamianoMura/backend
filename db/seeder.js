@@ -26,7 +26,7 @@ pool.connect((err) => {
 const seedProducts = () => {
 	products.forEach((product, index) => {
 		pool.query(
-			"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+			"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE name=name",
 			[
 				product.name,
 				product.brand,
@@ -61,7 +61,7 @@ const seedCategories = () => {
 	];
 	categories.forEach((category, index) => {
 		pool.query(
-			"INSERT INTO categories (name, icon) VALUES (?, ?)",
+			"INSERT INTO categories (name, icon) VALUES (?, ?) ON DUPLICATE KEY UPDATE name=name",
 			[category.name, category.icon],
 			(err) => {
 				if (err) console.log("query failed", err);
