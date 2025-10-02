@@ -16,8 +16,8 @@ const pool = mysql.createConnection({
 pool.connect((err)=>{
   if (err) console.log("connection error",err)
   else {
-    seedCategories()
-  };
+    seedCategories();
+  }
   
 })
 
