@@ -27,6 +27,8 @@ connection.connect(function(err) {
       console.log(`Database : ${DB_NAME} created`);
       //function from nerNest_db.js
       generate();
+      //per avviare automaticamente il seeder
+      require('./seeder');
     }
   });
 });
