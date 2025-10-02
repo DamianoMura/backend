@@ -1,8 +1,10 @@
 const db_connection = require('../db/db')
 
+
 //connessione creata
+
+console.log(db_connection)
 const allProducts = () =>{
-  const query="SELECT * FROM products";
 
 
 }
