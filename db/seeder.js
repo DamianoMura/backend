@@ -1,16 +1,25 @@
-const mysql = require("mysql2");
-const { DB_USER, DB_HOST, DB_PWD, DB_PORT, DB_NAME } = process.env;
+const {DB_USER, DB_HOST, DB_PWD, DB_PORT, DB_NAME}= process.env;
+//we import mysql2 modules
+const mysql = require("mysql2")
+
+// queries used to create the db:
 
 // Connessione al database
-const pool = mysql.createPool({
+const pool = mysql.createConnection({
   host: DB_HOST,
   port: DB_PORT,
   user: DB_USER,
   password: DB_PWD,
   database: DB_NAME
-}).promise();
+});
 
-async function seedCategories() {
+pool.connect((err)=>{
+  if (err) console.log("connection error",err)
+  else seedCategories();
+  
+})
+
+const seedCategories= () => {
   const categories = [
     { name: 'Laptop', icon: 'laptop-icon.jpg' },
     { name: 'Phones', icon: 'phone-icon.jpg' },
@@ -24,19 +33,15 @@ async function seedCategories() {
     { name: 'Cases', icon: 'case-icon.jpg' },
     { name: 'Speakers', icon: 'speaker-icon.jpg' }
   ];
-
-  for (const category of categories) {
-    try {
-      await pool.query(
+  categories.map((category,index) =>{
+    pool.query(
         'INSERT INTO categories (name, icon) VALUES (?, ?) ON DUPLICATE KEY UPDATE name=name',
-        [category.name, category.icon]
+        [category.name, category.icon],(err)=>{
+          if (err) console.log("query failed",err)
+          else console.log(`query ${index+1} of ${categories.length}  succeded`)
+        }
       );
-      console.log(`Seeded category: ${category.name}`);
-    } catch (err) {
-      console.error(`Error seeding category ${category.name}:`, err);
-    }
-  }
-  await pool.end();
+  })
+  
 }
 
-seedCategories();
