@@ -1,4 +1,4 @@
-const phones = [
+
 const gamingChairs = [
   {
     name: "Secretlab Titan Evo 2023",
