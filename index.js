@@ -39,7 +39,6 @@ app.get("/", (req, res) => {
 	res.send("API server main page");
 });
 
-
 app.listen(APP_PORT, () => {
 	console.log(`API server listening on port ${APP_PORT}`);
 });
