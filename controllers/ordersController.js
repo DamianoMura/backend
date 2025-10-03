@@ -32,12 +32,12 @@ const index = (req, res) => {
 // Show: returning single order
 const show = (req, res) => {
 	const { id } = req.params;
-	const sql = "SELECT * FROM discount_codes WHERE code_id = ?";
+	const sql = "SELECT * FROM orders WHERE order_id = ?";
 	connection.query(sql, [id], (err, results) => {
 		if (err)
 			return res.status(500).json({ error: "Query execution error: " + err });
 		if (results.length === 0)
-			return res.status(404).json({ error: "Discount code not found!" });
+			return res.status(404).json({ error: "Order not found!" });
 		res.json(results[0]);
 	});
 };
