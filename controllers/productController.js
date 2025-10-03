@@ -40,7 +40,7 @@ const showProduct = (req,res) =>{
 }
 
 const addProduct = (req,res) =>{
-  const { name, brand, description, specs, price, stock_quantity, image_url, category_id } = req.body.params;
+  const { name, brand, description, specs, price, stock_quantity, image_url, category_id } = req.body;
   const sql = "INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   connection.query(sql, [name, brand, description, specs, price, stock_quantity, image_url, category_id], (err, result) => {
     if (err) console.log(err)
