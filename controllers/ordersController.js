@@ -59,7 +59,7 @@ const create = (req, res) => {
 	} = req.body;
 
 	const sql =
-		"INSERT INTO discount_codes (customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date, total_price, discount_code_id) VALUES (?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";
+		"INSERT INTO orders (customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date, total_price, discount_code_id) VALUES (?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";
 	connection.query(
 		sql,
 		[
@@ -99,20 +99,55 @@ const create = (req, res) => {
 // Update: updating existing order
 const update = (req, res) => {
 	const { id } = req.params;
-	const { code, discount_percent, valid_from, valid_until } = req.body;
+	const {
+		customer_name,
+		customer_email,
+		address_street,
+		address_street_number,
+		address_city,
+		postal_code,
+		country,
+		billing,
+		order_date,
+		total_price,
+		discount_code_id,
+	} = req.body;
 	const sql =
-		"UPDATE categories SET code = ?, discount_percent = ?, valid_from = ?, valid_until = ? WHERE code_id = ?";
+		"UPDATE orders SET customer_name = ?, customer_email = ?, address_street = ?, address_street_number = ?, address_city = ?, postal_code = ?, country = ?, billing = ?, order_date = ?, total_price = ?, discount_code_id = ? WHERE order_id = ?";
 	connection.query(
 		sql,
-		[code, discount_percent, valid_from, valid_until, id],
+		[
+			customer_name,
+			customer_email,
+			address_street,
+			address_street_number,
+			address_city,
+			postal_code,
+			country,
+			billing,
+			order_date,
+			total_price,
+			discount_code_id,
+			id,
+		],
 		(err, result) => {
 			if (err)
-				return res
-					.status(500)
-					.json({ error: "Discount code Update error: " + err });
+				return res.status(500).json({ error: "Order Update error: " + err });
 			if (result.affectedRows === 0)
-				return res.status(404).json({ error: "Discount code not found!" });
-			res.json({ id, code, discount_percent, valid_from, valid_until });
+				return res.status(404).json({ error: "Order code not found!" });
+			res.json({
+				customer_name,
+				customer_email,
+				address_street,
+				address_street_number,
+				address_city,
+				postal_code,
+				country,
+				billing,
+				order_date,
+				total_price,
+				discount_code_id,
+			});
 		}
 	);
 };
