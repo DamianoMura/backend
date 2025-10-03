@@ -1,5 +1,6 @@
 const { APP_PORT } = process.env;
 const db_connection = require("./db/db.js");
+// console.log(db_connection);
 console.log("starting up index.js"); //debug
 //importing express
 const express = require("express");
@@ -19,11 +20,11 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 // importing categories
-const categoriesRoutes = require("./routes/categoriesRoute");
+// const categoriesRoutes = require("./routes/categoriesRoute");
 // importing products
-const productsRoute = require("./routes/productsRoute");
+// const productsRoute = require("./routes/productsRoute");
 // importing discount_codes
-const discountCodesRoutes = require("./routes/discountCodesRoutes.js");
+// const discountCodesRoutes = require("./routes/discountCodesRoutes.js");
 // enabling route
 // app.use("/categories", categoriesRoutes);
 // enabling route
