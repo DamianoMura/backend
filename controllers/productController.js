@@ -15,7 +15,7 @@ const connection = mysql.createConnection({
 
 connection.connect((err)=>{
   if(err) throw err;
-  console.log(`mysql connected to ${connection.config.host}:${connection.config.port}/${connection.config.database}`);
+  console.log(`product controller: mysql connected to ${connection.config.host}:${connection.config.port}/${connection.config.database}`);
 });
 //connessione creata
 

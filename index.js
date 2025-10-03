@@ -19,18 +19,18 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 // importing categories
-const categoriesRoutes = require("./routes/categories");
+const categoriesRoutes = require("./routes/categoriesRoute");
 // importing products
 const productsRoute = require("./routes/productsRoute");
-// enabling route
-app.use("/categories", categoriesRoutes);
-// enabling route
-app.use("/products", productsRoute);
-
 // importing discount_codes
-const discountCodesRoutes = require("./routes/discountCodes.js");
+const discountCodesRoutes = require("./routes/discountCodesRoutes.js");
 // enabling route
-app.use("/discountcodes", discountCodesRoutes);
+// app.use("/categories", categoriesRoutes);
+// enabling route
+// app.use("/products", productsRoute);
+// enabling route
+// app.use("/discountcodes", discountCodesRoutes);
+
 
 //main route set
 app.get("/", (req, res) => {
