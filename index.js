@@ -22,17 +22,17 @@ app.use(cors(corsOptions));
 const categoriesRoutes = require("./routes/categories");
 // importing products
 const productsRoute = require("./routes/productsRoute");
+// importing discount_codes
+const discountCodesRoutes = require("./routes/discountCodes.js");
+// importing orders
+const ordersRoutes = require("./routes/ordersRoute.js");
+
 // enabling route
 app.use("/categories", categoriesRoutes);
 // enabling route
 app.use("/products", productsRoute);
-
-// importing discount_codes
-const discountCodesRoutes = require("./routes/discountCodes.js");
 // enabling route
 app.use("/discountcodes", discountCodesRoutes);
-// importing orders
-const ordersRoutes = require("./routes/ordersRoute.js");
 // enabling route
 app.use("/orders", ordersRoutes);
 
