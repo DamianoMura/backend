@@ -12,7 +12,8 @@ app.use(express.static("public"));
 const categoriesRoutes = require("./routes/categories");
 // enabling route
 app.use("/categories", categoriesRoutes);
-
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 // importing discount_codes
 const discountCodesRoutes = require("./routes/discountCodes.js");
 // enabling route
