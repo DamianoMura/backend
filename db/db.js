@@ -1,6 +1,12 @@
 const {DB_USER, DB_HOST, DB_PWD, DB_PORT, DB_NAME}= process.env;
 //we import mysql2 modules
 const mysql = require("mysql2")
+
+//if database don't exists cteate it
+
+
+
+
 //queries used to create the db:
 
 const connection = mysql.createConnection({
