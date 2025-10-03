@@ -44,24 +44,53 @@ const show = (req, res) => {
 
 // Create: adding new order
 const create = (req, res) => {
-	const { code, discount_percent, valid_from, valid_until } = req.body;
+	const {
+		customer_name,
+		customer_email,
+		address_street,
+		address_street_number,
+		address_city,
+		postal_code,
+		country,
+		billing,
+		order_date,
+		total_price,
+		discount_code_id,
+	} = req.body;
 
 	const sql =
-		"INSERT INTO discount_codes (code, discount_percent, valid_from, valid_until) VALUES (?, ?, ?, ?)";
+		"INSERT INTO discount_codes (customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date, total_price, discount_code_id) VALUES (?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)";
 	connection.query(
 		sql,
-		[code, discount_percent, valid_from, valid_until],
+		[
+			customer_name,
+			customer_email,
+			address_street,
+			address_street_number,
+			address_city,
+			postal_code,
+			country,
+			billing,
+			order_date,
+			total_price,
+			discount_code_id,
+		],
 		(err, result) => {
 			if (err)
-				return res
-					.status(500)
-					.json({ error: "Discount code Insert error: " + err });
+				return res.status(500).json({ error: "Order Insert error: " + err });
 			res.status(201).json({
 				id: result.insertId,
-				code,
-				discount_percent,
-				valid_from,
-				valid_until,
+				customer_name,
+				customer_email,
+				address_street,
+				address_street_number,
+				address_city,
+				postal_code,
+				country,
+				billing,
+				order_date,
+				total_price,
+				discount_code_id,
 			});
 		}
 	);
