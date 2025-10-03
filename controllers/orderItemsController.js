@@ -34,7 +34,7 @@ const showOrder = (req,res) =>{
   const query = `SELECT * FROM order_items WHERE order_item_id=?`;
   connection.query(query,[id], (err, results)=>{
     if (err) return  res.status(500).json({message: "query failed" , error : err});
-    res.status(201).json(results);
+    res.status(200).json(results);
   })
 }
 
@@ -55,7 +55,7 @@ const modifyOrder = () =>{
   const { id } = req.params;
   const { order_id, product_id, name, description, specs, price, quantity, price_at_purchase  } = req.body;
   const sql =
-    "UPDATE order_items  SET order_id = ?, product_id = ?, name = ?, description = ?, specs = ?, price = ?, quantity = ?, price_at_purchase = ? WHERE order_item_id = ?";
+    "UPDATE order_items  SET order_id = ?, product_id = ?, name = ?, description = ?, specs = ?, price = ?, quantity = ?, price_at_purchase = ? WHERE  order_item_id = ?";
   connection.query(
     sql,
     [order_id, product_id, name, description, specs, price, quantity, price_at_purchase , id],
@@ -89,4 +89,4 @@ const deleteOrder = (req, res) =>{
 
 
 
-module.exports = {allOrder ,addOrder, showOrder, addOrder, modifyOrder, deleteOrder}
+module.exports = {allOrder , showOrder, addOrder, modifyOrder, deleteOrder}

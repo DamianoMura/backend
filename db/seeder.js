@@ -122,7 +122,29 @@ const seedCategories = () => {
 
 
 const seedOrders = () => {
-	products.forEach((orderItem, index) => {
+	const orderItems =[ 
+		 {
+    order_id: 1,
+    product_id: 2,
+    name: "Mouse wireless",
+    description: "Mouse ergonomico senza fili",
+    specs: "Bluetooth 5.0, DPI regolabile",
+    price: 29.99,
+    quantity: 2,
+    price_at_purchase: 29.99
+  },
+{
+    order_id: 2,
+    product_id: 3,
+    name: "Tastiera meccanica",
+    description: "Tastiera RGB con switch blu",
+    specs: "Layout IT, USB-C",
+    price: 89.99,
+    quantity: 1,
+    price_at_purchase: 89.99
+  }]
+	
+	orderItems.forEach((orderItem, index) => {
 		const { order_id, product_id, name, description, specs, price, quantity, price_at_purchase } = orderItem
 		pool.query(
 			"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity, price_at_purchase  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE name=name",
