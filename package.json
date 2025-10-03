@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node index.js",
     "watch": "node --watch --env-file=.env index.js",
     "seed": "node --env-file=.env db/seeder.js"
   },
