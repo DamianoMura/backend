@@ -18,8 +18,11 @@ const pool = mysql.createConnection({
 pool.connect((err) => {
 	if (err) console.log("connection error", err);
 	else {
+		console.log("Start seeding categories");
 		seedCategories();
+		console.log("Start seeding products");
 		seedProducts();
+		console.log("Start seeding discount_codes");
 		seedDiscountCodes();
 	}
 });
