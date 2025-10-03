@@ -51,12 +51,38 @@ const addProduct = (req,res) =>{
   });
 }
 
-const modifyProduct = (id) =>{
-
+const modifyProduct = () =>{
+  const { id } = req.params;
+  const { name, brand, description, specs, price, stock_quantity, image_url, category_id } = req.body;
+  const sql =
+    "UPDATE products SET name = ?, brand = ?, description = ?, specs = ?, price = ?, specs = ?, stock_quantity = ?, image_url = ?, category_id = ? WHERE code_id = ?";
+  connection.query(
+    sql,
+    [name, brand, description, specs, price, stock_quantity, image_url, category_id, id],
+    (err, result) => {
+      if (err)
+        return res
+          .status(500)
+          .json({ error: "Product Update error: " + err });
+      if (result.affectedRows === 0)
+        return res.status(404).json({ error: "Product not found!" });
+      res.json({ id, code, discount_percent, valid_from, valid_until });
+    }
+  );
 }
 
-const deleteProduct = (id) =>{
-
+const deleteProduct = () =>{
+  const { id } = req.params;
+  const sql = "DELETE FROM products WHERE code_id = ?";
+  connection.query(sql, [id], (err, result) => {
+    if (err)
+      return res
+        .status(500)
+        .json({ error: "Product Delete error: " + err });
+    if (result.affectedRows === 0)
+      return res.status(404).json({ error: "Product not found!" });
+    res.sendStatus(204);
+  });
 }
 
 const productPerCategory = (category_id) => {
@@ -70,6 +96,10 @@ const bestSellers = () => {
 const latestArrivals = () => {
 
 } 
+
+const update = (req, res) => {
+
+};
 
 
 
