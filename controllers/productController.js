@@ -41,13 +41,13 @@ const showProduct = (req,res) =>{
 
 const addProduct = (req,res) =>{
 
-  console.log(req.body);
+  
   const { name, brand, description, specs, price, stock_quantity, image_url, category_id } = req.body;
   const sql = "INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   connection.query(sql, [name, brand, description, specs, price, stock_quantity, image_url, category_id], (err, result) => {
     if (err) return res.status(500).json({ error: "Product Insert error: " + err });
       
-    res.status(201).json({name, brand, description, specs, price, stock_quantity, image_url, category_id} );
+    else res.status(201).json(result);
     
   });
 }
