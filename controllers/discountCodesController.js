@@ -1,5 +1,22 @@
 // const connection = require("../db/db.js");
-const connection = require("../db/db-provvisorio.js");
+const { DB_USER, DB_HOST, DB_PWD, DB_PORT, DB_NAME } = process.env;
+//we import mysql2 modules
+const mysql = require("mysql2");
+
+const connection = mysql.createConnection({
+	host: DB_HOST,
+	port: DB_PORT,
+	user: DB_USER,
+	password: DB_PWD,
+	database: DB_NAME,
+});
+
+connection.connect((err) => {
+	if (err) throw err;
+	console.log(
+		`mysql connected to ${connection.config.host}:${connection.config.port}/${connection.config.database}`
+	);
+});
 
 // Index: returning discount_codes
 const index = (req, res) => {
