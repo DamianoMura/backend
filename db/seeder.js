@@ -24,6 +24,8 @@ pool.connect((err) => {
 		seedProducts();
 		console.log("Start seeding discount_codes");
 		seedDiscountCodes();
+		console.log("Start seeding order_items");
+		seedOrders()
 	}
 });
 
@@ -113,6 +115,30 @@ const seedCategories = () => {
 				if (err) console.log("query failed", err);
 				else
 					console.log(`query ${index + 1} of ${categories.length}  succeded`);
+			}
+		);
+	});
+};
+
+
+const seedOrders = () => {
+	products.forEach((orderItem, index) => {
+		const { order_id, product_id, name, description, specs, price, quantity, price_at_purchase } = orderItem
+		pool.query(
+			"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity, price_at_purchase  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE name=name",
+			[
+				order_id,
+				product_id,
+				name,
+				description,
+				specs,
+				price,
+				quantity,
+				price_at_purchase,
+			],
+			(err) => {
+				if (err) console.log("query failed", err);
+				else console.log(`query ${index + 1} of ${products.length}  succeded`);
 			}
 		);
 	});
