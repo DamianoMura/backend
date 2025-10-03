@@ -25,13 +25,24 @@ const show = (req, res) => {
 
 // Create: adding new discount_codes
 const create = (req, res) => {
-	const { name, icon } = req.body;
-	const sql = "INSERT INTO categories (name, icon) VALUES (?, ?)";
-	connection.query(sql, [name, icon], (err, result) => {
-		if (err)
-			return res.status(500).json({ error: "Category Insert error: " + err });
-		res.status(201).json({ id: result.insertId, name, icon });
-	});
+	const { code, discount_percent, valid_from, valid_until } = req.body;
+	const sql =
+		"INSERT INTO discount_codes (code, discount_percent, valid_from, valid_until) VALUES (?, ?, ?, ?)";
+	connection.query(
+		sql,
+		[code, discount_percent, valid_from, valid_until],
+		(err, result) => {
+			if (err)
+				return res.status(500).json({ error: "Category Insert error: " + err });
+			res.status(201).json({
+				id: result.insertId,
+				code,
+				discount_percent,
+				valid_from,
+				valid_until,
+			});
+		}
+	);
 };
 
 // Update: updating existing discount_codes
