@@ -8,7 +8,7 @@ const mysql = require("mysql2")
   const createTables = () =>{
       const databaseTableStructure = [
       "CREATE TABLE `categories` (`category_id` int PRIMARY KEY AUTO_INCREMENT, `name` varchar(255), `icon` varchar(255));",
-      "CREATE TABLE `products` (`product_id` int PRIMARY KEY AUTO_INCREMENT, `name` varchar(255), `description` text, `specs` text, `price` decimal, `stock_quantity` int, `image_url` varchar(255), `category_id` int);",
+      "CREATE TABLE `products` (`product_id` int PRIMARY KEY AUTO_INCREMENT, `name` varchar(255), `brand` varchar(255), `description` text, `specs` text, `price` decimal, `stock_quantity` int, `image_url` varchar(255), `category_id` int);",
       "CREATE TABLE `discounted_items` (`discounted_items_id` int PRIMARY KEY AUTO_INCREMENT, `product_id` int, `discount_value` tinyint);",
       "CREATE TABLE `discount_codes` (`code_id` int PRIMARY KEY AUTO_INCREMENT, `code` varchar(255) UNIQUE, `discount_percent` int, `valid_from` date, `valid_until` date);",
       "CREATE TABLE `orders` ( `order_id` int PRIMARY KEY AUTO_INCREMENT, `customer_name` varchar(255), `customer_email` varchar(255), `address_street` varchar(255), `address_street_number` smallint, `address_city` varchar(255), `postal_code` varchar(255), `country` varchar(255), `billing` varchar(255), `order_date` datetime, `total_price` decimal, `discount_code_id` int);",

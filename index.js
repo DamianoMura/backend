@@ -8,6 +8,11 @@ const app = express();
 //lets enable static  assets
 app.use(express.static('public'));
 
+// importing categories
+const categoriesRoutes = require('./routes/categories');
+// enabling route
+app.use('/categories', categoriesRoutes);
+
 //enable json decoding for req.body (body parser)
 app.use(express.json());
 //cors 
