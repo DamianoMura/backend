@@ -1,4 +1,5 @@
-const connection = require("../db/db.js");
+// const connection = require("../db/db.js");
+const connection = require("../db/db-provvisorio.js");
 
 // Index: returning discount_codes
 const index = (req, res) => {
@@ -33,7 +34,9 @@ const create = (req, res) => {
 		[code, discount_percent, valid_from, valid_until],
 		(err, result) => {
 			if (err)
-				return res.status(500).json({ error: "Category Insert error: " + err });
+				return res
+					.status(500)
+					.json({ error: "Discount code Insert error: " + err });
 			res.status(201).json({
 				id: result.insertId,
 				code,
@@ -49,7 +52,8 @@ const create = (req, res) => {
 const update = (req, res) => {
 	const { id } = req.params;
 	const { code, discount_percent, valid_from, valid_until } = req.body;
-	const sql = "UPDATE categories SET name = ?, icon = ? WHERE category_id = ?";
+	const sql =
+		"UPDATE categories SET code = ?, discount_percent = ?, valid_from = ?, valid_until = ? WHERE code_id = ?";
 	connection.query(
 		sql,
 		[code, discount_percent, valid_from, valid_until, id],
