@@ -16,6 +16,7 @@ const corsOptions = {
 	origin: "http://localhost:5173",
 	methods: "GET,POST,PUT,DELETE",
 };
+app.use(cors(corsOptions));
 // importing categories
 const categoriesRoutes = require("./routes/categories");
 // importing products
@@ -36,7 +37,6 @@ app.get("/", (req, res) => {
 	res.send("API server main page");
 });
 
-app.use(cors(corsOptions));
 
 app.listen(APP_PORT, () => {
 	console.log(`API server listening on port ${APP_PORT}`);
