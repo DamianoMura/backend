@@ -48,15 +48,21 @@ const create = (req, res) => {
 // Update: updating existing discount_codes
 const update = (req, res) => {
 	const { id } = req.params;
-	const { name, icon } = req.body;
+	const { code, discount_percent, valid_from, valid_until } = req.body;
 	const sql = "UPDATE categories SET name = ?, icon = ? WHERE category_id = ?";
-	connection.query(sql, [name, icon, id], (err, result) => {
-		if (err)
-			return res.status(500).json({ error: "Category Update error: " + err });
-		if (result.affectedRows === 0)
-			return res.status(404).json({ error: "Category not found!" });
-		res.json({ id, name, icon });
-	});
+	connection.query(
+		sql,
+		[code, discount_percent, valid_from, valid_until, id],
+		(err, result) => {
+			if (err)
+				return res
+					.status(500)
+					.json({ error: "Discount code Update error: " + err });
+			if (result.affectedRows === 0)
+				return res.status(404).json({ error: "Discount code not found!" });
+			res.json({ id, code, discount_percent, valid_from, valid_until });
+		}
+	);
 };
 
 // Destroy: delete single discount_codes
