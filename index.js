@@ -10,6 +10,7 @@ app.use(express.static("public"));
 
 //enable json decoding for req.body (body parser)
 app.use(express.json());
+
 //cors
 const cors = require("cors");
 const corsOptions = {

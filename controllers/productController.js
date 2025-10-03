@@ -40,11 +40,13 @@ const showProduct = (req,res) =>{
 }
 
 const addProduct = (req,res) =>{
+
+  console.log(req.body);
   const { name, brand, description, specs, price, stock_quantity, image_url, category_id } = req.body;
   const sql = "INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   connection.query(sql, [name, brand, description, specs, price, stock_quantity, image_url, category_id], (err, result) => {
-    if (err) console.log(err)
-      return res.status(500).json({ error: "Product Insert error: " + err });
+    if (err) return res.status(500).json({ error: "Product Insert error: " + err });
+      
     res.status(201).json({name, brand, description, specs, price, stock_quantity, image_url, category_id} );
     
   });
@@ -84,22 +86,8 @@ const deleteProduct = (req, res) =>{
   });
 }
 
-const productPerCategory = (category_id) => {
-
-}
-
-const bestSellers = () => {
-
-}
- 
-const latestArrivals = () => {
-
-} 
-
-const update = (req, res) => {
-
-};
 
 
 
-module.exports = {allProducts, showProduct, addProduct, modifyProduct, deleteProduct, productPerCategory, bestSellers, latestArrivals}
+
+module.exports = {allProducts, showProduct, addProduct, modifyProduct, deleteProduct}
