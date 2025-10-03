@@ -55,7 +55,7 @@ const modifyOrder = () =>{
   const { id } = req.params;
   const { order_id, product_id, name, description, specs, price, quantity, price_at_purchase  } = req.body;
   const sql =
-    "UPDATE order_items  SET order_id = ?, product_id = ?, name = ?, description = ?, specs = ?, price = ?, quantity = ?, price_at_purchase = ? WHERE order_id = ?";
+    "UPDATE order_items  SET order_id = ?, product_id = ?, name = ?, description = ?, specs = ?, price = ?, quantity = ?, price_at_purchase = ? WHERE order_item_id = ?";
   connection.query(
     sql,
     [order_id, product_id, name, description, specs, price, quantity, price_at_purchase , id],
