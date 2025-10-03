@@ -22,22 +22,25 @@ app.use(cors(corsOptions));
 const categoriesRoutes = require("./routes/categories");
 // importing products
 const productsRoute = require("./routes/productsRoute");
+// importing discount_codes
+const discountCodesRoutes = require("./routes/discountCodes.js");
+// importing orders
+const ordersRoutes = require("./routes/ordersRoute.js");
+
 // enabling route
 app.use("/categories", categoriesRoutes);
 // enabling route
 app.use("/products", productsRoute);
-
-// importing discount_codes
-const discountCodesRoutes = require("./routes/discountCodes.js");
 // enabling route
 app.use("/discountcodes", discountCodesRoutes);
+// enabling route
+app.use("/orders", ordersRoutes);
 
 //main route set
 app.get("/", (req, res) => {
 	console.log("home page");
 	res.send("API server main page");
 });
-
 
 app.listen(APP_PORT, () => {
 	console.log(`API server listening on port ${APP_PORT}`);
