@@ -22,7 +22,7 @@ const generate = require('./nerdNest_ER_db');
 connection.connect(function(err) {
   if (err) throw err;
   console.log(`mysql connected to ${connection.config.host}:${connection.config.port}`);
-  connection.query(`CREATE DATABASE ${DB_NAME}`, function (err, result) {
+  connection.query(`CREATE DATABASE ${DB_NAME}`, function (err) {
     if (err) {
       connection.config.database=DB_NAME;//setting the database name 
       console.log("connecting to database ",connection.config.database)
