@@ -40,7 +40,7 @@ const showProduct = (req,res) =>{
 }
 
 const addProduct = (req,res) =>{
-  const { name, brand, description, specs, price, stock_quantity, image_url, category_id } = req.body;
+  const { name, brand, description, specs, price, stock_quantity, image_url, category_id } = req.body.params;
   const sql = "INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   connection.query(sql, [name, brand, description, specs, price, stock_quantity, image_url, category_id], (err, result) => {
     if (err) console.log(err)
@@ -70,9 +70,9 @@ const modifyProduct = () =>{
   );
 }
 
-const deleteProduct = () =>{
+const deleteProduct = (req, res) =>{
   const { id } = req.params;
-  const sql = "DELETE FROM products WHERE code_id = ?";
+  const sql = "DELETE FROM products WHERE product_id = ?";
   connection.query(sql, [id], (err, result) => {
     if (err)
       return res
