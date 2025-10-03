@@ -1,20 +1,54 @@
-const db_connection = require('../db/db')
 
+// const db_connection = require('../db/db')
+const {DB_USER, DB_HOST, DB_PWD, DB_PORT, DB_NAME}= process.env;
+//we import mysql2 modules
+const mysql = require("mysql2")
+//queries used to create the db:
 
+const connection = mysql.createConnection({
+  host: DB_HOST,
+  port: DB_PORT,
+  user: DB_USER,
+  password: DB_PWD,
+  database: DB_NAME
+})
+
+connection.connect((err)=>{
+  if(err) throw err;
+  console.log(`mysql connected to ${connection.config.host}:${connection.config.port}/${connection.config.database}`);
+});
 //connessione creata
 
-console.log(db_connection)
+// console.log(db_connection)
 const allProducts = () =>{
+const query = "SELECT * FROM products";
+connection.query(query, (err, results)=>{
+  if(err) throw err;
+  console.log(results);
+  return results; 
 
-
+})
 }
 
-const showProduct = (id) =>{
-
+const showProduct = (req,res) =>{
+  const { id } = req.params;
+  const query = `SELECT * FROM products WHERE product_id=?`;
+  connection.query(query,[id], (err, results)=>{
+  if(err) return res.status(500).json({error: "query failed"});
+    console.log(results);
+  return results;
+  })
 }
 
-const addProduct = (id) =>{
-
+const addProduct = (req,res) =>{
+  const { name, brand, description, specs, price, stock_quantity, image_url, category_id } = req.body;
+  const sql = "INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+  connection.query(sql, [name, brand, description, specs, price, stock_quantity, image_url, category_id], (err, result) => {
+    if (err) console.log(err)
+      return res.status(500).json({ error: "Product Insert error: " + err });
+    res.status(201).json({ message: `product${}` result.insertId, name, icon });
+    
+  });
 }
 
 const modifyProduct = (id) =>{

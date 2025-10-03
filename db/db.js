@@ -3,19 +3,35 @@ const {DB_USER, DB_HOST, DB_PWD, DB_PORT, DB_NAME}= process.env;
 const mysql = require("mysql2")
 //queries used to create the db:
 
-const db_connection = ( ) => {
-  let connection = mysql.createConnection({
-    host: DB_HOST,
-    port: DB_PORT,
-    user: DB_USER,
-    password: DB_PWD
-  })
-  connection.connect((err) => {
-    if(err) connection=null;
-  });
+const connection = mysql.createConnection({
+  host: DB_HOST,
+  port: DB_PORT,
+  user: DB_USER,
+  password: DB_PWD,
   
-  return connection;
-}
+})
 
-let conn=db_connection(); 
-console.log(conn)
+const generate = require('./nerdNest_ER_db');
+
+connection.connect(function(err) {
+  if (err) throw err;
+  console.log(`mysql connected to ${connection.config.host}:${connection.config.port}`);
+  connection.query(`CREATE DATABASE ${DB_NAME}`, function (err) {
+    if (err) {
+      connection.config.database=DB_NAME;//setting the database name 
+      console.log("connecting to database ",connection.config.database)
+      
+    }
+    else {
+      //here we have created the new db so we need to create also all tables 
+      console.log(`Database : ${DB_NAME} created`);
+      //function from nerNest_db.js
+      generate();
+      
+      
+    }
+  });
+});
+let ciao = connection;
+console.log(ciao)
+module.exports = connection;
