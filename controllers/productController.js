@@ -20,12 +20,12 @@ connection.connect((err)=>{
 //connessione creata
 
 // console.log(db_connection)
-const allProducts = () =>{
+const allProducts = (req,res) =>{
 const query = "SELECT * FROM products";
 connection.query(query, (err, results)=>{
-  if(err) throw err;
+  if(err) return res.status(500).json({error: "query failed"});
   console.log(results);
-  return results; 
+  res.status(200).json(results); 
 
 })
 }
@@ -34,9 +34,8 @@ const showProduct = (req,res) =>{
   const { id } = req.params;
   const query = `SELECT * FROM products WHERE product_id=?`;
   connection.query(query,[id], (err, results)=>{
-  if(err) return res.status(500).json({error: "query failed"});
-    console.log(results);
-  return results;
+    if (err) return  res.status(500).json({message: "query failed" , error : err});
+    res.status(201).json(results);
   })
 }
 

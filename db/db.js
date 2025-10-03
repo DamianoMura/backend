@@ -38,6 +38,5 @@ connection.connect(function(err) {
     }
   });
 });
-let ciao = connection;
-console.log(ciao)
+
 module.exports = connection;
