@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+const db_connection = require('../db/db')
+
+
+=======
 const products = [
   {
   id: "" ,
@@ -17,3 +22,4 @@ const products = [
   image_url: ""},
 
 ]
+>>>>>>> 21-contenuto-database-seeder-script
