@@ -155,14 +155,12 @@ const update = (req, res) => {
 // Destroy: delete single order
 const destroy = (req, res) => {
 	const { id } = req.params;
-	const sql = "DELETE FROM discount_codes WHERE code_id = ?";
+	const sql = "DELETE FROM orders WHERE order_id = ?";
 	connection.query(sql, [id], (err, result) => {
 		if (err)
-			return res
-				.status(500)
-				.json({ error: "Discount code Delete error: " + err });
+			return res.status(500).json({ error: "Order Delete error: " + err });
 		if (result.affectedRows === 0)
-			return res.status(404).json({ error: "Discount code not found!" });
+			return res.status(404).json({ error: "Order not found!" });
 		res.sendStatus(204);
 	});
 };
