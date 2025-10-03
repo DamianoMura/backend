@@ -46,7 +46,7 @@ const addProduct = (req,res) =>{
   connection.query(sql, [name, brand, description, specs, price, stock_quantity, image_url, category_id], (err, result) => {
     if (err) console.log(err)
       return res.status(500).json({ error: "Product Insert error: " + err });
-    res.status(201).json({ message: `product${}` result.insertId, name, icon });
+    res.status(201).json({name, brand, description, specs, price, stock_quantity, image_url, category_id} );
     
   });
 }
