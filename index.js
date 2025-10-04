@@ -18,16 +18,18 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Import routes
-const categoriesRoutes = require("./routes/categories");
-const productsRoutes = require("./routes/productsRoute");
-const ordersRoutes = require("./routes/ordersRoute.js");
-const discountCodesRoutes = require("./routes/discountCodes.js");
+const categoriesRoutes = require("./routes/categoriesRoutes.js");
+const productsRoutes = require("./routes/productsRoutes.js");
+const ordersRoutes = require("./routes/ordersRoutes.js");
+const discountCodesRoutes = require("./routes/discountCodesRoutes..js");
+const orderItemsRoutes = require("./routes/orderItemsRoutes.js");
 
 // routes usage
 app.use("/orders", ordersRoutes);
 app.use("/categories", categoriesRoutes);
 app.use("/products", productsRoutes);
 app.use("/discount-codes", discountCodesRoutes);
+app.use("/order-items", orderItemsRoutes);
 
 app.get("/", (req, res) => {
 	res.send("API server main page");

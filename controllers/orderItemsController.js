@@ -111,6 +111,7 @@ const update = (req, res) => {
 				price,
 				quantity,
 				price_at_purchase,
+				id,
 			});
 		}
 	);
