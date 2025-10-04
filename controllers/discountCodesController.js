@@ -36,15 +36,13 @@ const create = (req, res) => {
 				return res
 					.status(500)
 					.json({ error: "Discount code insert error", details: err });
-			res
-				.status(201)
-				.json({
-					id: result.insertId,
-					code,
-					discount_percent,
-					valid_from,
-					valid_until,
-				});
+			res.status(201).json({
+				id: result.insertId,
+				code,
+				discount_percent,
+				valid_from,
+				valid_until,
+			});
 		}
 	);
 };
