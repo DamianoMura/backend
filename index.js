@@ -12,29 +12,33 @@ app.use(express.static("public"));
 app.use(express.json());
 const cors = require("cors");
 const corsOptions = {
-  origin: "http://localhost:5173",
-  methods: "GET,POST,PUT,DELETE",
+	origin: "http://localhost:5173",
+	methods: "GET,POST,PUT,DELETE",
 };
 app.use(cors(corsOptions));
 
 // Import routes
 const categoriesRoutes = require("./routes/categories");
-const productsRoute = require("./routes/productsRoute");
+const productsRoutes = require("./routes/productsRoute");
+const ordersRoutes = require("./routes/ordersRoute.js");
+const discountCodesRoutes = require("./routes/discountCodes.js");
 // ...altre routes
 
+app.use("/orders", ordersRoutes);
 app.use("/categories", categoriesRoutes);
-app.use("/products", productsRoute);
+app.use("/products", productsRoutes);
+app.use("/discount-codes", discountCodesRoutes);
 // ...altre routes
 
 app.get("/", (req, res) => {
-  res.send("API server main page");
+	res.send("API server main page");
 });
 
 // Sequenza: connessione -> creazione DB -> creazione tabelle -> avvio server
 connectAndSelectDB(() => {
-  createTables(connection, () => {
-    app.listen(APP_PORT, () => {
-      console.log(`API server listening on port ${APP_PORT}`);
-    });
-  });
+	createTables(connection, () => {
+		app.listen(APP_PORT, () => {
+			console.log(`API server listening on port ${APP_PORT}`);
+		});
+	});
 });
