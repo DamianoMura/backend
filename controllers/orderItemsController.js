@@ -27,16 +27,46 @@ const show = (req, res) => {
 
 // Handler to create a new category
 const create = (req, res) => {
-	const { name, icon } = req.body;
+	const {
+		order_id,
+		product_id,
+		name,
+		description,
+		specs,
+		price,
+		quantity,
+		price_at_purchase,
+	} = req.body;
 	connection.query(
-		"INSERT INTO categories (name, icon) VALUES (?, ?)",
-		[name, icon],
+		"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity,price_at_purchase) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+		[
+			order_id,
+			product_id,
+			name,
+			description,
+			specs,
+			price,
+			quantity,
+			price_at_purchase,
+		],
 		(err, result) => {
 			if (err)
 				return res
 					.status(500)
 					.json({ error: "Category insert error", details: err });
-			res.status(201).json({ id: result.insertId, name, icon });
+			res
+				.status(201)
+				.json({
+					id: result.insertId,
+					order_id,
+					product_id,
+					name,
+					description,
+					specs,
+					price,
+					quantity,
+					price_at_purchase,
+				});
 		}
 	);
 };
