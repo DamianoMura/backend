@@ -1,9 +1,11 @@
-require('dotenv').config();
+const { APP_PORT } = process.env;
+const db_connection = require("./db/db.js");
+console.log("starting up index.js"); //debug
+//importing express
 const express = require("express");
 const { connection, connectAndSelectDB } = require("./db/db");
 const createTables = require("./db/nerdNest_ER_db");
 
-const { APP_PORT } = process.env;
 const app = express();
 
 app.use(express.static("public"));
