@@ -4,8 +4,6 @@ const mysql = require("mysql2");
 
 const products = require("./products");
 
-// queries used to create the db:
-
 // Connessione al database
 const pool = mysql.createConnection({
 	host: DB_HOST,

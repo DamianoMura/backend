@@ -1,42 +1,24 @@
-const {DB_USER, DB_HOST, DB_PWD, DB_PORT, DB_NAME}= process.env;
-//we import mysql2 modules
-const mysql = require("mysql2")
+const { DB_HOST, DB_PORT, DB_USER, DB_PWD, DB_NAME } = process.env;
+const mysql = require("mysql2");
 
-//if database don't exists cteate it
-
-
-
-
-//queries used to create the db:
-
+// Initial connection (no database selected yet)
 const connection = mysql.createConnection({
   host: DB_HOST,
   port: DB_PORT,
   user: DB_USER,
-  password: DB_PWD,
-  
-})
-
-const generate = require('./nerdNest_ER_db');
-
-connection.connect(function(err) {
-  if (err) throw err;
-  console.log(`mysql connected to ${connection.config.host}:${connection.config.port}`);
-  connection.query(`CREATE DATABASE ${DB_NAME}`, function (err) {
-    if (err) {
-      connection.config.database=DB_NAME;//setting the database name 
-      console.log("connecting to database ",connection.config.database)
-      
-    }
-    else {
-      //here we have created the new db so we need to create also all tables 
-      console.log(`Database : ${DB_NAME} created`);
-      //function from nerNest_db.js
-      generate();
-      
-      
-    }
-  });
+  password: DB_PWD
 });
 
-module.exports = connection;
+// Ensure database exists and select it, then allow queries
+function connectAndSelectDB(callback) {
+  connection.query(`CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\``, function (err) {
+    if (err) throw err;
+    connection.changeUser({ database: DB_NAME }, (err) => {
+      if (err) throw err;
+      console.log(`MySQL connected to ${connection.config.host}:${connection.config.port}/${DB_NAME}`);
+      if (callback) callback();
+    });
+  });
+}
+
+module.exports = { connection, connectAndSelectDB };

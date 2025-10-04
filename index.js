@@ -1,47 +1,38 @@
-const { APP_PORT } = process.env;
-const db_connection = require("./db/db.js");
-console.log("starting up index.js"); //debug
-//importing express
+require('dotenv').config();
 const express = require("express");
-//calling the function that creates the process
+const { connection, connectAndSelectDB } = require("./db/db");
+const createTables = require("./db/nerdNest_ER_db");
+
+const { APP_PORT } = process.env;
 const app = express();
-//lets enable static  assets
+
 app.use(express.static("public"));
-
-//enable json decoding for req.body (body parser)
 app.use(express.json());
-
-//cors
 const cors = require("cors");
 const corsOptions = {
-	origin: "http://localhost:5173",
-	methods: "GET,POST,PUT,DELETE",
+  origin: "http://localhost:5173",
+  methods: "GET,POST,PUT,DELETE",
 };
 app.use(cors(corsOptions));
-// importing categories
+
+// Import routes
 const categoriesRoutes = require("./routes/categories");
-// importing products
 const productsRoute = require("./routes/productsRoute");
-// importing discount_codes
-const discountCodesRoutes = require("./routes/discountCodes.js");
-// importing orders
-const ordersRoutes = require("./routes/ordersRoute.js");
+// ...altre routes
 
-// enabling route
 app.use("/categories", categoriesRoutes);
-// enabling route
 app.use("/products", productsRoute);
-// enabling route
-app.use("/discountcodes", discountCodesRoutes);
-// enabling route
-app.use("/orders", ordersRoutes);
+// ...altre routes
 
-//main route set
 app.get("/", (req, res) => {
-	console.log("home page");
-	res.send("API server main page");
+  res.send("API server main page");
 });
 
-app.listen(APP_PORT, () => {
-	console.log(`API server listening on port ${APP_PORT}`);
+// Sequenza: connessione -> creazione DB -> creazione tabelle -> avvio server
+connectAndSelectDB(() => {
+  createTables(connection, () => {
+    app.listen(APP_PORT, () => {
+      console.log(`API server listening on port ${APP_PORT}`);
+    });
+  });
 });

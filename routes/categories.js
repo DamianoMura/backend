@@ -2,11 +2,19 @@ const express = require('express');
 const router = express.Router();
 const categoriesController = require('../controllers/categoriesController');
 
-// CRUD routes
-router.get('/', categoriesController.index);         // GET all categories
-router.get('/:id', categoriesController.show);       // GET single category
-router.post('/', categoriesController.create);       // POST new category
-router.put('/:id', categoriesController.update);     // PUT update category
-router.delete('/:id', categoriesController.destroy); // DELETE delete category
+// Route for getting all categories
+router.get('/', categoriesController.index);
+
+// Route for getting a single category by id
+router.get('/:id', categoriesController.show);
+
+// Route for creating a new category
+router.post('/', categoriesController.create);
+
+// Route for updating a category by id
+router.put('/:id', categoriesController.update);
+
+// Route for deleting a category by id
+router.delete('/:id', categoriesController.destroy);
 
 module.exports = router;

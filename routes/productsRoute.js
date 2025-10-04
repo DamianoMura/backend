@@ -2,11 +2,19 @@ const express = require("express");
 const router = express.Router();
 const productController = require("../controllers/productController.js");
 
-// CRUD routes
-router.get("/", productController.allProducts); // GET all products
-router.get("/:id", productController.showProduct); // GET single product
-router.post("/", productController.addProduct); // POST new product
-router.put("/:id", productController.modifyProduct); // PUT update product
-router.delete("/:id", productController.deleteProduct); // DELETE delete product
+// Route for getting all products
+router.get("/", productController.allProducts);
+
+// Route for getting a single product by id
+router.get("/:id", productController.showProduct);
+
+// Route for creating a new product
+router.post("/", productController.addProduct);
+
+// Route for updating a product by id
+router.put("/:id", productController.modifyProduct);
+
+// Route for deleting a product by id
+router.delete("/:id", productController.deleteProduct);
 
 module.exports = router;

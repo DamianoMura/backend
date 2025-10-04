@@ -1,6 +1,7 @@
-const errorsHandler = (err , req ,res ,next ) => {
+// Middleware for catching and formatting errors
+const errorsHandler = (err, req, res, next) => {
   console.log(err);
-  res.status(500).json({error: err.message})
-}
+  res.status(500).json({ error: err.message });
+};
 
-module.exports = errorsHandler
+module.exports = errorsHandler;

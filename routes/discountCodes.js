@@ -2,11 +2,19 @@ const express = require("express");
 const router = express.Router();
 const discountCodesController = require("../controllers/discountCodesController");
 
-// CRUD routes
-router.get("/", discountCodesController.index); // GET all discount_codes
-router.get("/:id", discountCodesController.show); // GET single discount_code
-router.post("/", discountCodesController.create); // POST new discount_code
-router.put("/:id", discountCodesController.update); // PUT update discount_code
-router.delete("/:id", discountCodesController.destroy); // DELETE delete discount_code
+// Route for getting all discount codes
+router.get("/", discountCodesController.index);
+
+// Route for getting a single discount code by id
+router.get("/:id", discountCodesController.show);
+
+// Route for creating a new discount code
+router.post("/", discountCodesController.create);
+
+// Route for updating a discount code by id
+router.put("/:id", discountCodesController.update);
+
+// Route for deleting a discount code by id
+router.delete("/:id", discountCodesController.destroy);
 
 module.exports = router;
