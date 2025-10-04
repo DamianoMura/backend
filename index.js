@@ -1,6 +1,10 @@
+// Carica le variabili d'ambiente
+require("dotenv").config();
+
 const { APP_PORT } = process.env;
 const db_connection = require("./db/db.js");
 console.log("starting up index.js"); //debug
+
 //importing express
 const express = require("express");
 //calling the function that creates the process
