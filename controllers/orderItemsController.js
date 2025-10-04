@@ -1,6 +1,6 @@
 const { connection } = require("../db/db");
 
-// Handler to get all categories
+// Handler to get all order_items
 const index = (req, res) => {
 	connection.query("SELECT * FROM order_items", (err, results) => {
 		if (err)
@@ -9,7 +9,7 @@ const index = (req, res) => {
 	});
 };
 
-// Handler to get a single category by id
+// Handler to get a single order_item by id
 const show = (req, res) => {
 	const { id } = req.params;
 	connection.query(
@@ -19,13 +19,13 @@ const show = (req, res) => {
 			if (err)
 				return res.status(500).json({ error: "Query failed", details: err });
 			if (!results.length)
-				return res.status(404).json({ error: "Category not found!" });
+				return res.status(404).json({ error: "order_item not found!" });
 			res.status(200).json(results[0]);
 		}
 	);
 };
 
-// Handler to create a new category
+// Handler to create a new order_item
 const create = (req, res) => {
 	const {
 		order_id,
@@ -53,56 +53,82 @@ const create = (req, res) => {
 			if (err)
 				return res
 					.status(500)
-					.json({ error: "Category insert error", details: err });
-			res
-				.status(201)
-				.json({
-					id: result.insertId,
-					order_id,
-					product_id,
-					name,
-					description,
-					specs,
-					price,
-					quantity,
-					price_at_purchase,
-				});
+					.json({ error: "order_item insert error", details: err });
+			res.status(201).json({
+				id: result.insertId,
+				order_id,
+				product_id,
+				name,
+				description,
+				specs,
+				price,
+				quantity,
+				price_at_purchase,
+			});
 		}
 	);
 };
 
-// Handler to update a category by id
+// Handler to update a order_item by id
 const update = (req, res) => {
 	const { id } = req.params;
-	const { name, icon } = req.body;
+	const {
+		order_id,
+		product_id,
+		name,
+		description,
+		specs,
+		price,
+		quantity,
+		price_at_purchase,
+	} = req.body;
 	connection.query(
-		"UPDATE categories SET name = ?, icon = ? WHERE category_id = ?",
-		[name, icon, id],
+		"UPDATE order_items SET order_id = ?, product_id = ?, name = ?, description = ?, specs = ?, price = ?, quantity = ?,price_at_purchase = ? WHERE order_item_id = ?",
+		[
+			order_id,
+			product_id,
+			name,
+			description,
+			specs,
+			price,
+			quantity,
+			price_at_purchase,
+		],
 		(err, result) => {
 			if (err)
 				return res
 					.status(500)
-					.json({ error: "Category update error", details: err });
+					.json({ error: "order_item update error", details: err });
 			if (!result.affectedRows)
-				return res.status(404).json({ error: "Category not found!" });
-			res.json({ id, name, icon });
+				return res.status(404).json({ error: "order_item not found!" });
+			res.json({
+				id,
+				order_id,
+				product_id,
+				name,
+				description,
+				specs,
+				price,
+				quantity,
+				price_at_purchase,
+			});
 		}
 	);
 };
 
-// Handler to delete a category by id
+// Handler to delete a order_item by id
 const destroy = (req, res) => {
 	const { id } = req.params;
 	connection.query(
-		"DELETE FROM categories WHERE category_id = ?",
+		"DELETE FROM order_items WHERE order_item_id = ?",
 		[id],
 		(err, result) => {
 			if (err)
 				return res
 					.status(500)
-					.json({ error: "Category delete error", details: err });
+					.json({ error: "order_item delete error", details: err });
 			if (!result.affectedRows)
-				return res.status(404).json({ error: "Category not found!" });
+				return res.status(404).json({ error: "order_item not found!" });
 			res.sendStatus(204);
 		}
 	);
