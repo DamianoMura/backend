@@ -22,13 +22,12 @@ const categoriesRoutes = require("./routes/categories");
 const productsRoutes = require("./routes/productsRoute");
 const ordersRoutes = require("./routes/ordersRoute.js");
 const discountCodesRoutes = require("./routes/discountCodes.js");
-// ...altre routes
 
+// routes usage
 app.use("/orders", ordersRoutes);
 app.use("/categories", categoriesRoutes);
 app.use("/products", productsRoutes);
 app.use("/discount-codes", discountCodesRoutes);
-// ...altre routes
 
 app.get("/", (req, res) => {
 	res.send("API server main page");
