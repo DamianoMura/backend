@@ -9,6 +9,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "laptop-icon-1.jpg",
 		category_id: 1,
+		created_at: "2024-06-01"
 	},
 	{
 		name: "Laptop Titan Pro",
@@ -20,6 +21,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "laptop-icon-2.jpg",
 		category_id: 1,
+		created_at: "2024-06-02"
 	},
 	{
 		name: "Laptop EcoLite 13",
@@ -31,6 +33,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "laptop-icon-3.jpg",
 		category_id: 1,
+		created_at: "2023-06-01"
 	},
 	{
 		name: "Laptop CreatorBook",
@@ -41,6 +44,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "laptop-icon-4.jpg",
 		category_id: 1,
+		created_at: "2025-06-14"
 	},
 	{
 		name: "Laptop Flex360",
@@ -51,6 +55,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "laptop-icon-5.jpg",
 		category_id: 1,
+		created_at: "2025-10-06"
 	},
 	{
 		name: "Laptop Stealth Air",
@@ -62,6 +67,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "laptop-icon-6.jpg",
 		category_id: 1,
+		created_at: "2023-09-01"
 	},
 	{
 		name: "Laptop Quantum Edge",
@@ -72,6 +78,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "laptop-icon-7.jpg",
 		category_id: 1,
+		created_at: "2024-02-25"
 	},
 	{
 		name: "Laptop UrbanGo",
@@ -82,6 +89,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "laptop-icon-8.jpg",
 		category_id: 1,
+		created_at: "2024-06-01"
 	},
 	{
 		name: "Laptop VisionBook",
@@ -92,6 +100,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "laptop-icon-9.jpg",
 		category_id: 1,
+		created_at: "2024-06-01"
 	},
 	{
 		name: "Laptop ZenStation",
@@ -102,6 +111,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "laptop-icon-10.jpg",
 		category_id: 1,
+		created_at: "2024-06-01"
 	},
 	{
 		name: "iPhone 15 Pro",
@@ -112,6 +122,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "https://example.com/images/iphone15pro.jpg",
 		category_id: 2,
+		created_at: "2024-07-01"
 	},
 	{
 		name: "Galaxy S23 Ultra",
@@ -122,6 +133,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "https://example.com/images/galaxy-s23-ultra.jpg",
 		category_id: 2,
+		created_at: "2024-07-01"
 	},
 	{
 		name: "Pixel 8 Pro",
@@ -132,6 +144,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "https://example.com/images/pixel8pro.jpg",
 		category_id: 2,
+		created_at: "2024-07-01"
 	},
 	{
 		name: "Xiaomi 13 Pro",
@@ -142,6 +155,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "https://example.com/images/xiaomi13pro.jpg",
 		category_id: 2,
+		created_at: "2024-07-01"
 	},
 	{
 		name: "OnePlus 11",
@@ -152,6 +166,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "https://example.com/images/oneplus11.jpg",
 		category_id: 2,
+		created_at: "2024-07-01"
 	},
 	{
 		name: "Sony Xperia 1 V",
@@ -162,6 +177,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "https://example.com/images/xperia1v.jpg",
 		category_id: 2,
+		created_at: "2024-07-01"
 	},
 	{
 		name: "Motorola Edge 40 Pro",
@@ -172,6 +188,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "https://example.com/images/motoedge40pro.jpg",
 		category_id: 2,
+		created_at: "2024-07-01"
 	},
 	{
 		name: "Huawei P60 Pro",
@@ -182,6 +199,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "https://example.com/images/huawei-p60pro.jpg",
 		category_id: 2,
+		created_at: "2024-07-01"
 	},
 	{
 		name: "Realme GT Neo 5",
@@ -192,6 +210,7 @@ const products = [
 		stock_quantity: 50,
 		image_url: "https://example.com/images/realme-gt-neo5.jpg",
 		category_id: 2,
+		created_at: "2024-07-01"
 	},
 	{
 		name: "Oppo Find X6 Pro",
@@ -202,6 +221,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "https://example.com/images/oppo-findx6pro.jpg",
 		category_id: 2,
+		created_at: "2024-07-01"
 	},
 	{
 		name: "VortexSound X7",
@@ -213,6 +233,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "https://example.com/images/vortexsound-x7.jpg",
 		category_id: 3,
+		created_at: "2025-07-01"
 	},
 	{
 		name: "NovaAudio Pro",
@@ -223,6 +244,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "https://example.com/images/novaaudio-pro.jpg",
 		category_id: 3,
+		created_at: "2025-07-01"
 	},
 	{
 		name: "StealthCom S1",
@@ -233,6 +255,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "https://example.com/images/stealthcom-s1.jpg",
 		category_id: 3,
+		created_at: "2025-07-01"
 	},
 	{
 		name: "TitanVoice G5",
@@ -243,6 +266,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "https://example.com/images/titanvoice-g5.jpg",
 		category_id: 3,
+		created_at: "2025-07-01"
 	},
 	{
 		name: "EcoSound Lite",
@@ -253,6 +277,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "https://example.com/images/ecosound-lite.jpg",
 		category_id: 3,
+		created_at: "2025-07-01"
 	},
 	{
 		name: "BlitzTalk Z1",
@@ -263,6 +288,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "https://example.com/images/blitztalk-z1.jpg",
 		category_id: 3,
+		created_at: "2025-07-01"
 	},
 	{
 		name: "HyperWave Edge",
@@ -273,6 +299,7 @@ const products = [
 		stock_quantity: 16,
 		image_url: "https://example.com/images/hyperwave-edge.jpg",
 		category_id: 3,
+		created_at: "2025-07-01"
 	},
 	{
 		name: "OmegaSound Prime",
@@ -283,6 +310,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "https://example.com/images/omegasound-prime.jpg",
 		category_id: 3,
+		created_at: "2025-07-01"
 	},
 	{
 		name: "CityVoice Urban",
@@ -293,6 +321,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "https://example.com/images/cityvoice-urban.jpg",
 		category_id: 3,
+		created_at: "2025-07-01"
 	},
 	{
 		name: "ShadowCom Elite",
@@ -304,6 +333,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "https://example.com/images/shadowcom-elite.jpg",
 		category_id: 3,
+		created_at: "2025-07-01"
 	},
 	{
 		name: "Secretlab Titan Evo 2023",
@@ -316,6 +346,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "https://example.com/images/secretlab-titan-evo.jpg",
 		category_id: 4,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "DXRacer Formula Series",
@@ -327,6 +358,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "https://example.com/images/dxracer-formula.jpg",
 		category_id: 4,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "Razer Iskur",
@@ -337,6 +369,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "https://example.com/images/razer-iskur.jpg",
 		category_id: 4,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "Corsair T3 Rush",
@@ -347,6 +380,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "https://example.com/images/corsair-t3-rush.jpg",
 		category_id: 4,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "AKRacing Masters Series Pro",
@@ -357,6 +391,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "https://example.com/images/akracing-masters-pro.jpg",
 		category_id: 4,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "Vertagear SL5000",
@@ -368,6 +403,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "https://example.com/images/vertagear-sl5000.jpg",
 		category_id: 4,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "Noblechairs Hero",
@@ -379,6 +415,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "https://example.com/images/noblechairs-hero.jpg",
 		category_id: 4,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "AndaSeat Kaiser 3",
@@ -390,6 +427,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "https://example.com/images/andaseat-kaiser3.jpg",
 		category_id: 4,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "Cougar Argo",
@@ -402,6 +440,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "https://example.com/images/cougar-argo.jpg",
 		category_id: 4,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "ThunderX3 TC5",
@@ -412,6 +451,7 @@ const products = [
 		stock_quantity: 50,
 		image_url: "https://example.com/images/thunderx3-tc5.jpg",
 		category_id: 4,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "X-Racer GT Pro",
@@ -422,6 +462,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "https://example.com/images/xracer-gtpro.jpg",
 		category_id: 5,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "ShadowDesk Elite",
@@ -433,6 +474,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "https://example.com/images/shadowdesk-elite.jpg",
 		category_id: 5,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "Nebula Station",
@@ -444,6 +486,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "https://example.com/images/nebula-station.jpg",
 		category_id: 5,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "Titan Arena",
@@ -454,6 +497,7 @@ const products = [
 		stock_quantity: 8,
 		image_url: "https://example.com/images/titan-arena.jpg",
 		category_id: 5,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "Stealth Command",
@@ -464,6 +508,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "https://example.com/images/stealth-command.jpg",
 		category_id: 5,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "Vortex Edge",
@@ -474,6 +519,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "https://example.com/images/vortex-edge.jpg",
 		category_id: 5,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "HyperDesk Z1",
@@ -484,6 +530,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "https://example.com/images/hyperdesk-z1.jpg",
 		category_id: 5,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "Omega Core",
@@ -494,6 +541,7 @@ const products = [
 		stock_quantity: 6,
 		image_url: "https://example.com/images/omega-core.jpg",
 		category_id: 5,
+		created_at: "2023-02-01"
 	},
 	{
 		name: "BlitzStation",
@@ -504,6 +552,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "https://example.com/images/blitzstation.jpg",
 		category_id: 5,
+		created_at: "2025-09-14"
 	},
 	{
 		name: "NovaDesk Prime",
@@ -514,6 +563,8 @@ const products = [
 		stock_quantity: 5,
 		image_url: "https://example.com/images/novadesk-prime.jpg",
 		category_id: 5,
+		created_at: "2025-09-14"		
+
 	},
 	{
 		name: "PowerStation Z900",
@@ -525,6 +576,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "https://example.com/images/powerstation-z900.jpg",
 		category_id: 6,
+		created_at: "2025-09-14"
 	},
 	{
 		name: "SilentBox S5",
@@ -536,6 +588,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "https://example.com/images/silentbox-s5.jpg",
 		category_id: 6,
+		created_at: "2025-09-14"
 	},
 	{
 		name: "NovaCube X",
@@ -546,6 +599,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "https://example.com/images/novacube-x.jpg",
 		category_id: 6,
+		created_at: "2025-09-14"
 	},
 	{
 		name: "TitanForge G1",
@@ -556,6 +610,7 @@ const products = [
 		stock_quantity: 6,
 		image_url: "https://example.com/images/titanforge-g1.jpg",
 		category_id: 6,
+		created_at: "2025-09-14"
 	},
 	{
 		name: "BlitzCore M7",
@@ -567,6 +622,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "https://example.com/images/blitzcore-m7.jpg",
 		category_id: 6,
+		created_at: "2025-09-14"
 	},
 	{
 		name: "VortexStation V5",
@@ -577,6 +633,7 @@ const products = [
 		stock_quantity: 5,
 		image_url: "https://example.com/images/vortexstation-v5.jpg",
 		category_id: 6,
+		created_at: "2025-09-14"
 	},
 	{
 		name: "EcoBox E3",
@@ -588,6 +645,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "https://example.com/images/ecobox-e3.jpg",
 		category_id: 6,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "StealthRig SR1",
@@ -598,6 +656,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "https://example.com/images/stealthrig-sr1.jpg",
 		category_id: 6,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "HyperCore H10",
@@ -608,6 +667,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "https://example.com/images/hypercore-h10.jpg",
 		category_id: 6,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "OmegaBox Ultra",
@@ -618,6 +678,7 @@ const products = [
 		stock_quantity: 7,
 		image_url: "https://example.com/images/omegabox-ultra.jpg",
 		category_id: 6,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "ViperX Precision",
@@ -629,6 +690,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "https://example.com/images/viperx-precision.jpg",
 		category_id: 7,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "StealthMouse S1",
@@ -639,6 +701,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "https://example.com/images/stealthmouse-s1.jpg",
 		category_id: 7,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "NovaClick Elite",
@@ -649,6 +712,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "https://example.com/images/novaclick-elite.jpg",
 		category_id: 7,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "ShadowGrip Pro",
@@ -659,6 +723,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "https://example.com/images/shadowgrip-pro.jpg",
 		category_id: 7,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "EcoMouse Lite",
@@ -669,6 +734,7 @@ const products = [
 		stock_quantity: 50,
 		image_url: "https://example.com/images/ecomouse-lite.jpg",
 		category_id: 7,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "TitanClick G7",
@@ -680,6 +746,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "https://example.com/images/titanclick-g7.jpg",
 		category_id: 7,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "BlitzMouse Z1",
@@ -690,6 +757,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "https://example.com/images/blitzmouse-z1.jpg",
 		category_id: 7,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "HyperMouse Edge",
@@ -700,6 +768,7 @@ const products = [
 		stock_quantity: 16,
 		image_url: "https://example.com/images/hypermouse-edge.jpg",
 		category_id: 7,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "OmegaTrack Prime",
@@ -710,6 +779,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "https://example.com/images/omegatrack-prime.jpg",
 		category_id: 7,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "CityMouse Urban",
@@ -720,6 +790,7 @@ const products = [
 		stock_quantity: 45,
 		image_url: "https://example.com/images/citymouse-urban.jpg",
 		category_id: 7,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Logitech G915 TKL",
@@ -731,6 +802,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "https://example.com/images/logitech-g915-tkl.jpg",
 		category_id: 8,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Razer Huntsman V2",
@@ -743,6 +815,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "https://example.com/images/razer-huntsman-v2.jpg",
 		category_id: 8,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Corsair K95 RGB Platinum XT",
@@ -753,6 +826,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "https://example.com/images/corsair-k95-xt.jpg",
 		category_id: 8,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "SteelSeries Apex Pro",
@@ -764,6 +838,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "https://example.com/images/steelseries-apex-pro.jpg",
 		category_id: 8,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "HyperX Alloy Origins",
@@ -774,6 +849,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "https://example.com/images/hyperx-alloy-origins.jpg",
 		category_id: 8,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Cooler Master CK552",
@@ -785,6 +861,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "https://example.com/images/coolermaster-ck552.jpg",
 		category_id: 8,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Ducky One 3 Mini",
@@ -796,6 +873,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "https://example.com/images/ducky-one-3-mini.jpg",
 		category_id: 8,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Asus ROG Strix Scope RX",
@@ -806,6 +884,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "https://example.com/images/asus-rog-strix-scope-rx.jpg",
 		category_id: 8,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Glorious GMMK Pro",
@@ -816,6 +895,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "https://example.com/images/glorious-gmmk-pro.jpg",
 		category_id: 8,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Keychron K2 V2",
@@ -826,6 +906,7 @@ const products = [
 		stock_quantity: 45,
 		image_url: "https://example.com/images/keychron-k2-v2.jpg",
 		category_id: 8,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Samsung Odyssey G9",
@@ -836,6 +917,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "https://example.com/images/samsung-odyssey-g9.jpg",
 		category_id: 9,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "LG UltraGear 27GP950",
@@ -846,6 +928,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "https://example.com/images/lg-ultragear-27gp950.jpg",
 		category_id: 9,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "ASUS ROG Swift PG259QN",
@@ -856,6 +939,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "https://example.com/images/asus-rog-pg259qn.jpg",
 		category_id: 9,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Acer Predator X34 GS",
@@ -866,6 +950,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "https://example.com/images/acer-predator-x34gs.jpg",
 		category_id: 9,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Gigabyte M32U",
@@ -876,6 +961,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "https://example.com/images/gigabyte-m32u.jpg",
 		category_id: 9,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "MSI Optix MAG274QRF-QD",
@@ -886,6 +972,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "https://example.com/images/msi-optix-mag274qrf.jpg",
 		category_id: 9,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Dell Alienware AW3423DW",
@@ -896,6 +983,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "https://example.com/images/alienware-aw3423dw.jpg",
 		category_id: 9,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "BenQ EX3415R",
@@ -906,6 +994,7 @@ const products = [
 		stock_quantity: 16,
 		image_url: "https://example.com/images/benq-ex3415r.jpg",
 		category_id: 9,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "AOC 24G2U",
@@ -916,6 +1005,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "https://example.com/images/aoc-24g2u.jpg",
 		category_id: 9,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "ViewSonic Elite XG270Q",
@@ -926,6 +1016,7 @@ const products = [
 		stock_quantity: 26,
 		image_url: "https://example.com/images/viewsonic-elite-xg270q.jpg",
 		category_id: 9,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "TitanShell X5",
@@ -937,6 +1028,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "https://example.com/images/titanshell-x5.jpg",
 		category_id: 10,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "StealthBox S1",
@@ -947,6 +1039,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "https://example.com/images/stealthbox-s1.jpg",
 		category_id: 10,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "NovaFrame RGB",
@@ -958,6 +1051,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "https://example.com/images/novaframe-rgb.jpg",
 		category_id: 10,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "EcoShell Lite",
@@ -969,6 +1063,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "https://example.com/images/ecoshell-lite.jpg",
 		category_id: 10,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "BlitzTower G7",
@@ -979,6 +1074,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "https://example.com/images/blitztower-g7.jpg",
 		category_id: 10,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "HyperCase Z1",
@@ -989,6 +1085,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "https://example.com/images/hypercase-z1.jpg",
 		category_id: 10,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "OmegaVault Prime",
@@ -1000,6 +1097,7 @@ const products = [
 		stock_quantity: 8,
 		image_url: "https://example.com/images/omegavault-prime.jpg",
 		category_id: 10,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "VortexShell V3",
@@ -1011,6 +1109,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "https://example.com/images/vortexshell-v3.jpg",
 		category_id: 10,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "CityCase Urban",
@@ -1021,6 +1120,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "https://example.com/images/citycase-urban.jpg",
 		category_id: 10,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "ShadowCrate Elite",
@@ -1032,6 +1132,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "https://example.com/images/shadowcrate-elite.jpg",
 		category_id: 10,
+		created_at: "2024-09-14"
 	},
 	{
 		name: "Logitech G560",
@@ -1043,6 +1144,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "https://example.com/images/logitech-g560.jpg",
 		category_id: 11,
+		created_at: "2024-02-01"
 	},
 	{
 		name: "Razer Nommo Pro",
@@ -1054,6 +1156,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "https://example.com/images/razer-nommo-pro.jpg",
 		category_id: 11,
+		created_at: "2024-02-01"
 	},
 	{
 		name: "Creative Pebble Pro",
@@ -1064,6 +1167,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "https://example.com/images/creative-pebble-pro.jpg",
 		category_id: 11,
+		created_at: "2024-02-01"
 	},
 	{
 		name: "Edifier G2000",
@@ -1074,6 +1178,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "https://example.com/images/edifier-g2000.jpg",
 		category_id: 11,
+		created_at: "2024-02-01"
 	},
 	{
 		name: "SteelSeries Arena 7",
@@ -1084,6 +1189,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "https://example.com/images/steelseries-arena-7.jpg",
 		category_id: 11,
+		created_at: "2024-02-01"
 	},
 	{
 		name: "Bose Companion 2 Series III",
@@ -1094,6 +1200,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "https://example.com/images/bose-companion2.jpg",
 		category_id: 11,
+		created_at: "2024-02-01"
 	},
 	{
 		name: "Harman Kardon SoundSticks 4",
@@ -1104,6 +1211,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "https://example.com/images/hk-soundsticks4.jpg",
 		category_id: 11,
+		created_at: "2024-02-01"
 	},
 	{
 		name: "JBL Quantum Duo",
@@ -1115,6 +1223,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "https://example.com/images/jbl-quantum-duo.jpg",
 		category_id: 11,
+		created_at: "2024-02-01"
 	},
 	{
 		name: "Klipsch ProMedia 2.1",
@@ -1126,6 +1235,7 @@ const products = [
 		stock_quantity: 16,
 		image_url: "https://example.com/images/klipsch-promedia-21.jpg",
 		category_id: 11,
+		created_at: "2024-02-01"
 	},
 	{
 		name: "Trust GXT 658 Tytan",
@@ -1136,6 +1246,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "https://example.com/images/trust-gxt-658.jpg",
 		category_id: 11,
+		created_at: "2024-02-01"
 	},
 ];
 
