@@ -122,7 +122,7 @@ const seedOrderItems = () => {
 	
 	orderItems.forEach((orderItem, index) => {
 		pool.query(
-			"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity, price_at_purchase) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+			"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity) VALUES ( ?, ?, ?, ?, ?, ?, ?)",
 			[
 				orderItem.order_id,
 				orderItem.product_id,
@@ -130,8 +130,7 @@ const seedOrderItems = () => {
 				orderItem.description,
 				orderItem.specs,
 				orderItem.price,
-				orderItem.quantity,
-				orderItem.price_at_purchase,
+				orderItem.quantity
 			],
 			(err) => {
 				if (err) console.log("query failed", err);
