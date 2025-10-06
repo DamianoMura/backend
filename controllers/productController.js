@@ -4,13 +4,14 @@ const { connection } = require("../db/db");
 const allProducts = (req, res) => {
   let baseQuery = "SELECT * FROM products";
   let sorting = "";
+	let closeQuery = ";";
 
   // Sort by recent (assuming product_id is auto-increment)
-  if (req.query.sort === "recent") sorting = " ORDER BY product_id DESC LIMIT 10";
+  if (req.query.filter === "latest") {sorting = " ORDER BY DATE(created_at) DESC LIMIT 10";	console.log("Sorting by latest",req.query);}
   // Sort by popular (if you have a sales count field, otherwise fallback)
-  if (req.query.sort === "popular") sorting = " ORDER BY product_id ASC LIMIT 10";
+  if (req.query.filter === "popular") {sorting = " ORDER BY product_id ASC LIMIT 10";	console.log("Sorting by popular",req.query);}
 
-  connection.query(baseQuery + sorting, (err, results) => {
+  connection.query(baseQuery + sorting + closeQuery, (err, results) => {
     if (err)
       return res.status(500).json({ error: "Query failed", details: err });
     res.status(200).json(results);

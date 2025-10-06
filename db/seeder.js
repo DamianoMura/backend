@@ -84,7 +84,7 @@ const seedProducts = () => {
 				product.stock_quantity,
 				product.image_url,
 				product.category_id,
-				product.created_at
+				new Date(product.created_at)
 			],
 			(err) => {
 				if (err) console.log("query failed", err);
