@@ -74,7 +74,7 @@ const seedDiscountCodes = () => {
 const seedProducts = () => {
 	products.forEach((product, index) => {
 		pool.query(
-			"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE name=name",
+			"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
 			[
 				product.name,
 				product.brand,
@@ -84,6 +84,7 @@ const seedProducts = () => {
 				product.stock_quantity,
 				product.image_url,
 				product.category_id,
+				product.created_at
 			],
 			(err) => {
 				if (err) console.log("query failed", err);
