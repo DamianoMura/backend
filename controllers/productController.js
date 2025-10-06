@@ -6,7 +6,7 @@ const allProducts = (req, res) => {
   let sorting = ";";
 
   // Sort by recent (assuming product_id is auto-increment)
-  if (req.query.filter === "latest") sorting = " ORDER BY DATE(created_at) DESC LIMIT 10;";
+  if (req.query.filter === "latest") sorting = " ORDER BY DATE(created_at) DESC;";
  
   if (req.query.filter === "popular") {
 		baseQuery = `SELECT products.* FROM products`;

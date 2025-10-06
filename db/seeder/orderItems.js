@@ -81,6 +81,15 @@ const orderItems = [
 			quantity: 10
 		},
 		{
+			order_id: 4,
+			product_id: 2,
+			product_name: "Laptop Titan Pro - IronWare",
+			description: "Potenza desktop in formato portatile, ideale per gaming e rendering",
+			specs: "AMD Ryzen 9, 32GB RAM, 1TB SSD, RTX 4070, 17\'\' QHD",
+			price: 1899,
+			quantity: 5
+		},
+		{
 			order_id: 5,
 			product_id: 71,
 			product_name: "Logitech G915 TKL",
@@ -89,6 +98,17 @@ const orderItems = [
 			price: 229,
 			quantity: 7
 		},
+		{
+			order_id: 5,
+			product_id: 12,
+			product_name: "Galaxy S23 Ultra",
+			description: "Top di gamma con fotocamera da 200MP e S-Pen.",
+			specs: "Display 6.8\'\', 512GB, 12GB RAM, Android 13",
+			price: 1399,
+			quantity: 7
+		},
 	];
 
   module.exports = orderItems;  
+
+	
