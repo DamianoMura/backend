@@ -49,7 +49,7 @@ const addProduct = (req, res) => {
 		created_at = new Date
 	} = req.body;
 	connection.query(
-		"INSERT INTO products (name, brand, description, specs, price, stock_quantity, stock_sold image_url, category_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+		"INSERT INTO products (name, brand, description, specs, price, stock_quantity, stock_sold, image_url, category_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 		[
 			name,
 			brand,
@@ -57,6 +57,7 @@ const addProduct = (req, res) => {
 			specs,
 			price,
 			stock_quantity,
+			stock_sold,
 			image_url,
 			category_id,
 			created_at

@@ -252,8 +252,7 @@ const products = [
 		specs: "Driver 50mm, USB, LED RGB, cancellazione rumore",
 		price: 129,
 		stock_quantity: 18,
-		stock_sold: 7
-		stock_sold: 95,5,
+		stock_sold: 95,
 		image_url: "headCuff-1.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -265,8 +264,7 @@ const products = [
 		specs: "Bluetooth 5.2, autonomia 30h, padiglioni memory foam",
 		price: 149,
 		stock_quantity: 22,
-		stock_sold: 7
-		stock_sold: 95,5,
+		stock_sold: 95,
 		image_url: "headCuff-2.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -278,8 +276,8 @@ const products = [
 		specs: "Jack 3.5mm, microfono direzionale, design minimal",
 		price: 69,
 		stock_quantity: 30,
-		stock_sold: 7
-		stock_sold: 95,5,
+		
+		stock_sold: 95,
 		image_url: "headCuff-3.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -542,6 +540,7 @@ const products = [
 		specs: "180x75cm, struttura rinforzata, 3 livelli",
 		price: 549,
 		stock_quantity: 8,
+		stock_sold: 41,
 		image_url: "desk-4.jpg",
 		category_id: 5,
 		created_at: "2023-02-01"

@@ -15,7 +15,7 @@ connection.connect((err) => {
     console.error(`The Database ${DB_NAME} is not yet available: please run "npm run migration" and "npm run seed" to create and populate the database then restart the server.`);
     process.exit(1);
   } else {
-    console.log(`MySQL connected to ${connection.config.host}:${connection.config.port} /${DB_NAME}`);
+    console.log(`MySQL connected to ${connection.config.host}:${connection.config.port}/${DB_NAME}`);
     
   }
 });
