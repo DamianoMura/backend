@@ -97,7 +97,7 @@ const seedOrders = () => {
 	
 	orders.forEach((order, index) => {
 		pool.query(
-			"INSERT INTO orders (customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date, total_price, discount_code_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE customer_name=customer_name",
+			"INSERT INTO orders (customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date,  discount_code_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 			[
 				order.customer_name,
 				order.customer_email,
@@ -108,7 +108,6 @@ const seedOrders = () => {
 				order.country,
 				order.billing,
 				order.order_date,
-				order.total_price,
 				order.discount_code_id,
 			],
 			(err) => {
