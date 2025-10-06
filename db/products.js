@@ -251,7 +251,7 @@ const products = [
 		specs: "Jack 3.5mm, driver 40mm, compatibili con tutti i dispositivi",
 		price: 39,
 		stock_quantity: 40,
-		image_url: "headCuff-5.jpgg",
+		image_url: "headCuff-5.jpg",
 		category_id: 3,
 	},
 	{
