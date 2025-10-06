@@ -3,8 +3,6 @@ const db_connection = require("./db/db.js");
 console.log("starting up index.js"); //debug
 //importing express
 const express = require("express");
-const { connection, connectAndSelectDB } = require("./db/db");
-const createTables = require("./db/nerdNest_ER_db");
 
 const app = express();
 
@@ -40,11 +38,7 @@ app.get("/", (req, res) => {
 	res.send("API server main page");
 });
 
-// Sequenza: connessione -> creazione DB -> creazione tabelle -> avvio server
-connectAndSelectDB(() => {
-	createTables(connection, () => {
-		app.listen(APP_PORT, () => {
+
+app.listen(APP_PORT, () => {
 			console.log(`API server listening on port ${APP_PORT}`);
 		});
-	});
-});

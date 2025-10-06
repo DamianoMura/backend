@@ -6,19 +6,19 @@ const connection = mysql.createConnection({
   host: DB_HOST,
   port: DB_PORT,
   user: DB_USER,
-  password: DB_PWD
+  password: DB_PWD,
+  database: DB_NAME, 
 });
 
-// Ensure database exists and select it, then allow queries
-function connectAndSelectDB(callback) {
-  connection.query(`CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\``, function (err) {
-    if (err) throw err;
-    connection.changeUser({ database: DB_NAME }, (err) => {
-      if (err) throw err;
-      console.log(`MySQL connected to ${connection.config.host}:${connection.config.port}/${DB_NAME}`);
-      if (callback) callback();
-    });
-  });
-}
+connection.connect((err) => {
+  if (err) {
+    console.error(`The Database ${DB_NAME} is not yet available: please run "npm run migration" and "npm run seed" to create and populate the database then restart the server.`);
+    
+  } else {
+    console.log(`MySQL connected to ${connection.config.host}:${connection.config.port} /${DB_NAME}`);
+    
+  }
+});
 
-module.exports = { connection, connectAndSelectDB };
+
+module.exports = { connection};

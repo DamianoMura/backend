@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node index.js",
     "watch": "node --watch --env-file=.env index.js",
-    "seed": "node --env-file=.env db/seeder.js"
+    "seed": "node --env-file=.env db/seeder.js",
+    "migration": "node --env-file=.env db/migration.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
