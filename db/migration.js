@@ -10,17 +10,34 @@ const connection = mysql.createConnection({
 });
 
 
-// Ensure database exists and select it, then allow queries
+connection.connect((err) => {
+  if (err) {
+    console.error("Connection error", err);
+    
+  }
+  else {
+    console.log(`MySQL connected to ${connection.config.host}:${connection.config.port}`);
+    // Create the database if it doesn't exist
+    connection.query(`CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`;`, (err) => {
+      if (err) {
+        console.error("Database creation error", err);
+      } else {
+        console.log(`Database ${DB_NAME} is ready.`);
+        // Switch to the newly created database
+        connection.changeUser({ database: DB_NAME }, (err) => {
+          if (err) {  
+            console.error("Error in changing database", err);
+          } else {
+            console.log(`Using database ${DB_NAME}`);
+            console.log(`CREATING TABLES FOR ${DB_NAME}...`);
+            createTables(connection);
 
-  connection.query(`CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\``, function (err) {
-    if (err) throw err;
-    connection.changeUser({ database: DB_NAME }, (err) => {
-      if (err) throw err;
-      console.log(`MySQL connected to ${connection.config.host}:${connection.config.port}/${DB_NAME}`);
-      createTables();
+          }
+        });
+      }
     });
-  });
-
+  }
+});      
 // Sequenza: connessione -> creazione DB -> creazione tabelle -> avvio server
 
 
