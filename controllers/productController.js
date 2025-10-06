@@ -1,12 +1,20 @@
 const { connection } = require("../db/db");
 
-// Handler to get all products
+// Handler to get all products, with sorting/filter support
 const allProducts = (req, res) => {
-	connection.query("SELECT * FROM products", (err, results) => {
-		if (err)
-			return res.status(500).json({ error: "Query failed", details: err });
-		res.status(200).json(results);
-	});
+  let baseQuery = "SELECT * FROM products";
+  let sorting = "";
+
+  // Sort by recent (assuming product_id is auto-increment)
+  if (req.query.sort === "recent") sorting = " ORDER BY product_id DESC LIMIT 10";
+  // Sort by popular (if you have a sales count field, otherwise fallback)
+  if (req.query.sort === "popular") sorting = " ORDER BY product_id ASC LIMIT 10";
+
+  connection.query(baseQuery + sorting, (err, results) => {
+    if (err)
+      return res.status(500).json({ error: "Query failed", details: err });
+    res.status(200).json(results);
+  });
 };
 
 // Handler to get a single product by id
@@ -138,9 +146,9 @@ const deleteProduct = (req, res) => {
 };
 
 module.exports = {
-	allProducts,
-	showProduct,
-	addProduct,
-	modifyProduct,
-	deleteProduct,
+  allProducts,
+  showProduct,
+  addProduct,
+  modifyProduct,
+  deleteProduct,
 };
