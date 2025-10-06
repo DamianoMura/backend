@@ -7,7 +7,6 @@ const products = [
 		specs: "Intel Core i7, 16GB RAM, 512GB SSD, 14'' FHD, Wi-Fi 6",
 		price: 1099.99,
 		stock_quantity: 25,
-		stock_sold: 25,
 		image_url: "laptop-icon-1.jpg",
 		category_id: 1,
 		created_at: "2024-06-01"
@@ -20,7 +19,6 @@ const products = [
 		specs: "AMD Ryzen 9, 32GB RAM, 1TB SSD, RTX 4070, 17'' QHD",
 		price: 1899.0,
 		stock_quantity: 12,
-		stock_sold: 2,
 		image_url: "laptop-icon-2.jpg",
 		category_id: 1,
 		created_at: "2024-06-02"
@@ -33,7 +31,6 @@ const products = [
 		specs: "Intel Core i3, 8GB RAM, 256GB SSD, 13'' HD",
 		price: 499.9,
 		stock_quantity: 40,
-		stock_sold: 20,
 		image_url: "laptop-icon-3.jpg",
 		category_id: 1,
 		created_at: "2023-06-01"
@@ -45,7 +42,6 @@ const products = [
 		specs: "Intel Core i7, 16GB RAM, 1TB SSD, RTX 3050, 15.6'' 4K OLED",
 		price: 1499.0,
 		stock_quantity: 18,
-		stock_sold: 15,
 		image_url: "laptop-icon-4.jpg",
 		category_id: 1,
 		created_at: "2025-06-14"
@@ -57,7 +53,6 @@ const products = [
 		specs: "Intel Core i5, 8GB RAM, 512GB SSD, 14'' FHD Touch",
 		price: 899.0,
 		stock_quantity: 30,
-		stock_sold: 50,
 		image_url: "laptop-icon-5.jpg",
 		category_id: 1,
 		created_at: "2025-10-06"
@@ -70,7 +65,6 @@ const products = [
 		specs: "Intel Core M, 8GB RAM, 256GB SSD, 13'' FHD",
 		price: 649.0,
 		stock_quantity: 22,
-		stock_sold: 100,
 		image_url: "laptop-icon-6.jpg",
 		category_id: 1,
 		created_at: "2023-09-01"
@@ -82,7 +76,6 @@ const products = [
 		specs: "AMD Ryzen 5, 16GB RAM, 512GB SSD, 15.6'' FHD",
 		price: 799.0,
 		stock_quantity: 35,
-		stock_sold: 60,
 		image_url: "laptop-icon-7.jpg",
 		category_id: 1,
 		created_at: "2024-02-25"
@@ -94,7 +87,6 @@ const products = [
 		specs: "Intel Core i5, 8GB RAM, 256GB SSD, 12.5'' HD",
 		price: 599.0,
 		stock_quantity: 28,
-		stock_sold: 150,
 		image_url: "laptop-icon-8.jpg",
 		category_id: 1,
 		created_at: "2024-06-01"
@@ -106,7 +98,6 @@ const products = [
 		specs: "Intel Core i5, 16GB RAM, 512GB SSD, Webcam HD, 15'' FHD",
 		price: 849.0,
 		stock_quantity: 20,
-		stock_sold: 45,
 		image_url: "laptop-icon-9.jpg",
 		category_id: 1,
 		created_at: "2024-06-01"
@@ -118,7 +109,6 @@ const products = [
 		specs: "AMD Ryzen 7, 16GB RAM, 1TB SSD, 15.6'' QHD",
 		price: 1199.0,
 		stock_quantity: 15,
-		stock_sold: 25,
 		image_url: "laptop-icon-10.jpg",
 		category_id: 1,
 		created_at: "2024-06-01"
@@ -130,7 +120,6 @@ const products = [
 		specs: "Display 6.1'', 256GB, 8GB RAM, iOS 17",
 		price: 1299,
 		stock_quantity: 25,
-		stock_sold: 25,
 		image_url: "phone-icon-1.jpg",
 		category_id: 2,
 		created_at: "2024-07-01"
@@ -142,7 +131,6 @@ const products = [
 		specs: "Display 6.8'', 512GB, 12GB RAM, Android 13",
 		price: 1399,
 		stock_quantity: 18,
-		stock_sold: 25,
 		image_url: "phone-icon-2.jpg",
 		category_id: 2,
 		created_at: "2024-07-01"
@@ -154,8 +142,6 @@ const products = [
 		specs: "Display 6.7'', 256GB, 12GB RAM, Android 14",
 		price: 1099,
 		stock_quantity: 30,
-		stock_sold: 25,
-		stock_sold: 35,
 		image_url: "phone-icon-3.jpg",
 		category_id: 2,
 		created_at: "2024-07-01"
@@ -167,7 +153,6 @@ const products = [
 		specs: "Display 6.73'', 256GB, 12GB RAM, Android 13",
 		price: 999,
 		stock_quantity: 40,
-		stock_sold: 35,
 		image_url: "phone-icon-4.jpg",
 		category_id: 2,
 		created_at: "2024-07-01"
@@ -179,7 +164,6 @@ const products = [
 		specs: "Display 6.7'', 256GB, 16GB RAM, Android 13",
 		price: 849,
 		stock_quantity: 35,
-		stock_sold: 35,
 		image_url: "phone-icon-5.jpg",
 		category_id: 2,
 		created_at: "2024-07-01"
@@ -191,7 +175,6 @@ const products = [
 		specs: "Display 6.5'' 4K OLED, 256GB, 12GB RAM, Android 13",
 		price: 1199,
 		stock_quantity: 15,
-		stock_sold: 35,
 		image_url: "phone-icon-6.jpg",
 		category_id: 2,
 		created_at: "2024-07-01"
@@ -203,7 +186,6 @@ const products = [
 		specs: "Display 6.67'', 256GB, 12GB RAM, Android 13",
 		price: 799,
 		stock_quantity: 28,
-		stock_sold: 115,
 		image_url: "phone-icon-7.jpg",
 		category_id: 2,
 		created_at: "2024-07-01"
@@ -215,7 +197,6 @@ const products = [
 		specs: "Display 6.67'', 256GB, 12GB RAM, HarmonyOS",
 		price: 1099,
 		stock_quantity: 20,
-		stock_sold: 115,
 		image_url: "phone-icon-8.jpg",
 		category_id: 2,
 		created_at: "2024-07-01"
@@ -227,7 +208,6 @@ const products = [
 		specs: "Display 6.74'', 256GB, 16GB RAM, Android 13",
 		price: 649,
 		stock_quantity: 50,
-		stock_sold: 115,
 		image_url: "phone-icon-9.jpg",
 		category_id: 2,
 		created_at: "2024-07-01"
@@ -239,7 +219,6 @@ const products = [
 		specs: "Display 6.82'', 512GB, 16GB RAM, Android 13",
 		price: 1249,
 		stock_quantity: 22,
-		stock_sold: 85,
 		image_url: "phone-icon-10.jpg",
 		category_id: 2,
 		created_at: "2024-07-01"
@@ -252,7 +231,6 @@ const products = [
 		specs: "Driver 50mm, USB, LED RGB, cancellazione rumore",
 		price: 129,
 		stock_quantity: 18,
-		stock_sold: 95,
 		image_url: "headCuff-1.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -264,7 +242,6 @@ const products = [
 		specs: "Bluetooth 5.2, autonomia 30h, padiglioni memory foam",
 		price: 149,
 		stock_quantity: 22,
-		stock_sold: 95,
 		image_url: "headCuff-2.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -276,8 +253,6 @@ const products = [
 		specs: "Jack 3.5mm, microfono direzionale, design minimal",
 		price: 69,
 		stock_quantity: 30,
-		
-		stock_sold: 95,
 		image_url: "headCuff-3.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -289,7 +264,6 @@ const products = [
 		specs: "USB, driver 53mm, microfono con filtro pop",
 		price: 159,
 		stock_quantity: 12,
-		stock_sold: 95,
 		image_url: "headCuff-4.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -301,7 +275,6 @@ const products = [
 		specs: "Jack 3.5mm, driver 40mm, compatibili con tutti i dispositivi",
 		price: 39,
 		stock_quantity: 40,
-		stock_sold: 95,
 		image_url: "headCuff-5.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -313,7 +286,6 @@ const products = [
 		specs: "Bluetooth, microfono integrato, autonomia 20h",
 		price: 89,
 		stock_quantity: 25,
-		stock_sold: 95,
 		image_url: "headCuff-6.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -325,7 +297,6 @@ const products = [
 		specs: "USB, software dedicato, microfono retrattile",
 		price: 119,
 		stock_quantity: 16,
-		stock_sold: 57,
 		image_url: "headCuff-7.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -337,7 +308,6 @@ const products = [
 		specs: "USB-C, driver 60mm, microfono staccabile",
 		price: 179,
 		stock_quantity: 10,
-		stock_sold: 57,
 		image_url: "headCuff-8.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -349,7 +319,6 @@ const products = [
 		specs: "Bluetooth, microfono ambientale, autonomia 25h",
 		price: 99,
 		stock_quantity: 28,
-		stock_sold: 57,
 		image_url: "headCuff-9.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -362,7 +331,6 @@ const products = [
 		specs: "Surround 7.1, USB, microfono noise-cancelling",
 		price: 139,
 		stock_quantity: 14,
-		stock_sold: 20,
 		image_url: "headCuff-10.jpg",
 		category_id: 3,
 		created_at: "2025-07-01"
@@ -376,7 +344,6 @@ const products = [
 			"Materiale: pelle sintetica, braccioli 4D, schienale reclinabile 165°",
 		price: 549,
 		stock_quantity: 20,
-		stock_sold: 20,
 		image_url: "chairs-1.jpg",
 		category_id: 4,
 		created_at: "2023-02-01"
@@ -389,7 +356,6 @@ const products = [
 		specs: "Materiale: tessuto, supporto fino a 120kg, reclinazione 135°",
 		price: 329,
 		stock_quantity: 35,
-		stock_sold: 20,
 		image_url: "chairs-2.jpg",
 		category_id: 4,
 		created_at: "2023-02-01"
@@ -401,7 +367,6 @@ const products = [
 		specs: "Materiale: similpelle, braccioli 4D, schienale reclinabile 139°",
 		price: 499,
 		stock_quantity: 18,
-		stock_sold: 83,
 		image_url: "chairs-3.jpg",
 		category_id: 4,
 		created_at: "2023-02-01"
@@ -413,7 +378,6 @@ const products = [
 		specs: "Materiale: tessuto morbido, braccioli 4D, reclinazione 180°",
 		price: 299,
 		stock_quantity: 40,
-		stock_sold: 83,
 		image_url: "chairs-4.jpg",
 		category_id: 4,
 		created_at: "2023-02-01"
@@ -438,7 +402,6 @@ const products = [
 			"Materiale: pelle sintetica, braccioli regolabili, reclinazione 170°",
 		price: 399,
 		stock_quantity: 28,
-		stock_sold: 83,
 		image_url: "chairs-6.jpg",
 		category_id: 4,
 		created_at: "2023-02-01"
@@ -451,7 +414,6 @@ const products = [
 		specs: "Materiale: similpelle, braccioli 4D, reclinazione 135°",
 		price: 469,
 		stock_quantity: 22,
-		stock_sold: 88,
 		image_url: "chairs-7.jpg",
 		category_id: 4,
 		created_at: "2023-02-01"
@@ -464,7 +426,6 @@ const products = [
 		specs: "Materiale: pelle PU, braccioli magnetici, reclinazione 165°",
 		price: 549,
 		stock_quantity: 15,
-		stock_sold: 88,
 		image_url: "chairs-8.jpg",
 		category_id: 4,
 		created_at: "2023-02-01"
@@ -478,7 +439,6 @@ const products = [
 			"Materiale: mesh traspirante, regolazione completa, supporto lombare",
 		price: 649,
 		stock_quantity: 10,
-		stock_sold: 88,
 		image_url: "chairs-9.jpg",
 		category_id: 4,
 		created_at: "2023-02-01"
@@ -490,7 +450,6 @@ const products = [
 		specs: "Materiale: pelle PU, braccioli 3D, reclinazione 180°",
 		price: 259,
 		stock_quantity: 50,
-		stock_sold: 88,
 		image_url: "chairs-10.jpg",
 		category_id: 4,
 		created_at: "2023-02-01"
@@ -502,7 +461,6 @@ const products = [
 		specs: "140x60cm, struttura in acciaio, superficie in fibra di carbonio",
 		price: 299,
 		stock_quantity: 15,
-		stock_sold: 88,
 		image_url: "desk-1.jpg",
 		category_id: 5,
 		created_at: "2023-02-01"
@@ -515,7 +473,6 @@ const products = [
 		specs: "160x70cm, altezza regolabile, porta USB",
 		price: 499,
 		stock_quantity: 10,
-		stock_sold: 88,
 		image_url: "desk-2.jpg",
 		category_id: 5,
 		created_at: "2023-02-01"
@@ -528,7 +485,6 @@ const products = [
 		specs: "150x65cm, LED RGB, supporto doppio monitor",
 		price: 389,
 		stock_quantity: 20,
-		stock_sold: 88,
 		image_url: "desk-3.jpg",
 		category_id: 5,
 		created_at: "2023-02-01"
@@ -540,7 +496,6 @@ const products = [
 		specs: "180x75cm, struttura rinforzata, 3 livelli",
 		price: 549,
 		stock_quantity: 8,
-		stock_sold: 41,
 		image_url: "desk-4.jpg",
 		category_id: 5,
 		created_at: "2023-02-01"
@@ -552,7 +507,6 @@ const products = [
 		specs: "130x60cm, superficie antiscivolo, porta controller",
 		price: 259,
 		stock_quantity: 25,
-		stock_sold: 41,
 		image_url: "desk-5.jpg",
 		category_id: 5,
 		created_at: "2023-02-01"
@@ -564,7 +518,6 @@ const products = [
 		specs: "L-shape, LED RGB, supporto PC tower",
 		price: 479,
 		stock_quantity: 12,
-		stock_sold: 41,
 		image_url: "desk-6.jpg",
 		category_id: 5,
 		created_at: "2023-02-01"
@@ -576,7 +529,6 @@ const products = [
 		specs: "120x55cm, porta bicchiere, tappetino integrato",
 		price: 219,
 		stock_quantity: 30,
-		stock_sold: 41,
 		image_url: "desk-7.jpg",
 		category_id: 5,
 		created_at: "2023-02-01"
@@ -588,7 +540,6 @@ const products = [
 		specs: "150x70cm, LED dinamici, porta accessori magnetici",
 		price: 599,
 		stock_quantity: 6,
-		stock_sold: 41,
 		image_url: "desk-8.jpg",
 		category_id: 5,
 		created_at: "2023-02-01"
@@ -600,7 +551,6 @@ const products = [
 		specs: "Modulare, supporto monitor, gestione termica",
 		price: 429,
 		stock_quantity: 18,
-		stock_sold: 25,
 		image_url: "desk-9.jpg",
 		category_id: 5,
 		created_at: "2025-09-14"
@@ -612,7 +562,6 @@ const products = [
 		specs: "160x70cm, pannello touch, speaker integrati",
 		price: 649,
 		stock_quantity: 5,
-		stock_sold: 25,
 		image_url: "desk-10.jpg",
 		category_id: 5,
 		created_at: "2025-09-14"		
@@ -626,7 +575,6 @@ const products = [
 		specs: "Intel Core i9, 32GB RAM, 1TB SSD, RTX 4060, Windows 11 Pro",
 		price: 1799,
 		stock_quantity: 10,
-		stock_sold: 25,
 		image_url: "pc-1.jpg",
 		category_id: 6,
 		created_at: "2025-09-14"
@@ -639,7 +587,6 @@ const products = [
 		specs: "AMD Ryzen 5, 16GB RAM, 512GB SSD, Radeon Vega, Windows 11",
 		price: 899,
 		stock_quantity: 18,
-		stock_sold: 100,
 		image_url: "pc-2.jpg",
 		category_id: 6,
 		created_at: "2025-09-14"
@@ -651,7 +598,6 @@ const products = [
 		specs: "Intel Core i5, 16GB RAM, 512GB SSD, Wi-Fi 6, Windows 11",
 		price: 749,
 		stock_quantity: 25,
-		stock_sold: 100,
 		image_url: "pc-3.jpg",
 		category_id: 6,
 		created_at: "2025-09-14"
@@ -663,7 +609,6 @@ const products = [
 		specs: "AMD Ryzen 9, 64GB RAM, 2TB SSD, RTX 4080, Windows 11 Pro",
 		price: 2899,
 		stock_quantity: 6,
-		stock_sold: 100,
 		image_url: "pc-4.jpg",
 		category_id: 6,
 		created_at: "2025-09-14"
@@ -676,7 +621,6 @@ const products = [
 		specs: "Intel Core i7, 32GB RAM, 1TB SSD, RTX 3070, Windows 11",
 		price: 1599,
 		stock_quantity: 14,
-		stock_sold: 100,
 		image_url: "pc-5.jpg",
 		category_id: 6,
 		created_at: "2025-09-14"
@@ -688,7 +632,6 @@ const products = [
 		specs: "Intel Core i9, 32GB RAM, 1TB SSD + 2TB HDD, RTX 4090, Windows 11",
 		price: 3299,
 		stock_quantity: 5,
-		stock_sold: 45,
 		image_url: "pc-6.jpg",
 		category_id: 6,
 		created_at: "2025-09-14"
@@ -701,7 +644,6 @@ const products = [
 		specs: "Intel Core i3, 8GB RAM, 256GB SSD, Intel UHD, Windows 11",
 		price: 499,
 		stock_quantity: 30,
-		stock_sold: 45,
 		image_url: "pc-7.jpg",
 		category_id: 6,
 		created_at: "2024-09-14"
@@ -713,7 +655,6 @@ const products = [
 		specs: "AMD Ryzen 7, 16GB RAM, 1TB SSD, Radeon RX 6700 XT, Windows 11",
 		price: 1299,
 		stock_quantity: 20,
-		stock_sold: 45,
 		image_url: "pc-8.jpg",
 		category_id: 6,
 		created_at: "2024-09-14"
@@ -725,7 +666,6 @@ const products = [
 		specs: "Intel Core i7, 32GB RAM, 1TB SSD, RTX 3060 Ti, Windows 11",
 		price: 1499,
 		stock_quantity: 12,
-		stock_sold: 45,
 		image_url: "pc-9.jpg",
 		category_id: 6,
 		created_at: "2024-09-14"
@@ -737,7 +677,6 @@ const products = [
 		specs: "AMD Ryzen 9, 64GB RAM, 2TB SSD, RTX 4080 Ti, Windows 11 Pro",
 		price: 2599,
 		stock_quantity: 7,
-		stock_sold: 29,
 		image_url: "pc-10.jpg",
 		category_id: 6,
 		created_at: "2024-09-14"
@@ -750,7 +689,6 @@ const products = [
 		specs: "RGB, 8 pulsanti programmabili, USB-C",
 		price: 89,
 		stock_quantity: 20,
-		stock_sold: 129,
 		image_url: "mouse-1.jpg",
 		category_id: 7,
 		created_at: "2024-09-14"
@@ -762,7 +700,6 @@ const products = [
 		specs: "Bluetooth 5.1, batteria 60 giorni, sensore laser",
 		price: 49,
 		stock_quantity: 35,
-		stock_sold: 29,
 		image_url: "mouse-2.jpg",
 		category_id: 7,
 		created_at: "2024-09-14"
@@ -774,7 +711,6 @@ const products = [
 		specs: "USB, 6 pulsanti, DPI regolabile",
 		price: 39,
 		stock_quantity: 40,
-		stock_sold: 85,
 		image_url: "mouse-3.jpg",
 		category_id: 7,
 		created_at: "2024-09-14"
@@ -786,7 +722,6 @@ const products = [
 		specs: "RGB, 12 pulsanti, DPI 18.000",
 		price: 69,
 		stock_quantity: 18,
-		stock_sold: 85,
 		image_url: "mouse-4.jpg",
 		category_id: 7,
 		created_at: "2024-09-14"
@@ -798,7 +733,6 @@ const products = [
 		specs: "USB, 3 pulsanti, DPI 1200",
 		price: 19,
 		stock_quantity: 50,
-		stock_sold: 85,
 		image_url: "mouse-5.jpg",
 		category_id: 7,
 		created_at: "2024-09-14"
@@ -811,7 +745,6 @@ const products = [
 		specs: "USB-C, DPI 20.000, LED RGB",
 		price: 79,
 		stock_quantity: 12,
-		stock_sold: 85,
 		image_url: "mouse-6.jpg",
 		category_id: 7,
 		created_at: "2024-09-14"
@@ -823,7 +756,6 @@ const products = [
 		specs: "Wireless 2.4GHz, DPI 10.000, batteria ricaricabile",
 		price: 59,
 		stock_quantity: 22,
-		stock_sold: 85,
 		image_url: "mouse-7.jpg",
 		category_id: 7,
 		created_at: "2024-09-14"
@@ -835,7 +767,6 @@ const products = [
 		specs: "USB, DPI 16.000, 9 pulsanti",
 		price: 64,
 		stock_quantity: 16,
-		stock_sold: 85,
 		image_url: "mouse-8.jpg",
 		category_id: 7,
 		created_at: "2024-09-14"
@@ -847,7 +778,6 @@ const products = [
 		specs: "USB-C, DPI 24.000, corpo in alluminio",
 		price: 99,
 		stock_quantity: 10,
-		stock_sold: 85,
 		image_url: "mouse-9.jpg",
 		category_id: 7,
 		created_at: "2024-09-14"
@@ -859,7 +789,6 @@ const products = [
 		specs: "Bluetooth, DPI 1600, batteria 30 giorni",
 		price: 29,
 		stock_quantity: 45,
-		stock_sold: 185,
 		image_url: "mouse-10.jpg",
 		category_id: 7,
 		created_at: "2024-09-14"
@@ -872,7 +801,6 @@ const products = [
 		specs: "Switch GL Tactile, connessione LIGHTSPEED, layout TKL",
 		price: 229,
 		stock_quantity: 25,
-		stock_sold: 185,
 		image_url: "keyboard-1.jpg",
 		category_id: 8,
 		created_at: "2024-09-14"
@@ -886,7 +814,6 @@ const products = [
 			"Switch ottici lineari, polling rate 8000Hz, retroilluminazione Chroma RGB",
 		price: 199,
 		stock_quantity: 30,
-		stock_sold: 105,
 		image_url: "keyboard-2.jpg",
 		category_id: 8,
 		created_at: "2024-09-14"
@@ -898,7 +825,6 @@ const products = [
 		specs: "Switch Cherry MX Brown, 6 tasti macro, retroilluminazione RGB",
 		price: 229,
 		stock_quantity: 18,
-		stock_sold: 105,
 		image_url: "keyboard-3.jpg",
 		category_id: 8,
 		created_at: "2024-09-14"
@@ -911,7 +837,6 @@ const products = [
 		specs: "Display OLED integrato, alluminio aeronautico, RGB dinamico",
 		price: 219,
 		stock_quantity: 22,
-		stock_sold: 105,
 		image_url: "keyboard-4.jpg",
 		category_id: 8,
 		created_at: "2024-09-14"
@@ -923,7 +848,6 @@ const products = [
 		specs: "Switch HyperX Red, struttura in alluminio, layout compatto",
 		price: 119,
 		stock_quantity: 40,
-		stock_sold: 105,
 		image_url: "keyboard-5.jpg",
 		category_id: 8,
 		created_at: "2024-09-14"
@@ -936,7 +860,6 @@ const products = [
 		specs: "Switch Gateron Red, anti-ghosting, full RGB",
 		price: 99,
 		stock_quantity: 35,
-		stock_sold: 105,
 		image_url: "keyboard-6.jpg",
 		category_id: 8,
 		created_at: "2024-09-14"
@@ -949,7 +872,6 @@ const products = [
 		specs: "Switch Cherry MX Red, formato 60%, keycaps Double-shot PBT",
 		price: 139,
 		stock_quantity: 28,
-		stock_sold: 105,
 		image_url: "keyboard-7.jpg",
 		category_id: 8,
 		created_at: "2024-09-14"
@@ -961,7 +883,6 @@ const products = [
 		specs: "Switch RX Red ottici, anti-ghosting, costruzione in alluminio",
 		price: 159,
 		stock_quantity: 20,
-		stock_sold: 105,
 		image_url: "keyboard-8.jpg",
 		category_id: 8,
 		created_at: "2024-09-14"
@@ -973,7 +894,6 @@ const products = [
 		specs: "Layout 75%, gasket mounted, RGB per-key, hot-swap",
 		price: 169,
 		stock_quantity: 15,
-		stock_sold: 105,
 		image_url: "keyboard-9.jpg",
 		category_id: 8,
 		created_at: "2024-09-14"
@@ -985,7 +905,6 @@ const products = [
 		specs: "Switch Gateron, Bluetooth 5.1, batteria 4000mAh",
 		price: 89,
 		stock_quantity: 45,
-		stock_sold: 105,
 		image_url: "keyboard-10.jpg",
 		category_id: 8,
 		created_at: "2024-09-14"
@@ -997,7 +916,6 @@ const products = [
 		specs: "49'' QLED, 5120x1440, 240Hz, 1ms, HDR1000",
 		price: 1499,
 		stock_quantity: 12,
-		stock_sold: 55,
 		image_url: "monitor-1.jpg",
 		category_id: 9,
 		created_at: "2024-09-14"
@@ -1009,7 +927,6 @@ const products = [
 		specs: "27'' Nano IPS, 3840x2160, 144Hz, 1ms, HDR600",
 		price: 899,
 		stock_quantity: 20,
-		stock_sold: 55,
 		image_url: "monitor-2.jpg",
 		category_id: 9,
 		created_at: "2024-09-14"
@@ -1021,7 +938,6 @@ const products = [
 		specs: "24.5'' IPS, 1920x1080, 360Hz, 1ms, G-Sync",
 		price: 699,
 		stock_quantity: 25,
-		stock_sold: 55,
 		image_url: "monitor-3.jpg",
 		category_id: 9,
 		created_at: "2024-09-14"
@@ -1033,7 +949,6 @@ const products = [
 		specs: "34'' IPS curvo, 3440x1440, 180Hz, HDR400",
 		price: 999,
 		stock_quantity: 18,
-		stock_sold: 35,
 		image_url: "monitor-4.jpg",
 		category_id: 9,
 		created_at: "2024-09-14"
@@ -1045,7 +960,6 @@ const products = [
 		specs: "32'' IPS, 3840x2160, 144Hz, 1ms, HDMI 2.1",
 		price: 749,
 		stock_quantity: 22,
-		stock_sold: 35,
 		image_url: "monitor-5.jpg",
 		category_id: 9,
 		created_at: "2024-09-14"
@@ -1057,7 +971,6 @@ const products = [
 		specs: "27'' QHD, 2560x1440, 165Hz, 1ms, HDR",
 		price: 449,
 		stock_quantity: 30,
-		stock_sold: 35,
 		image_url: "monitor-6.jpg",
 		category_id: 9,
 		created_at: "2024-09-14"
@@ -1069,7 +982,6 @@ const products = [
 		specs: "34'' QD-OLED, 3440x1440, 175Hz, HDR TrueBlack 400",
 		price: 1299,
 		stock_quantity: 14,
-		stock_sold: 35,
 		image_url: "monitor-7.jpg",
 		category_id: 9,
 		created_at: "2024-09-14"
@@ -1081,7 +993,6 @@ const products = [
 		specs: "34'' IPS curvo, 3440x1440, 144Hz, HDR400",
 		price: 849,
 		stock_quantity: 16,
-		stock_sold: 85,
 		image_url: "monitor-8.jpg",
 		category_id: 9,
 		created_at: "2024-09-14"
@@ -1093,7 +1004,6 @@ const products = [
 		specs: "24'' IPS, 1920x1080, 144Hz, 1ms, FreeSync",
 		price: 199,
 		stock_quantity: 40,
-		stock_sold: 85,
 		image_url: "monitor-9.jpg",
 		category_id: 9,
 		created_at: "2024-09-14"
@@ -1105,7 +1015,6 @@ const products = [
 		specs: "27'' IPS, 2560x1440, 165Hz, HDR400",
 		price: 429,
 		stock_quantity: 26,
-		stock_sold: 85,
 		image_url: "monitor-10.jpg",
 		category_id: 9,
 		created_at: "2024-09-14"
@@ -1118,7 +1027,6 @@ const products = [
 		specs: "Mid Tower, 4 ventole incluse, supporto GPU fino a 400mm",
 		price: 129,
 		stock_quantity: 20,
-		stock_sold: 85,
 		image_url: "case-1.jpg",
 		category_id: 10,
 		created_at: "2024-09-14"
@@ -1130,7 +1038,6 @@ const products = [
 		specs: "Micro ATX, pannelli fonoassorbenti, USB-C frontale",
 		price: 99,
 		stock_quantity: 25,
-		stock_sold: 85,
 		image_url: "case-2.jpg",
 		category_id: 10,
 		created_at: "2024-09-14"
@@ -1143,7 +1050,6 @@ const products = [
 		specs: "ATX, 3 ventole RGB, radiatore 360mm",
 		price: 149,
 		stock_quantity: 15,
-		stock_sold: 25,
 		image_url: "case-3.jpg",
 		category_id: 10,
 		created_at: "2024-09-14"
@@ -1156,7 +1062,6 @@ const products = [
 		specs: "Mini Tower, airflow passivo, compatibile con SSD M.2",
 		price: 69,
 		stock_quantity: 30,
-		stock_sold: 95,
 		image_url: "case-4.jpg",
 		category_id: 10,
 		created_at: "2024-09-14"
@@ -1168,7 +1073,6 @@ const products = [
 		specs: "Full Tower, supporto GPU verticale, 5 ventole incluse",
 		price: 179,
 		stock_quantity: 10,
-		stock_sold: 75,
 		image_url: "case-5.jpg",
 		category_id: 10,
 		created_at: "2024-09-14"
@@ -1180,7 +1084,6 @@ const products = [
 		specs: "Mini ITX, alluminio spazzolato, gestione cavi ottimizzata",
 		price: 109,
 		stock_quantity: 18,
-		stock_sold: 205,
 		image_url: "case-6.jpg",
 		category_id: 10,
 		created_at: "2024-09-14"
@@ -1193,7 +1096,6 @@ const products = [
 		specs: "ATX, doppio compartimento, pannello in vetro fumé",
 		price: 199,
 		stock_quantity: 8,
-		stock_sold: 205,
 		image_url: "case-7.jpg",
 		category_id: 10,
 		created_at: "2024-09-14"
@@ -1206,7 +1108,6 @@ const products = [
 		specs: "Mid Tower, pannelli removibili, supporto fino a 9 ventole",
 		price: 139,
 		stock_quantity: 12,
-		stock_sold: 205,
 		image_url: "case-8.jpg",
 		category_id: 10,
 		created_at: "2024-09-14"
@@ -1218,7 +1119,6 @@ const products = [
 		specs: "ATX, design compatto, porte USB 3.2 frontali",
 		price: 89,
 		stock_quantity: 22,
-		stock_sold: 77,
 		image_url: "case-9.jpg",
 		category_id: 10,
 		created_at: "2024-09-14"
@@ -1231,7 +1131,6 @@ const products = [
 		specs: "Full Tower, vetro temperato, supporto GPU 420mm",
 		price: 159,
 		stock_quantity: 14,
-		stock_sold: 77,
 		image_url: "case-10.jpg",
 		category_id: 10,
 		created_at: "2024-09-14"
@@ -1244,7 +1143,6 @@ const products = [
 		specs: "Potenza 240W, DTS:X Ultra, Bluetooth + Jack 3.5mm + USB",
 		price: 199,
 		stock_quantity: 25,
-		stock_sold: 77,
 		image_url: "speaker-1.jpg",
 		category_id: 11,
 		created_at: "2024-02-01"
@@ -1257,7 +1155,6 @@ const products = [
 		specs: "THX, Dolby Virtual Surround, connessione USB + Bluetooth",
 		price: 499,
 		stock_quantity: 12,
-		stock_sold: 85,
 		image_url: "speaker-2.jpg",
 		category_id: 11,
 		created_at: "2024-02-01"
@@ -1269,7 +1166,6 @@ const products = [
 		specs: "Potenza 20W RMS, USB-C, Jack 3.5mm, Bluetooth 5.3",
 		price: 79,
 		stock_quantity: 40,
-		stock_sold: 105,
 		image_url: "speaker-3.jpg",
 		category_id: 11,
 		created_at: "2024-02-01"
@@ -1281,7 +1177,6 @@ const products = [
 		specs: "Potenza 32W, Bluetooth 5.0, USB + AUX",
 		price: 109,
 		stock_quantity: 30,
-		stock_sold: 85,
 		image_url: "speaker-4.jpg",
 		category_id: 11,
 		created_at: "2024-02-01"
@@ -1293,7 +1188,6 @@ const products = [
 		specs: "Potenza 100W, Bluetooth, USB + Jack 3.5mm",
 		price: 329,
 		stock_quantity: 18,
-		stock_sold: 75,
 		image_url: "speaker-5.jpg",
 		category_id: 11,
 		created_at: "2024-02-01"
@@ -1305,7 +1199,6 @@ const products = [
 		specs: "Potenza 22W, Jack 3.5mm doppio ingresso, controllo volume",
 		price: 129,
 		stock_quantity: 28,
-		stock_sold: 75,
 		image_url: "speaker-6.jpg",
 		category_id: 11,
 		created_at: "2024-02-01"
@@ -1317,7 +1210,6 @@ const products = [
 		specs: "Potenza 140W, Bluetooth, subwoofer dedicato",
 		price: 299,
 		stock_quantity: 14,
-		stock_sold: 75,
 		image_url: "speaker-7.jpg",
 		category_id: 11,
 		created_at: "2024-02-01"
@@ -1330,7 +1222,6 @@ const products = [
 		specs: "Potenza 20W RMS, Bluetooth + Jack 3.5mm, RGB",
 		price: 159,
 		stock_quantity: 22,
-		stock_sold: 95,
 		image_url: "speaker-8.jpg",
 		category_id: 11,
 		created_at: "2024-02-01"
@@ -1343,7 +1234,6 @@ const products = [
 		specs: "Potenza 200W, THX Certified, Jack 3.5mm",
 		price: 299,
 		stock_quantity: 16,
-		stock_sold: 95,
 		image_url: "speaker-9.jpg",
 		category_id: 11,
 		created_at: "2024-02-01"
@@ -1355,7 +1245,6 @@ const products = [
 		specs: "Potenza 180W, telecomando wireless, jack 3.5mm",
 		price: 149,
 		stock_quantity: 35,
-		stock_sold: 95,
 		image_url: "speaker-10.jpg",
 		category_id: 11,
 		created_at: "2024-02-01"
