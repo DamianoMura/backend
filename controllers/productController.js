@@ -7,9 +7,9 @@ const allProducts = (req, res) => {
 	let closeQuery = ";";
 
   // Sort by recent (assuming product_id is auto-increment)
-  if (req.query.filter === "latest") {sorting = " ORDER BY DATE(created_at) DESC LIMIT 10";	console.log("Sorting by latest",req.query);}
+  if (req.query.filter === "latest") sorting = " ORDER BY DATE(created_at) DESC LIMIT 10";
   // Sort by popular (if you have a sales count field, otherwise fallback)
-  if (req.query.filter === "popular") {sorting = " ORDER BY product_id ASC LIMIT 10";	console.log("Sorting by popular",req.query);}
+  if (req.query.filter === "popular") sorting = " ORDER BY stock_quantity ASC LIMIT 10";
 
   connection.query(baseQuery + sorting + closeQuery, (err, results) => {
     if (err)
