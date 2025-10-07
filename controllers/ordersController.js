@@ -12,15 +12,53 @@ const index = (req, res) => {
 // Handler to get a single order by id
 const show = (req, res) => {
 	const { id } = req.params;
+
+	// 1) Recupera i dati dell’ordine
 	connection.query(
-		"SELECT * FROM orders WHERE order_id = ?",
+		"SELECT order_id, customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date, discount_code_id FROM orders WHERE order_id = ?",
 		[id],
-		(err, results) => {
-			if (err)
-				return res.status(500).json({ error: "Query failed", details: err });
-			if (!results.length)
+		(err, orders) => {
+			if (err) {
+				return res
+					.status(500)
+					.json({ error: "Query orders failed", details: err });
+			}
+			if (!orders.length) {
 				return res.status(404).json({ error: "Order not found!" });
-			res.status(200).json(results[0]);
+			}
+
+			const order = orders[0];
+
+			// 2) Recupera tutti gli articoli associati
+			connection.query(
+				"SELECT order_item_id, product_id, name, description, specs, price, quantity FROM order_items WHERE order_id = ?",
+				[id],
+				(err, items) => {
+					if (err) {
+						return res
+							.status(500)
+							.json({ error: "Query order_items failed", details: err });
+					}
+
+					// 3) Costruisci l’oggetto finale includendo l’array items
+					const result = {
+						order_id: order.order_id,
+						customer_name: order.customer_name,
+						customer_email: order.customer_email,
+						address_street: order.address_street,
+						address_street_number: order.address_street_number,
+						address_city: order.address_city,
+						postal_code: order.postal_code,
+						country: order.country,
+						billing: order.billing,
+						order_date: order.order_date,
+						discount_code_id: order.discount_code_id,
+						items: items,
+					};
+
+					return res.status(200).json(result);
+				}
+			);
 		}
 	);
 };
