@@ -83,7 +83,7 @@ const seedCategories = () => {
 	
 	categories.forEach((category, index) => {
 		pool.query(
-			"INSERT INTO categories (name, icon) VALUES (?, ?) ON DUPLICATE KEY UPDATE name=name",
+			"INSERT INTO categories (name, icon) VALUES (?, ?)",
 			[category.name, category.icon],
 			(err) => {
 				if (err) console.log("query failed", err);
