@@ -58,7 +58,7 @@ const seedDiscountCodes = () => {
 const seedProducts = () => {
 	products.forEach((product, index) => {
 		pool.query(
-			"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id, ,category_name created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+			"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id, category_name, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 			[
 				product.name,
 				product.brand,
@@ -125,8 +125,8 @@ const seedOrderItems = () => {
 		pool.query(
 			"INSERT INTO order_items (order_id, product_id, name, price, quantity) VALUES ( ?, ?, ?, ?, ?)",
 			[
-				orderItem.order_id,
-				orderItem.product_id,
+				parseInt(orderItem.order_id),
+				parseInt(orderItem.product_id),
 				orderItem.name,
 				orderItem.price,
 				orderItem.quantity
