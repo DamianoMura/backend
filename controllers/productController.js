@@ -28,11 +28,11 @@ const allProducts = (req, res) => {
 
 // Handler to get a single product by id
 const showProduct = (req, res) => {
-	const { id } = req.params;
+	const { slug } = req.params;
 
 	connection.query(
-		"SELECT * FROM products WHERE product_id = ?",
-		[id],
+		"SELECT *  FROM products WHERE slug = ?",
+		[slug],
 		(err, results) => {
 			if (err)
 				return res.status(500).json({ error: "Query failed", details: err });
@@ -59,8 +59,11 @@ const addProduct = (req, res) => {
 		category_name,
 		created_at = new Date(),
 	} = req.body;
+	let slug = brand.toLowerCase().replaceAll(" ","-").replaceAll(".","-")+"-"+name.toLowerCase().replaceAll(" ","-").replaceAll(".","-");
+	slug=`${slug}`;
+  
 	connection.query(
-		"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id, category_name, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+		"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id, category_name, created_at,slug) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 		[
 			name,
 			brand,
@@ -72,6 +75,7 @@ const addProduct = (req, res) => {
 			category_id,
 			category_name,
 			created_at,
+			slug
 		],
 		(err, result) => {
 			if (err)
@@ -90,6 +94,7 @@ const addProduct = (req, res) => {
 				category_id,
 				category_name,
 				created_at,
+				slug
 			});
 		}
 	);

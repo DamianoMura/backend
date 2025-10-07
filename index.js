@@ -4,7 +4,6 @@ console.log("starting up index.js"); //debug
 //importing express
 const express = require("express");
 const imagePathMiddleware = require('./middlewares/imagePathMiddleware.js')
-const slugMiddleware = require('./middlewares/imagePathMiddleware.js')
 const app = express();
 
 app.use(express.static("public"));
@@ -15,9 +14,7 @@ app.use(express.static("public"));
 
 app.use(express.json());
 const setImagePath = require("./middlewares/imagePathMiddleware.js");
-const setSlugPath = require("./middlewares/slugMiddleware.js");
 app.use(imagePathMiddleware);
-app.use(slugMiddleware);
 const cors = require("cors");
 const corsOptions = {
 	origin: "http://localhost:5173",
@@ -38,7 +35,6 @@ app.use("/categories", categoriesRoutes);
 app.use("/products", productsRoutes);
 app.use("/discount-codes", discountCodesRoutes);
 app.use('/products', productsRoutes, setImagePath);
-app.use('/products', productsRoutes, setSlugPath);
 // app.use("/order-items", orderItemsRoutes);
 
 app.get("/", (req, res) => {

@@ -1361,10 +1361,11 @@ const products = [
 	},
 ];
 
-const sluggedProducts = products.map((product)=>{
-  let slug = product.brand.toLowerCase()+"-"+product.name.toLowerCase().replaceAll(" ","-").replaceAll(".","-")
-
+let sluggedProducts =[]; 
+products.map((product,index)=>{
+  let slug = product.brand.toLowerCase().replaceAll(" ","-").replaceAll(".","-")+"-"+product.name.toLowerCase().replaceAll(" ","-").replaceAll(".","-");
   product.slug=slug
-  console.log(product)
+	sluggedProducts.push(product)
 })
+console.log(sluggedProducts,"here we end products.js")
 module.exports = sluggedProducts;

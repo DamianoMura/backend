@@ -3,7 +3,7 @@
     //table categories
     "CREATE TABLE categories (category_id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255) UNIQUE, icon VARCHAR(255));",
     //table products
-    "CREATE TABLE products (product_id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), brand VARCHAR(255), description TEXT, specs TEXT, price DECIMAL(8,2) NOT NULL, stock_quantity BIGINT, category_name VARCHAR(255), image_url VARCHAR(255), category_id INT,created_at DATE NOT NULL);",
+    "CREATE TABLE products (product_id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(255), brand VARCHAR(255), description TEXT, specs TEXT, price DECIMAL(8,2) NOT NULL, stock_quantity BIGINT, category_name VARCHAR(255),slug VARCHAR(255), image_url VARCHAR(255), category_id INT,created_at DATE NOT NULL);",
     //table discounted_items
     "CREATE TABLE discounted_items (discounted_items_id INT PRIMARY KEY AUTO_INCREMENT, product_id INT, discount_value TINYINT);",
     "CREATE TABLE discount_codes (code_id INT PRIMARY KEY AUTO_INCREMENT, code VARCHAR(255) UNIQUE, discount_percent INT, valid_from DATE, valid_until DATE);",
