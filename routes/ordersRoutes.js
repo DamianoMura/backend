@@ -12,9 +12,9 @@ router.get("/:id", ordersController.show);
 router.post("/", ordersController.create);
 
 // Route for updating an order by id
-router.put("/:id", ordersController.update);
+// router.put("/:id", ordersController.update);
 
 // Route for deleting an order by id
-router.delete("/:id", ordersController.destroy);
+// router.delete("/:id", ordersController.destroy);
 
 module.exports = router;
