@@ -37,7 +37,6 @@ const create = (req, res) => {
 		country,
 		billing,
 		order_date,
-		total_price,
 		discount_code_id,
 	} = req.body;
 	connection.query(
@@ -71,7 +70,6 @@ const create = (req, res) => {
 				country,
 				billing,
 				order_date,
-				total_price,
 				discount_code_id,
 			});
 		}
