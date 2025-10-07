@@ -17,6 +17,8 @@ const allProducts = (req, res) => {
   connection.query(baseQuery + sorting, (err, results) => {
     if (err)
       return res.status(500).json({ error: "Query failed", details: err });
+		results[0].image_url = req.imagePath+results[0].image_url
+      results[0].price=parseFloat(results[0].price)
     res.status(200).json(results);
   });
 };
@@ -24,6 +26,8 @@ const allProducts = (req, res) => {
 // Handler to get a single product by id
 const showProduct = (req, res) => {
 	const { id } = req.params;
+
+	 
 	connection.query(
 		"SELECT * FROM products WHERE product_id = ?",
 		[id],
@@ -32,7 +36,8 @@ const showProduct = (req, res) => {
 				return res.status(500).json({ error: "Query failed", details: err });
 			if (!results.length)
 				return res.status(404).json({ error: "Product not found!" });
-			results[0].price=parseFloat(results[0].price)
+			results[0].image_url = req.imagePath+results[0].image_url
+      results[0].price=parseFloat(results[0].price)
 			res.status(200).json(results[0]);
 		}
 	);
