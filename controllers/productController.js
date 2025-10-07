@@ -32,6 +32,7 @@ const showProduct = (req, res) => {
 				return res.status(500).json({ error: "Query failed", details: err });
 			if (!results.length)
 				return res.status(404).json({ error: "Product not found!" });
+			results[0].price=parseFloat(results[0].price)
 			res.status(200).json(results[0]);
 		}
 	);
@@ -44,7 +45,7 @@ const addProduct = (req, res) => {
 		brand,
 		description,
 		specs,
-		price,
+		price=parseFloat(price),
 		stock_quantity,
 		image_url,
 		category_id,

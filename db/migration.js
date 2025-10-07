@@ -40,12 +40,12 @@ function createDB(){
           console.error("Database drop error", err);
         } else {    
           console.log(`Database ${DB_NAME} dropped.`);
-          createDB(connection);
+          createDB();
         } 
       });
     }
     else {
-      createDB(connection);
+      createDB();
            
     }
   });
