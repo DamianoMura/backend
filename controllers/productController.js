@@ -2,23 +2,23 @@ const { connection } = require("../db/db");
 
 // Handler to get all products, with sorting/filter support
 const allProducts = (req, res) => {
-  let baseQuery = "SELECT * FROM products";
-  let sorting = ";";
+	let baseQuery = "SELECT * FROM products";
+	let sorting = ";";
 
-  // Sort by recent (assuming product_id is auto-increment)
-  if (req.query.filter === "latest") sorting = " ORDER BY DATE(created_at) DESC;";
- 
-  if (req.query.filter === "popular") {
+	// Sort by recent (assuming product_id is auto-increment)
+	if (req.query.filter === "latest")
+		sorting = " ORDER BY DATE(created_at) DESC;";
+
+	if (req.query.filter === "popular") {
 		baseQuery = `SELECT products.* FROM products`;
 		sorting = ` JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id ORDER BY sum(order_items.quantity) DESC;`;
-  }
-	
+	}
 
-  connection.query(baseQuery + sorting, (err, results) => {
-    if (err)
-      return res.status(500).json({ error: "Query failed", details: err });
-    res.status(200).json(results);
-  });
+	connection.query(baseQuery + sorting, (err, results) => {
+		if (err)
+			return res.status(500).json({ error: "Query failed", details: err });
+		res.status(200).json(results);
+	});
 };
 
 // Handler to get a single product by id
@@ -32,7 +32,7 @@ const showProduct = (req, res) => {
 				return res.status(500).json({ error: "Query failed", details: err });
 			if (!results.length)
 				return res.status(404).json({ error: "Product not found!" });
-			results[0].price=parseFloat(results[0].price)
+			results[0].price = parseFloat(results[0].price);
 			res.status(200).json(results[0]);
 		}
 	);
@@ -45,12 +45,12 @@ const addProduct = (req, res) => {
 		brand,
 		description,
 		specs,
-		price=parseFloat(price),
+		price = parseFloat(price),
 		stock_quantity,
 		image_url,
 		category_id,
 		category_name,
-		created_at=new Date()
+		created_at = new Date(),
 	} = req.body;
 	connection.query(
 		"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id, category_name, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -64,28 +64,26 @@ const addProduct = (req, res) => {
 			image_url,
 			category_id,
 			category_name,
-			created_at
+			created_at,
 		],
 		(err, result) => {
 			if (err)
 				return res
 					.status(500)
 					.json({ error: "Product insert error", details: err });
-			res
-				.status(201)
-				.json({
-					id: result.insertId,
-					name,
-					brand,
-					description,
-					specs,
-					price,
-					stock_quantity,
-					image_url,
-					category_id,
-					category_name,
-					created_at
-				});
+			res.status(201).json({
+				id: result.insertId,
+				name,
+				brand,
+				description,
+				specs,
+				price,
+				stock_quantity,
+				image_url,
+				category_id,
+				category_name,
+				created_at,
+			});
 		}
 	);
 };
@@ -103,7 +101,7 @@ const modifyProduct = (req, res) => {
 		image_url,
 		category_id,
 		category_name,
-		created_at
+		created_at,
 	} = req.body;
 	connection.query(
 		"UPDATE products SET name = ?, brand = ?, description = ?, specs = ?, price = ?, stock_quantity = ?, image_url = ?, category_id = ?,category_name = ?, created_at = ? WHERE product_id = ?",
@@ -138,7 +136,7 @@ const modifyProduct = (req, res) => {
 				image_url,
 				category_id,
 				category_name,
-				created_at
+				created_at,
 			});
 		}
 	);
@@ -163,9 +161,9 @@ const deleteProduct = (req, res) => {
 };
 
 module.exports = {
-  allProducts,
-  showProduct,
-  addProduct,
-  modifyProduct,
-  deleteProduct,
+	allProducts,
+	showProduct,
+	addProduct,
+	modifyProduct,
+	deleteProduct,
 };

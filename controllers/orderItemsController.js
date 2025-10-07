@@ -35,10 +35,9 @@ const create = (req, res) => {
 		specs,
 		price,
 		quantity,
-		price_at_purchase,
 	} = req.body;
 	connection.query(
-		"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity,price_at_purchase) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+		"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity) VALUES (?, ?, ?, ?, ?, ?, ?)",
 		[
 			order_id,
 			product_id,
@@ -47,7 +46,6 @@ const create = (req, res) => {
 			specs,
 			price,
 			quantity,
-			price_at_purchase,
 		],
 		(err, result) => {
 			if (err)
@@ -62,8 +60,7 @@ const create = (req, res) => {
 				description,
 				specs,
 				price,
-				quantity,
-				price_at_purchase,
+				quantity
 			});
 		}
 	);
@@ -79,11 +76,10 @@ const update = (req, res) => {
 		description,
 		specs,
 		price,
-		quantity,
-		price_at_purchase,
+		quantity
 	} = req.body;
 	connection.query(
-		"UPDATE order_items SET order_id = ?, product_id = ?, name = ?, description = ?, specs = ?, price = ?, quantity = ?,price_at_purchase = ? WHERE order_item_id = ?",
+		"UPDATE order_items SET order_id = ?, product_id = ?, name = ?, description = ?, specs = ?, price = ?, quantity = ? WHERE order_item_id = ?",
 		[
 			order_id,
 			product_id,
@@ -92,7 +88,6 @@ const update = (req, res) => {
 			specs,
 			price,
 			quantity,
-			price_at_purchase,
 		],
 		(err, result) => {
 			if (err)
