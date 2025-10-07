@@ -9,6 +9,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "laptop-icon-1.jpg",
 		category_id: 1,
+		category_name: "Laptop",
 		created_at: "2024-06-01"
 	},
 	{
@@ -21,6 +22,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "laptop-icon-2.jpg",
 		category_id: 1,
+		category_name: "Laptop",
 		created_at: "2024-06-02"
 	},
 	{
@@ -33,6 +35,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "laptop-icon-3.jpg",
 		category_id: 1,
+		category_name: "Laptop",
 		created_at: "2023-06-01"
 	},
 	{
@@ -44,6 +47,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "laptop-icon-4.jpg",
 		category_id: 1,
+		category_name: "Laptop",
 		created_at: "2025-06-14"
 	},
 	{
@@ -55,6 +59,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "laptop-icon-5.jpg",
 		category_id: 1,
+		category_name: "Laptop",
 		created_at: "2025-10-06"
 	},
 	{
@@ -67,6 +72,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "laptop-icon-6.jpg",
 		category_id: 1,
+		category_name: "Laptop",
 		created_at: "2023-09-01"
 	},
 	{
@@ -78,6 +84,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "laptop-icon-7.jpg",
 		category_id: 1,
+		category_name: "Laptop",
 		created_at: "2024-02-25"
 	},
 	{
@@ -89,6 +96,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "laptop-icon-8.jpg",
 		category_id: 1,
+		category_name: "Laptop",
 		created_at: "2024-06-01"
 	},
 	{
@@ -100,6 +108,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "laptop-icon-9.jpg",
 		category_id: 1,
+		category_name: "Laptop",
 		created_at: "2024-06-01"
 	},
 	{
@@ -111,6 +120,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "laptop-icon-10.jpg",
 		category_id: 1,
+		category_name: "Laptop",
 		created_at: "2024-06-01"
 	},
 	{
@@ -122,6 +132,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "phone-icon-1.jpg",
 		category_id: 2,
+		category_name: "Phones",
 		created_at: "2024-07-01"
 	},
 	{
@@ -133,6 +144,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "phone-icon-2.jpg",
 		category_id: 2,
+		category_name: "Phones",
 		created_at: "2024-07-01"
 	},
 	{
@@ -144,6 +156,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "phone-icon-3.jpg",
 		category_id: 2,
+		category_name: "Phones",
 		created_at: "2024-07-01"
 	},
 	{
@@ -155,6 +168,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "phone-icon-4.jpg",
 		category_id: 2,
+		category_name: "Phones",
 		created_at: "2024-07-01"
 	},
 	{
@@ -166,6 +180,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "phone-icon-5.jpg",
 		category_id: 2,
+		category_name: "Phones",
 		created_at: "2024-07-01"
 	},
 	{
@@ -177,6 +192,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "phone-icon-6.jpg",
 		category_id: 2,
+		category_name: "Phones",
 		created_at: "2024-07-01"
 	},
 	{
@@ -188,6 +204,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "phone-icon-7.jpg",
 		category_id: 2,
+		category_name: "Phones",
 		created_at: "2024-07-01"
 	},
 	{
@@ -199,6 +216,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "phone-icon-8.jpg",
 		category_id: 2,
+		category_name: "Phones",
 		created_at: "2024-07-01"
 	},
 	{
@@ -210,6 +228,7 @@ const products = [
 		stock_quantity: 50,
 		image_url: "phone-icon-9.jpg",
 		category_id: 2,
+		category_name: "Phones",
 		created_at: "2024-07-01"
 	},
 	{
@@ -221,6 +240,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "phone-icon-10.jpg",
 		category_id: 2,
+		category_name: "Phones",
 		created_at: "2024-07-01"
 	},
 	{
@@ -233,6 +253,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "headCuff-1.jpg",
 		category_id: 3,
+		category_name: "Headset",
 		created_at: "2025-07-01"
 	},
 	{
@@ -244,6 +265,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "headCuff-2.jpg",
 		category_id: 3,
+		category_name: "Headset",
 		created_at: "2025-07-01"
 	},
 	{
@@ -255,6 +277,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "headCuff-3.jpg",
 		category_id: 3,
+		category_name: "Headset",
 		created_at: "2025-07-01"
 	},
 	{
@@ -266,6 +289,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "headCuff-4.jpg",
 		category_id: 3,
+		category_name: "Headset",
 		created_at: "2025-07-01"
 	},
 	{
@@ -277,6 +301,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "headCuff-5.jpg",
 		category_id: 3,
+		category_name: "Headset",
 		created_at: "2025-07-01"
 	},
 	{
@@ -288,6 +313,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "headCuff-6.jpg",
 		category_id: 3,
+		category_name: "Headset",
 		created_at: "2025-07-01"
 	},
 	{
@@ -299,6 +325,7 @@ const products = [
 		stock_quantity: 16,
 		image_url: "headCuff-7.jpg",
 		category_id: 3,
+		category_name: "Headset",
 		created_at: "2025-07-01"
 	},
 	{
@@ -310,6 +337,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "headCuff-8.jpg",
 		category_id: 3,
+		category_name: "Headset",
 		created_at: "2025-07-01"
 	},
 	{
@@ -321,6 +349,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "headCuff-9.jpg",
 		category_id: 3,
+		category_name: "Headset",
 		created_at: "2025-07-01"
 	},
 	{
@@ -333,6 +362,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "headCuff-10.jpg",
 		category_id: 3,
+		category_name: "Headset",
 		created_at: "2025-07-01"
 	},
 	{
@@ -346,6 +376,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "chairs-1.jpg",
 		category_id: 4,
+		category_name: "Gaming Chairs",
 		created_at: "2023-02-01"
 	},
 	{
@@ -358,6 +389,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "chairs-2.jpg",
 		category_id: 4,
+		category_name: "Gaming Chairs",
 		created_at: "2023-02-01"
 	},
 	{
@@ -369,6 +401,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "chairs-3.jpg",
 		category_id: 4,
+		category_name: "Gaming Chairs",
 		created_at: "2023-02-01"
 	},
 	{
@@ -380,6 +413,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "chairs-4.jpg",
 		category_id: 4,
+		category_name: "Gaming Chairs",
 		created_at: "2023-02-01"
 	},
 	{
@@ -392,6 +426,7 @@ const products = [
 		stock_sold: 83,
 		image_url: "chairs-5.jpg",
 		category_id: 4,
+		category_name: "Gaming Chairs",
 		created_at: "2023-02-01"
 	},
 	{
@@ -404,6 +439,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "chairs-6.jpg",
 		category_id: 4,
+		category_name: "Gaming Chairs",
 		created_at: "2023-02-01"
 	},
 	{
@@ -416,6 +452,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "chairs-7.jpg",
 		category_id: 4,
+		category_name: "Gaming Chairs",
 		created_at: "2023-02-01"
 	},
 	{
@@ -428,6 +465,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "chairs-8.jpg",
 		category_id: 4,
+		category_name: "Gaming Chairs",
 		created_at: "2023-02-01"
 	},
 	{
@@ -441,6 +479,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "chairs-9.jpg",
 		category_id: 4,
+		category_name: "Gaming Chairs",
 		created_at: "2023-02-01"
 	},
 	{
@@ -452,6 +491,7 @@ const products = [
 		stock_quantity: 50,
 		image_url: "chairs-10.jpg",
 		category_id: 4,
+		category_name: "Gaming Chairs",
 		created_at: "2023-02-01"
 	},
 	{
@@ -463,6 +503,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "desk-1.jpg",
 		category_id: 5,
+		category_name: "Gaming Tables",
 		created_at: "2023-02-01"
 	},
 	{
@@ -475,6 +516,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "desk-2.jpg",
 		category_id: 5,
+		category_name: "Gaming Tables",
 		created_at: "2023-02-01"
 	},
 	{
@@ -487,6 +529,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "desk-3.jpg",
 		category_id: 5,
+		category_name: "Gaming Tables",
 		created_at: "2023-02-01"
 	},
 	{
@@ -498,6 +541,7 @@ const products = [
 		stock_quantity: 8,
 		image_url: "desk-4.jpg",
 		category_id: 5,
+		category_name: "Gaming Tables",
 		created_at: "2023-02-01"
 	},
 	{
@@ -509,6 +553,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "desk-5.jpg",
 		category_id: 5,
+		category_name: "Gaming Tables",
 		created_at: "2023-02-01"
 	},
 	{
@@ -520,6 +565,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "desk-6.jpg",
 		category_id: 5,
+		category_name: "Gaming Tables",
 		created_at: "2023-02-01"
 	},
 	{
@@ -531,6 +577,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "desk-7.jpg",
 		category_id: 5,
+		category_name: "Gaming Tables",
 		created_at: "2023-02-01"
 	},
 	{
@@ -542,6 +589,7 @@ const products = [
 		stock_quantity: 6,
 		image_url: "desk-8.jpg",
 		category_id: 5,
+		category_name: "Gaming Tables",
 		created_at: "2023-02-01"
 	},
 	{
@@ -553,6 +601,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "desk-9.jpg",
 		category_id: 5,
+		category_name: "Gaming Tables",
 		created_at: "2025-09-14"
 	},
 	{
@@ -564,6 +613,7 @@ const products = [
 		stock_quantity: 5,
 		image_url: "desk-10.jpg",
 		category_id: 5,
+		category_name: "Gaming Tables",
 		created_at: "2025-09-14"		
 
 	},
@@ -577,6 +627,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "pc-1.jpg",
 		category_id: 6,
+		category_name: "Desktops",
 		created_at: "2025-09-14"
 	},
 	{
@@ -589,6 +640,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "pc-2.jpg",
 		category_id: 6,
+		category_name: "Desktops",
 		created_at: "2025-09-14"
 	},
 	{
@@ -600,6 +652,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "pc-3.jpg",
 		category_id: 6,
+		category_name: "Desktops",
 		created_at: "2025-09-14"
 	},
 	{
@@ -611,6 +664,7 @@ const products = [
 		stock_quantity: 6,
 		image_url: "pc-4.jpg",
 		category_id: 6,
+		category_name: "Desktops",
 		created_at: "2025-09-14"
 	},
 	{
@@ -623,6 +677,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "pc-5.jpg",
 		category_id: 6,
+		category_name: "Desktops",
 		created_at: "2025-09-14"
 	},
 	{
@@ -634,6 +689,7 @@ const products = [
 		stock_quantity: 5,
 		image_url: "pc-6.jpg",
 		category_id: 6,
+		category_name: "Desktops",
 		created_at: "2025-09-14"
 	},
 	{
@@ -646,6 +702,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "pc-7.jpg",
 		category_id: 6,
+		category_name: "Desktops",
 		created_at: "2024-09-14"
 	},
 	{
@@ -657,6 +714,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "pc-8.jpg",
 		category_id: 6,
+		category_name: "Desktops",
 		created_at: "2024-09-14"
 	},
 	{
@@ -668,6 +726,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "pc-9.jpg",
 		category_id: 6,
+		category_name: "Desktops",
 		created_at: "2024-09-14"
 	},
 	{
@@ -679,6 +738,7 @@ const products = [
 		stock_quantity: 7,
 		image_url: "pc-10.jpg",
 		category_id: 6,
+		category_name: "Desktops",
 		created_at: "2024-09-14"
 	},
 	{
@@ -691,6 +751,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "mouse-1.jpg",
 		category_id: 7,
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -702,6 +763,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "mouse-2.jpg",
 		category_id: 7,
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -713,6 +775,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "mouse-3.jpg",
 		category_id: 7,
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -724,6 +787,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "mouse-4.jpg",
 		category_id: 7,
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -735,6 +799,7 @@ const products = [
 		stock_quantity: 50,
 		image_url: "mouse-5.jpg",
 		category_id: 7,
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -747,6 +812,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "mouse-6.jpg",
 		category_id: 7,
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -758,6 +824,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "mouse-7.jpg",
 		category_id: 7,
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -769,6 +836,7 @@ const products = [
 		stock_quantity: 16,
 		image_url: "mouse-8.jpg",
 		category_id: 7,
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -780,6 +848,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "mouse-9.jpg",
 		category_id: 7,
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -791,6 +860,7 @@ const products = [
 		stock_quantity: 45,
 		image_url: "mouse-10.jpg",
 		category_id: 7,
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -803,6 +873,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "keyboard-1.jpg",
 		category_id: 8,
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -816,6 +887,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "keyboard-2.jpg",
 		category_id: 8,
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -827,6 +899,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "keyboard-3.jpg",
 		category_id: 8,
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -839,6 +912,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "keyboard-4.jpg",
 		category_id: 8,
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -850,6 +924,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "keyboard-5.jpg",
 		category_id: 8,
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -862,6 +937,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "keyboard-6.jpg",
 		category_id: 8,
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -874,6 +950,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "keyboard-7.jpg",
 		category_id: 8,
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -885,6 +962,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "keyboard-8.jpg",
 		category_id: 8,
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -896,6 +974,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "keyboard-9.jpg",
 		category_id: 8,
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -907,6 +986,7 @@ const products = [
 		stock_quantity: 45,
 		image_url: "keyboard-10.jpg",
 		category_id: 8,
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -918,6 +998,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "monitor-1.jpg",
 		category_id: 9,
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -929,6 +1010,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "monitor-2.jpg",
 		category_id: 9,
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -940,6 +1022,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "monitor-3.jpg",
 		category_id: 9,
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -951,6 +1034,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "monitor-4.jpg",
 		category_id: 9,
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -962,6 +1046,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "monitor-5.jpg",
 		category_id: 9,
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -973,6 +1058,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "monitor-6.jpg",
 		category_id: 9,
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -984,6 +1070,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "monitor-7.jpg",
 		category_id: 9,
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -995,6 +1082,7 @@ const products = [
 		stock_quantity: 16,
 		image_url: "monitor-8.jpg",
 		category_id: 9,
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1006,6 +1094,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "monitor-9.jpg",
 		category_id: 9,
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1017,6 +1106,7 @@ const products = [
 		stock_quantity: 26,
 		image_url: "monitor-10.jpg",
 		category_id: 9,
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1029,6 +1119,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "case-1.jpg",
 		category_id: 10,
+		category_name: "Speakers",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1040,6 +1131,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "case-2.jpg",
 		category_id: 10,
+		category_name: "Speakers",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1052,6 +1144,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "case-3.jpg",
 		category_id: 10,
+		category_name: "Speakers",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1064,6 +1157,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "case-4.jpg",
 		category_id: 10,
+		category_name: "Speakers",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1075,6 +1169,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "case-5.jpg",
 		category_id: 10,
+		category_name: "Speakers",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1086,6 +1181,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "case-6.jpg",
 		category_id: 10,
+		category_name: "Speakers",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1098,6 +1194,7 @@ const products = [
 		stock_quantity: 8,
 		image_url: "case-7.jpg",
 		category_id: 10,
+		category_name: "Speakers",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1110,6 +1207,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "case-8.jpg",
 		category_id: 10,
+		category_name: "Speakers",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1121,6 +1219,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "case-9.jpg",
 		category_id: 10,
+		category_name: "Speakers",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1133,6 +1232,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "case-10.jpg",
 		category_id: 10,
+		category_name: "Speakers",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1145,6 +1245,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "speaker-1.jpg",
 		category_id: 11,
+		category_name: "Speakers",
 		created_at: "2024-02-01"
 	},
 	{
@@ -1157,6 +1258,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "speaker-2.jpg",
 		category_id: 11,
+		category_name: "Speakers",
 		created_at: "2024-02-01"
 	},
 	{
@@ -1168,6 +1270,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "speaker-3.jpg",
 		category_id: 11,
+		category_name: "Speakers",
 		created_at: "2024-02-01"
 	},
 	{
@@ -1179,6 +1282,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "speaker-4.jpg",
 		category_id: 11,
+		category_name: "Speakers",
 		created_at: "2024-02-01"
 	},
 	{
@@ -1190,6 +1294,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "speaker-5.jpg",
 		category_id: 11,
+		category_name: "Speakers",
 		created_at: "2024-02-01"
 	},
 	{
@@ -1201,6 +1306,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "speaker-6.jpg",
 		category_id: 11,
+		category_name: "Speakers",
 		created_at: "2024-02-01"
 	},
 	{
@@ -1212,6 +1318,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "speaker-7.jpg",
 		category_id: 11,
+		category_name: "Speakers",
 		created_at: "2024-02-01"
 	},
 	{
@@ -1224,6 +1331,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "speaker-8.jpg",
 		category_id: 11,
+		category_name: "Speakers",
 		created_at: "2024-02-01"
 	},
 	{
@@ -1236,6 +1344,7 @@ const products = [
 		stock_quantity: 16,
 		image_url: "speaker-9.jpg",
 		category_id: 11,
+		category_name: "Speakers",
 		created_at: "2024-02-01"
 	},
 	{
@@ -1247,6 +1356,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "speaker-10.jpg",
 		category_id: 11,
+		category_name: "Speakers",
 		created_at: "2024-02-01"
 	},
 ];

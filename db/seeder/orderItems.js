@@ -5,7 +5,7 @@ const orderItems = [
 			product_name: "Laptop Nova X1",
 			description: "Ultrabook leggero con prestazioni elevate per professionisti in movimento",
 			specs: "Intel Core i7, 16GB RAM, 512GB SSD, 14\'\' FHD, Wi-Fi 6",
-			price: 1100,
+			price: 1099.99,
 			quantity: 1
 		},
 		{
