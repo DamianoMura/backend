@@ -37,11 +37,10 @@ const create = (req, res) => {
 		country,
 		billing,
 		order_date,
-		total_price,
 		discount_code_id,
 	} = req.body;
 	connection.query(
-		"INSERT INTO orders (customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date, total_price, discount_code_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+		"INSERT INTO orders (customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date, discount_code_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 		[
 			customer_name,
 			customer_email,
@@ -52,7 +51,6 @@ const create = (req, res) => {
 			country,
 			billing,
 			order_date,
-			total_price,
 			discount_code_id,
 		],
 		(err, result) => {
@@ -71,7 +69,6 @@ const create = (req, res) => {
 				country,
 				billing,
 				order_date,
-				total_price,
 				discount_code_id,
 			});
 		}
@@ -91,11 +88,10 @@ const update = (req, res) => {
 		country,
 		billing,
 		order_date,
-		total_price,
 		discount_code_id,
 	} = req.body;
 	connection.query(
-		"UPDATE orders SET customer_name = ?, customer_email = ?, address_street = ?, address_street_number = ?, address_city = ?, postal_code = ?, country = ?, billing = ?, order_date = ?, total_price = ?, discount_code_id = ? WHERE order_id = ?",
+		"UPDATE orders SET customer_name = ?, customer_email = ?, address_street = ?, address_street_number = ?, address_city = ?, postal_code = ?, country = ?, billing = ?, order_date = ?  discount_code_id = ? WHERE order_id = ?",
 		[
 			customer_name,
 			customer_email,
@@ -106,7 +102,6 @@ const update = (req, res) => {
 			country,
 			billing,
 			order_date,
-			total_price,
 			discount_code_id,
 			id,
 		],
@@ -128,7 +123,6 @@ const update = (req, res) => {
 				country,
 				billing,
 				order_date,
-				total_price,
 				discount_code_id,
 			});
 		}
