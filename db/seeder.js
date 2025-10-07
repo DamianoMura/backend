@@ -124,12 +124,14 @@ const seedOrderItems = () => {
 	
 	orderItems.forEach((orderItem, index) => {
 		pool.query(
-			"INSERT INTO order_items (order_id, product_id, name, price, quantity) VALUES ( ?, ?, ?, ?, ?)",
+			"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity) VALUES ( ?, ?, ?, ?, ?, ?, ?)",
 			[
 				parseInt(orderItem.order_id),
 				parseInt(orderItem.product_id),
-				orderItem.name,
-				orderItem.price,
+				orderItem.product_name,
+				orderItem.description,
+				orderItem.specs,
+				parseFloat(orderItem.price),
 				orderItem.quantity
 			],
 			(err) => {
