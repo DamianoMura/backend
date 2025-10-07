@@ -46,13 +46,12 @@ const addProduct = (req, res) => {
 		specs,
 		price,
 		stock_quantity,
-		stock_sold,
 		image_url,
 		category_id,
-		created_at = new Date
+		created_at
 	} = req.body;
 	connection.query(
-		"INSERT INTO products (name, brand, description, specs, price, stock_quantity, stock_sold, image_url, category_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+		"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
 		[
 			name,
 			brand,
@@ -60,7 +59,6 @@ const addProduct = (req, res) => {
 			specs,
 			price,
 			stock_quantity,
-			stock_sold,
 			image_url,
 			category_id,
 			created_at
@@ -80,9 +78,9 @@ const addProduct = (req, res) => {
 					specs,
 					price,
 					stock_quantity,
-					stock_sold,
 					image_url,
 					category_id,
+					created_at
 				});
 		}
 	);
@@ -100,9 +98,10 @@ const modifyProduct = (req, res) => {
 		stock_quantity,
 		image_url,
 		category_id,
+		created_at
 	} = req.body;
 	connection.query(
-		"UPDATE products SET name = ?, brand = ?, description = ?, specs = ?, price = ?, stock_quantity = ?, image_url = ?, category_id = ? WHERE product_id = ?",
+		"UPDATE products SET name = ?, brand = ?, description = ?, specs = ?, price = ?, stock_quantity = ?, image_url = ?, category_id = ?, created_at = ? WHERE product_id = ?",
 		[
 			name,
 			brand,
@@ -112,6 +111,7 @@ const modifyProduct = (req, res) => {
 			stock_quantity,
 			image_url,
 			category_id,
+			created_at,
 			id,
 		],
 		(err, result) => {
@@ -131,6 +131,7 @@ const modifyProduct = (req, res) => {
 				stock_quantity,
 				image_url,
 				category_id,
+				created_at
 			});
 		}
 	);
