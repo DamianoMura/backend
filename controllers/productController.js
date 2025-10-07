@@ -17,7 +17,9 @@ const allProducts = (req, res) => {
 	connection.query(baseQuery + sorting, (err, results) => {
 		if (err)
 			return res.status(500).json({ error: "Query failed", details: err });
-		results[0].image_url = req.imagePath + results[0].image_url;
+		results.map((result)=>{
+			result.image_url=req.imagePath + result.image_url;
+		})
 		results[0].price = parseFloat(results[0].price);
 		res.status(200).json(results);
 	});
