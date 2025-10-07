@@ -115,6 +115,7 @@ const modifyProduct = (req, res) => {
 			stock_quantity,
 			image_url,
 			category_id,
+			category_name,
 			created_at,
 			id,
 		],
