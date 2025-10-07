@@ -19,6 +19,7 @@ const allProducts = (req, res) => {
 			return res.status(500).json({ error: "Query failed", details: err });
 		results.map((result)=>{
 			result.image_url=req.imagePath + result.image_url;
+			
 		})
 		results[0].price = parseFloat(results[0].price);
 		res.status(200).json(results);
