@@ -102,7 +102,7 @@ const addProduct = (req, res) => {
 
 // Handler to update a product by id
 const modifyProduct = (req, res) => {
-	const { id } = req.params;
+	const { slug } = req.params;
 	const {
 		name,
 		brand,
@@ -114,9 +114,10 @@ const modifyProduct = (req, res) => {
 		category_id,
 		category_name,
 		created_at,
+		
 	} = req.body;
 	connection.query(
-		"UPDATE products SET name = ?, brand = ?, description = ?, specs = ?, price = ?, stock_quantity = ?, image_url = ?, category_id = ?,category_name = ?, created_at = ? WHERE product_id = ?",
+		"UPDATE products SET name = ?, brand = ?, description = ?, specs = ?, price = ?, stock_quantity = ?, image_url = ?, category_id = ?,category_name = ?, created_at = ? WHERE slug = ?",
 		[
 			name,
 			brand,
@@ -128,7 +129,7 @@ const modifyProduct = (req, res) => {
 			category_id,
 			category_name,
 			created_at,
-			id,
+			slug,
 		],
 		(err, result) => {
 			if (err)
@@ -156,10 +157,10 @@ const modifyProduct = (req, res) => {
 
 // Handler to delete a product by id
 const deleteProduct = (req, res) => {
-	const { id } = req.params;
+	const { slug } = req.params;
 	connection.query(
-		"DELETE FROM products WHERE product_id = ?",
-		[id],
+		"DELETE FROM products WHERE slug = ?",
+		[slug],
 		(err, result) => {
 			if (err)
 				return res
