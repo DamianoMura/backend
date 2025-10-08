@@ -4,16 +4,18 @@ const { connection } = require("../db/db");
 const allProducts = (req, res) => {
 	let baseQuery = "SELECT * FROM products";
 	let sorting = ";";
-
+	console.log(req.query)
 	// Sort by recent (assuming product_id is auto-increment)
-	if (req.query.filter === "latest")
+	if (req.query.sort === "latest")
 		sorting = " ORDER BY DATE(created_at) DESC;";
 
-	if (req.query.filter === "popular") {
+	if (req.query.sort === "popular") {
 		baseQuery = `SELECT products.* FROM products`;
 		sorting = ` JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id ORDER BY sum(order_items.quantity) DESC;`;
 	}
 
+	if (req.query.sort === "price") {}
+	if (req.query.sort === "category_name") {}
 	connection.query(baseQuery + sorting, (err, results) => {
 		if (err)
 			return res.status(500).json({ error: "Query failed", details: err });
