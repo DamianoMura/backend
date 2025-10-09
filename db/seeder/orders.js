@@ -1,4 +1,4 @@
-const orders = [
+const ordersList = [
 		{
 			customer_name: "Luca Bianchi",
 			customer_email: "luca.bianchi@example.com",
@@ -21,7 +21,7 @@ const orders = [
 			postal_code: 10122,
 			country: "Italia",
 			billing: "PayPal",
-			order_date: "2025-10-02",
+			order_date: "2025-7-02",
 			discount_code_id: null,
 		},
 		{
@@ -45,7 +45,7 @@ const orders = [
 			postal_code: 50126,
 			country: "Italia",
 			billing: "Carta prepagata",
-			order_date: "2025-10-04",
+			order_date: "2025-10-01",
 			discount_code_id: 1,
 		},
 		{
@@ -61,5 +61,15 @@ const orders = [
 			discount_code_id: 1,
 		},
 	];
+	let orders =[]; 
+	ordersList.map((order)=>{
+	
+		order.order_date= new Date(order.order_date)
+		order.billing= `${order.order_date.getFullYear()}-${order.order_date.getTime()/90}`
+		orders.push(order)
+})
+
+
 
   module.exports = orders;
+
