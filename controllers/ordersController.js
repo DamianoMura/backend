@@ -65,6 +65,7 @@ const show = (req, res) => {
 
 // Handler to create a new order
 const create = (req, res) => {
+	console.log(req.body)
 	const {
 		customer_name,
 		customer_email,
@@ -73,12 +74,16 @@ const create = (req, res) => {
 		address_city,
 		postal_code,
 		country,
-		billing,
-		order_date,
 		discount_code_id,
 	} = req.body;
+	const order_date= new Date();
+	const billing =`${customer_name.toLowerCase()}-${order_date.getFullYear()}-${order_date.getMonth()+1}-${order_date.getDate()}-${order_date.getMilliseconds()} `;
+
+	console.log(req.body)
+	console.log("billing: "+billing)
+	console.log("order_date: "+order_date)
 	connection.query(
-		"INSERT INTO orders (customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date, discount_code_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+		"INSERT INTO orders (customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date, discount_code_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 		[
 			customer_name,
 			customer_email,
