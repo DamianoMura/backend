@@ -77,7 +77,7 @@ const create = (req, res) => {
 		items
 	} = req.body;
 	const order_date= new Date();
-	const billing =`${customer_name.toLowerCase()}-${order_date.getFullYear()}-${order_date.getTime()/90}`;
+	const billing =`${order_date.getFullYear()}-${order_date.getTime()/90}`;
 
 
 	connection.query(
