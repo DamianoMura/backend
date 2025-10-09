@@ -77,7 +77,7 @@ const create = (req, res) => {
 		discount_code_id,
 	} = req.body;
 	const order_date= new Date();
-	const billing =`${customer_name.toLowerCase()}-${order_date.getFullYear()}-${order_date.getMonth()+1}-${order_date.getDate()}-${order_date.getMilliseconds()} `;
+	const billing =`${customer_name.toLowerCase()}-${order_date.getFullYear()}-${order_date.getMonth()+1}-${order_date.getDate()}-${order_date.getMilliseconds()}`;
 
 	console.log(req.body)
 	console.log("billing: "+billing)
