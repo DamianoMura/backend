@@ -15,7 +15,5 @@ Spunti tecnici: confronto prodotti, doppia visualizzazione, gestione quantità
 
 - Solo paginazione:
   products?page=2&limit=12
-- Solo ricerca:
-  products/search?term=scarpe
 - Ricerca + paginazione:
   products/search/page?term=scarpe&page=3&limit=8
