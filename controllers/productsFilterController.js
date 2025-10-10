@@ -1,10 +1,12 @@
 const { connection } = require("../db/db.js");
 
-// Ricerca + paginazione
-exports.searchAndPaginateProducts = (req, res) => {
+// Ricerca e filtro prodotti per nome/descrizione/categoria con paginazione e ordinamento opzionale (nome, prezzo, categoria)
+exports.filterProducts = (req, res) => {
 	const term = req.query.term ? req.query.term.trim() : "";
-	const page = parseInt(req.query.page) || 1;
-	const limit = parseInt(req.query.limit) || 10;
+	let page = Number.parseInt(req.query.page);
+	let limit = Number.parseInt(req.query.limit);
+	if (isNaN(page) || page < 1) page = 1;
+	if (isNaN(limit) || limit < 1) limit = 10;
 	const offset = (page - 1) * limit;
 
 	if (!term) {
@@ -12,8 +14,24 @@ exports.searchAndPaginateProducts = (req, res) => {
 	}
 
 	const likeTerm = `%${term}%`;
-	const query =
-		"SELECT * FROM products WHERE name LIKE ? OR description LIKE ? ORDER BY created_at DESC LIMIT ? OFFSET ?";
+	let sort;
+	switch (req.query.sort) {
+		case "price_asc":
+			sort = "price ASC";
+			break;
+		case "price_desc":
+			sort = "price DESC";
+			break;
+		case "category_asc":
+			sort = "category_name ASC, name ASC";
+			break;
+		case "category_desc":
+			sort = "category_name DESC, name ASC";
+			break;
+		default:
+			sort = "name ASC";
+	}
+	const query = `SELECT * FROM products WHERE name LIKE ? OR description LIKE ? ORDER BY ${sort} LIMIT ? OFFSET ?`;
 	const countQuery =
 		"SELECT COUNT(*) AS total FROM products WHERE name LIKE ? OR description LIKE ?";
 
@@ -27,6 +45,12 @@ exports.searchAndPaginateProducts = (req, res) => {
 					.status(500)
 					.json({ error: "Errore nel recupero dei prodotti" });
 			}
+
+			// Conversione price a numero
+			const productsFixed = products.map((p) => ({
+				...p,
+				price: p.price !== undefined ? Number(p.price) : p.price,
+			}));
 
 			connection.query(
 				countQuery,
@@ -45,7 +69,7 @@ exports.searchAndPaginateProducts = (req, res) => {
 					const end = Math.min(offset + limit, total);
 
 					res.json({
-						data: products,
+						data: productsFixed,
 						total,
 						page,
 						totalPages,
@@ -56,14 +80,33 @@ exports.searchAndPaginateProducts = (req, res) => {
 		}
 	);
 };
-// Solo paginazione
-exports.getPaginatedProducts = (req, res) => {
-	const page = parseInt(req.query.page) || 1;
-	const limit = parseInt(req.query.limit) || 10;
+
+// Restituisce tutti i prodotti con paginazione e ordinamento opzionale (nome, prezzo, categoria)
+exports.listProducts = (req, res) => {
+	let page = Number.parseInt(req.query.page);
+	let limit = Number.parseInt(req.query.limit);
+	if (isNaN(page) || page < 1) page = 1;
+	if (isNaN(limit) || limit < 1) limit = 10;
 	const offset = (page - 1) * limit;
 
-	const query =
-		"SELECT * FROM products ORDER BY created_at DESC LIMIT ? OFFSET ?";
+	let sort;
+	switch (req.query.sort) {
+		case "price_asc":
+			sort = "price ASC";
+			break;
+		case "price_desc":
+			sort = "price DESC";
+			break;
+		case "category_asc":
+			sort = "category_name ASC, name ASC";
+			break;
+		case "category_desc":
+			sort = "category_name DESC, name ASC";
+			break;
+		default:
+			sort = "name ASC";
+	}
+	const query = `SELECT * FROM products ORDER BY ${sort} LIMIT ? OFFSET ?`;
 	const countQuery = "SELECT COUNT(*) AS total FROM products";
 
 	connection.query(query, [limit, offset], (err, products) => {
@@ -73,6 +116,12 @@ exports.getPaginatedProducts = (req, res) => {
 				.status(500)
 				.json({ error: "Errore nel recupero dei prodotti" });
 		}
+
+		// Conversione price a numero
+		const productsFixed = products.map((p) => ({
+			...p,
+			price: p.price !== undefined ? Number(p.price) : p.price,
+		}));
 
 		connection.query(countQuery, (err2, countResult) => {
 			if (err2) {
@@ -88,7 +137,7 @@ exports.getPaginatedProducts = (req, res) => {
 			const end = Math.min(offset + limit, total);
 
 			res.json({
-				data: products,
+				data: productsFixed,
 				total,
 				page,
 				totalPages,

@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 const productController = require("../controllers/productController.js");
 const {
-	getPaginatedProducts,
-	searchProducts,
-	searchAndPaginateProducts,
+	listProducts,
+	filterProducts,
 } = require("../controllers/productsFilterController.js");
 
 // Route for getting all products with optional sorting
@@ -15,10 +14,10 @@ router.post("/", productController.addProduct);
 router.put("/:slug", productController.modifyProduct);
 router.delete("/:slug", productController.deleteProduct);
 
-// Solo paginazione
-router.get("/", getPaginatedProducts); // es: /api/products?page=2&limit=10
+// Lista prodotti con paginazione e ordinamento
+router.get("/", listProducts); // es: /products?page=2&limit=10
 
-// Ricerca + paginazione
-router.get("/search/page", searchAndPaginateProducts); // es: /api/products/search/page?term=scarpe&page=2&limit=10
+// Ricerca e filtro prodotti con paginazione e ordinamento
+router.get("/search/page", filterProducts); // es: /products/search/page?term=scarpe&page=2&limit=10
 
 module.exports = router;

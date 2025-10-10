@@ -8,6 +8,7 @@ const connection = mysql.createConnection({
 	user: DB_USER,
 	password: DB_PWD,
 	database: DB_NAME,
+	decimalNumbers: true,
 });
 
 connection.connect((err) => {
