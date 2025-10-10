@@ -1,4 +1,4 @@
-const { connection } = require("../db/db");
+const { connection } = require("../db/db.js");
 
 // Handler to get all discount_codes
 const index = (req, res) => {

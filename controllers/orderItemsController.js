@@ -1,4 +1,4 @@
-const { connection } = require("../db/db");
+const { connection } = require("../db/db.js");
 
 // Handler to get all order_items
 const index = (req, res) => {
@@ -27,26 +27,11 @@ const show = (req, res) => {
 
 // Handler to create a new order_item
 const create = (req, res) => {
-	const {
-		order_id,
-		product_id,
-		name,
-		description,
-		specs,
-		price,
-		quantity,
-	} = req.body;
+	const { order_id, product_id, name, description, specs, price, quantity } =
+		req.body;
 	connection.query(
 		"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity) VALUES (?, ?, ?, ?, ?, ?, ?)",
-		[
-			order_id,
-			product_id,
-			name,
-			description,
-			specs,
-			price,
-			quantity,
-		],
+		[order_id, product_id, name, description, specs, price, quantity],
 		(err, result) => {
 			if (err)
 				return res
@@ -60,7 +45,7 @@ const create = (req, res) => {
 				description,
 				specs,
 				price,
-				quantity
+				quantity,
 			});
 		}
 	);
@@ -69,26 +54,11 @@ const create = (req, res) => {
 // Handler to update a order_item by id
 const update = (req, res) => {
 	const { id } = req.params;
-	const {
-		order_id,
-		product_id,
-		name,
-		description,
-		specs,
-		price,
-		quantity
-	} = req.body;
+	const { order_id, product_id, name, description, specs, price, quantity } =
+		req.body;
 	connection.query(
 		"UPDATE order_items SET order_id = ?, product_id = ?, name = ?, description = ?, specs = ?, price = ?, quantity = ? WHERE order_item_id = ?",
-		[
-			order_id,
-			product_id,
-			name,
-			description,
-			specs,
-			price,
-			quantity,
-		],
+		[order_id, product_id, name, description, specs, price, quantity],
 		(err, result) => {
 			if (err)
 				return res
