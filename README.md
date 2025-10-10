@@ -12,3 +12,10 @@ Spunti tecnici: confronto prodotti, doppia visualizzazione, gestione quantità
 ### Slogan: Il tuo rifugio per ogni innovazione.
 
 ### Caldo e accogliente, ma sempre high-tech. Ottimo se vuoi un tono più umano e community-driven.
+
+- Solo paginazione:
+  products?page=2&limit=12
+- Solo ricerca:
+  products/search?term=scarpe
+- Ricerca + paginazione:
+  products/search/page?term=scarpe&page=3&limit=8

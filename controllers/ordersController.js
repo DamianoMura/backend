@@ -1,4 +1,4 @@
-const { connection } = require("../db/db");
+const { connection } = require("../db/db.js");
 // Handler to get all orders
 const index = (req, res) => {
 	connection.query("SELECT * FROM orders", (err, results) => {
@@ -64,7 +64,6 @@ const show = (req, res) => {
 
 // Handler to create a new order
 const create = (req, res) => {
-	
 	const {
 		customer_name,
 		customer_email,
@@ -74,11 +73,12 @@ const create = (req, res) => {
 		postal_code,
 		country,
 		discount_code_id,
-		items
+		items,
 	} = req.body;
-	const order_date= new Date();
-	const billing =`${customer_name.toLowerCase()}-${order_date.getFullYear()}-${order_date.getMonth()+1}-${order_date.getDate()}-${order_date.getMilliseconds()}`;
-
+	const order_date = new Date();
+	const billing = `${customer_name.toLowerCase()}-${order_date.getFullYear()}-${
+		order_date.getMonth() + 1
+	}-${order_date.getDate()}-${order_date.getMilliseconds()}`;
 
 	connection.query(
 		"INSERT INTO orders (customer_name, customer_email, address_street, address_street_number, address_city, postal_code, country, billing, order_date, discount_code_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -95,52 +95,46 @@ const create = (req, res) => {
 			discount_code_id,
 		],
 		(err, result) => {
-			if (err)
-				return res
-					.status(500)
-					
-					
-					const order_id=result.insertId;
-					items.map((item)=>{
-							connection.query(
-								"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity) VALUES (?, ?, ?, ?, ?, ?, ?)",
-								[
-									order_id,
-									item.product_id,
-									item.name,
-									item.description,
-									item.specs,
-									item.price,
-									item.quantity,
-								],
-								(err, result) => {
-									if (err)
-										return res
-											.status(500)
-											.json({ error: "order_item insert error", details: err });
-									console.log("eseguito con successo")
-								}
-							);
-					})
-					res.status(201).json({
-						id: result.insertId,
-						customer_name,
-						customer_email,
-						address_street,
-						address_street_number,
-						address_city,
-						postal_code,
-						country,
-						billing,
-						order_date,
-						discount_code_id,
-						items
-					});
-						
+			if (err) return res.status(500);
+
+			const order_id = result.insertId;
+			items.map((item) => {
+				connection.query(
+					"INSERT INTO order_items (order_id, product_id, name, description, specs, price, quantity) VALUES (?, ?, ?, ?, ?, ?, ?)",
+					[
+						order_id,
+						item.product_id,
+						item.name,
+						item.description,
+						item.specs,
+						item.price,
+						item.quantity,
+					],
+					(err, result) => {
+						if (err)
+							return res
+								.status(500)
+								.json({ error: "order_item insert error", details: err });
+						console.log("eseguito con successo");
+					}
+				);
+			});
+			res.status(201).json({
+				id: result.insertId,
+				customer_name,
+				customer_email,
+				address_street,
+				address_street_number,
+				address_city,
+				postal_code,
+				country,
+				billing,
+				order_date,
+				discount_code_id,
+				items,
+			});
 		}
 	);
 };
-
-
 
 module.exports = { index, show, create };

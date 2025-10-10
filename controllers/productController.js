@@ -1,28 +1,25 @@
-const { connection } = require("../db/db");
+const { connection } = require("../db/db.js");
 
 // Handler to get all products, with sorting/filter support
 const allProducts = (req, res) => {
 	let baseQuery = "SELECT * FROM products";
 	let sorting = ";";
-	console.log(req.query)
+	console.log(req.query);
 	// Sort by recent (assuming product_id is auto-increment)
-	if (req.query.sort === "latest"||req.query.filter === "latest")
+	if (req.query.sort === "latest" || req.query.filter === "latest")
 		sorting = " ORDER BY DATE(created_at) DESC;";
 
-	if (req.query.sort === "popular"||req.query.filter === "popular") {
+	if (req.query.sort === "popular" || req.query.filter === "popular") {
 		baseQuery = `SELECT products.* FROM products`;
 		sorting = ` JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id ORDER BY sum(order_items.quantity) DESC;`;
 	}
 
-
-	
 	connection.query(baseQuery + sorting, (err, results) => {
 		if (err)
 			return res.status(500).json({ error: "Query failed", details: err });
-		results.map((result)=>{
-			result.image_url=req.imagePath + result.image_url;
-			
-		})
+		results.map((result) => {
+			result.image_url = req.imagePath + result.image_url;
+		});
 		results[0].price = parseFloat(results[0].price);
 		res.status(200).json(results);
 	});
@@ -61,9 +58,12 @@ const addProduct = (req, res) => {
 		category_name,
 		created_at = new Date(),
 	} = req.body;
-	let slug = brand.toLowerCase().replaceAll(" ","-").replaceAll(".","-")+"-"+name.toLowerCase().replaceAll(" ","-").replaceAll(".","-");
-	slug=`${slug}`;
-  
+	let slug =
+		brand.toLowerCase().replaceAll(" ", "-").replaceAll(".", "-") +
+		"-" +
+		name.toLowerCase().replaceAll(" ", "-").replaceAll(".", "-");
+	slug = `${slug}`;
+
 	connection.query(
 		"INSERT INTO products (name, brand, description, specs, price, stock_quantity, image_url, category_id, category_name, created_at,slug) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 		[
@@ -77,7 +77,7 @@ const addProduct = (req, res) => {
 			category_id,
 			category_name,
 			created_at,
-			slug
+			slug,
 		],
 		(err, result) => {
 			if (err)
@@ -96,7 +96,7 @@ const addProduct = (req, res) => {
 				category_id,
 				category_name,
 				created_at,
-				slug
+				slug,
 			});
 		}
 	);
@@ -116,7 +116,6 @@ const modifyProduct = (req, res) => {
 		category_id,
 		category_name,
 		created_at,
-		
 	} = req.body;
 	connection.query(
 		"UPDATE products SET name = ?, brand = ?, description = ?, specs = ?, price = ?, stock_quantity = ?, image_url = ?, category_id = ?,category_name = ?, created_at = ? WHERE slug = ?",
