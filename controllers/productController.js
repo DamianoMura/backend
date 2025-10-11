@@ -2,27 +2,68 @@ const { connection } = require("../db/db.js");
 
 // Handler to get all products, with sorting/filter support
 const allProducts = (req, res) => {
-	let baseQuery = "SELECT * FROM products";
-	let sorting = ";";
-	console.log(req.query);
-	// Sort by recent (assuming product_id is auto-increment)
-	if (req.query.sort === "latest" || req.query.filter === "latest")
-		sorting = " ORDER BY DATE(created_at) DESC;";
+const selectAll="SELECT * FROM products"
+const selectCount="SELECT COUNT (*) as count FROM products"
+const {search, sort, cat, order} = req.query;
+let {rpp, page} = req.query;
+rpp=parseInt(rpp)
+page=parseInt(page)
+//counted results
+let resultCount;
+//pages based on results
+let pages=1;
+//limit/offset query fragment
+let limitOffset ;
+rpp ? limitOffset=`LIMIT ${rpp}`:limitOffset="";
+//orderBY price
+let orderBy = `ORDER BY price`;
+switch (order){
+	case "price_ASC":
+		orderBy+=" ASC"
+	break;
+	case "price_DESC":
+		orderBy+=" DESC"
+	break;
+}
+//category filters
+let whereCat;
+// search filter
+let searchQ
+	if (cat) whereCat=` WHERE category_name LIKE '${cat}'`
+	if (cat && search)  searchQ=`AND name LIKE '${search}' OR description LIKE '${search}'`
+	else if (search) searchQ=`WHERE name LIKE '${search}' OR description LIKE '${search}'`
+	console.log("query",whereCat)
 
-	if (req.query.sort === "popular" || req.query.filter === "popular") {
-		baseQuery = `SELECT products.* FROM products`;
-		sorting = ` JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id ORDER BY sum(order_items.quantity) DESC;`;
-	}
+//prima contiamo quanti risultati ci sono
+connection.query(`${selectCount} ${whereCat}`,(err, results)=>{
+	if (err)	return res.status(503).json({ error: "Query failed", details: err });
+	else {
+		//extrapolating result count
+		resultCount=results[0].count
+		//calculating pages
+		if (rpp)   {
+			resultCount%rpp!=0 ? pages=parseInt(resultCount/rpp) : pages=resultCount/rpp
 
-	connection.query(baseQuery + sorting, (err, results) => {
-		if (err)
-			return res.status(500).json({ error: "Query failed", details: err });
-		results.map((result) => {
-			result.image_url = req.imagePath + result.image_url;
+			console.log(page)
+			if(page>1)  limitOffset=limitOffset+` OFFSET ${(parseInt(page)-1)*rpp} ` 
+			// console.log("query : ",limitOffset)
+		}
+	
+		
+	console.log(`results: ${resultCount} pages: ${pages}`)	
+		//poi costruiamo la query in base a i parametri di req.query 		 
+		connection.query(`${selectAll} ${whereCat}  ${orderBy} ${limitOffset}`, (err, results) => {
+			if (err) return res.status(500).json({ error: "Query failed", details: err });
+			
+			results.map((result) => {
+				result.image_url = req.imagePath + result.image_url;
+				result.price = parseFloat(results[0].price);
+			});
+			res.status(200).json({results,resultCount,pages});
 		});
-		results[0].price = parseFloat(results[0].price);
-		res.status(200).json(results);
-	});
+
+	}
+})
 };
 
 // Handler to get a single product by id

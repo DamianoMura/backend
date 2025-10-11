@@ -751,7 +751,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "mouse-1.jpg",
 		category_id: 7,
-		category_name: "Keyboards",
+		category_name: "Mouse",
 		created_at: "2024-09-14"
 	},
 	{
@@ -763,7 +763,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "mouse-2.jpg",
 		category_id: 7,
-		category_name: "Keyboards",
+		category_name: "Mouse",
 		created_at: "2024-09-14"
 	},
 	{
@@ -775,7 +775,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "mouse-3.jpg",
 		category_id: 7,
-		category_name: "Keyboards",
+		category_name: "Mouse",
 		created_at: "2024-09-14"
 	},
 	{
@@ -787,7 +787,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "mouse-4.jpg",
 		category_id: 7,
-		category_name: "Keyboards",
+		category_name: "Mouse",
 		created_at: "2024-09-14"
 	},
 	{
@@ -799,7 +799,7 @@ const products = [
 		stock_quantity: 50,
 		image_url: "mouse-5.jpg",
 		category_id: 7,
-		category_name: "Keyboards",
+		category_name: "Mouse",
 		created_at: "2024-09-14"
 	},
 	{
@@ -812,7 +812,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "mouse-6.jpg",
 		category_id: 7,
-		category_name: "Keyboards",
+		category_name: "Mouse",
 		created_at: "2024-09-14"
 	},
 	{
@@ -824,7 +824,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "mouse-7.jpg",
 		category_id: 7,
-		category_name: "Keyboards",
+		category_name: "Mouse",
 		created_at: "2024-09-14"
 	},
 	{
@@ -836,7 +836,7 @@ const products = [
 		stock_quantity: 16,
 		image_url: "mouse-8.jpg",
 		category_id: 7,
-		category_name: "Keyboards",
+		category_name: "Mouse",
 		created_at: "2024-09-14"
 	},
 	{
@@ -848,7 +848,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "mouse-9.jpg",
 		category_id: 7,
-		category_name: "Keyboards",
+		category_name: "Mouse",
 		created_at: "2024-09-14"
 	},
 	{
@@ -860,7 +860,7 @@ const products = [
 		stock_quantity: 45,
 		image_url: "mouse-10.jpg",
 		category_id: 7,
-		category_name: "Keyboards",
+		category_name: "Mouse",
 		created_at: "2024-09-14"
 	},
 	{
@@ -873,7 +873,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "keyboard-1.jpg",
 		category_id: 8,
-		category_name: "Monitor",
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -887,7 +887,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "keyboard-2.jpg",
 		category_id: 8,
-		category_name: "Monitor",
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -899,7 +899,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "keyboard-3.jpg",
 		category_id: 8,
-		category_name: "Monitor",
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -912,7 +912,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "keyboard-4.jpg",
 		category_id: 8,
-		category_name: "Monitor",
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -924,7 +924,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "keyboard-5.jpg",
 		category_id: 8,
-		category_name: "Monitor",
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -937,7 +937,7 @@ const products = [
 		stock_quantity: 35,
 		image_url: "keyboard-6.jpg",
 		category_id: 8,
-		category_name: "Monitor",
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -950,7 +950,7 @@ const products = [
 		stock_quantity: 28,
 		image_url: "keyboard-7.jpg",
 		category_id: 8,
-		category_name: "Monitor",
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -962,7 +962,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "keyboard-8.jpg",
 		category_id: 8,
-		category_name: "Monitor",
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -974,7 +974,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "keyboard-9.jpg",
 		category_id: 8,
-		category_name: "Monitor",
+		category_name: "keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -986,7 +986,7 @@ const products = [
 		stock_quantity: 45,
 		image_url: "keyboard-10.jpg",
 		category_id: 8,
-		category_name: "Monitor",
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
@@ -998,7 +998,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "monitor-1.jpg",
 		category_id: 9,
-		category_name: "Cases",
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1010,7 +1010,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "monitor-2.jpg",
 		category_id: 9,
-		category_name: "Cases",
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1022,7 +1022,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "monitor-3.jpg",
 		category_id: 9,
-		category_name: "Cases",
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1034,7 +1034,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "monitor-4.jpg",
 		category_id: 9,
-		category_name: "Cases",
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1046,7 +1046,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "monitor-5.jpg",
 		category_id: 9,
-		category_name: "Cases",
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1058,7 +1058,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "monitor-6.jpg",
 		category_id: 9,
-		category_name: "Cases",
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1070,7 +1070,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "monitor-7.jpg",
 		category_id: 9,
-		category_name: "Cases",
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1082,7 +1082,7 @@ const products = [
 		stock_quantity: 16,
 		image_url: "monitor-8.jpg",
 		category_id: 9,
-		category_name: "Cases",
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1094,7 +1094,7 @@ const products = [
 		stock_quantity: 40,
 		image_url: "monitor-9.jpg",
 		category_id: 9,
-		category_name: "Cases",
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1106,7 +1106,7 @@ const products = [
 		stock_quantity: 26,
 		image_url: "monitor-10.jpg",
 		category_id: 9,
-		category_name: "Cases",
+		category_name: "Monitor",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1119,7 +1119,7 @@ const products = [
 		stock_quantity: 20,
 		image_url: "case-1.jpg",
 		category_id: 10,
-		category_name: "Speakers",
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1131,7 +1131,7 @@ const products = [
 		stock_quantity: 25,
 		image_url: "case-2.jpg",
 		category_id: 10,
-		category_name: "Speakers",
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1144,7 +1144,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "case-3.jpg",
 		category_id: 10,
-		category_name: "Speakers",
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1157,7 +1157,7 @@ const products = [
 		stock_quantity: 30,
 		image_url: "case-4.jpg",
 		category_id: 10,
-		category_name: "Speakers",
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1169,7 +1169,7 @@ const products = [
 		stock_quantity: 10,
 		image_url: "case-5.jpg",
 		category_id: 10,
-		category_name: "Speakers",
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1181,7 +1181,7 @@ const products = [
 		stock_quantity: 18,
 		image_url: "case-6.jpg",
 		category_id: 10,
-		category_name: "Speakers",
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1194,7 +1194,7 @@ const products = [
 		stock_quantity: 8,
 		image_url: "case-7.jpg",
 		category_id: 10,
-		category_name: "Speakers",
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1207,7 +1207,7 @@ const products = [
 		stock_quantity: 12,
 		image_url: "case-8.jpg",
 		category_id: 10,
-		category_name: "Speakers",
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1219,7 +1219,7 @@ const products = [
 		stock_quantity: 22,
 		image_url: "case-9.jpg",
 		category_id: 10,
-		category_name: "Speakers",
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1232,7 +1232,7 @@ const products = [
 		stock_quantity: 14,
 		image_url: "case-10.jpg",
 		category_id: 10,
-		category_name: "Speakers",
+		category_name: "Cases",
 		created_at: "2024-09-14"
 	},
 	{
@@ -1366,6 +1366,7 @@ products.map((product,index)=>{
   let slug = product.brand.toLowerCase().replaceAll(" ","-").replaceAll(".","-")+"-"+product.name.toLowerCase().replaceAll(" ","-").replaceAll(".","-");
   product.slug=slug
 	sluggedProducts.push(product)
+	
 })
 console.log(sluggedProducts,"here we end products.js")
 module.exports = sluggedProducts;
