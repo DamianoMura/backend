@@ -31,23 +31,18 @@ if (order && order==="price_ASC")
 else if  (order && order==="price_DESC")
 	orderBy+=" DESC"
 		
-		
-		
 		//category filters
 
 	if (cat) whereQ=` WHERE category_name LIKE '${cat}'`
 	if (cat && search)  searchQ=`AND name LIKE '%${search}%' OR description LIKE '%${search}%'`
 	else if (search) searchQ=`WHERE name LIKE '%${search}%' OR description LIKE '%${search}%'`
 
-	
-	if(sort==="all") whereQ ="LIMIT 8";
+	//sort filters
 	if(sort==="latest") whereQ =" WHERE created_at like '2025%' ";
 	if(sort==="popular") whereQ =" JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id ";
 
-// 	if (req.query.filter === "popular") {
-// 		sortQ = ` JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id;`;
-// 	}
-//prima contiamo quanti risultati ci sono ${whereCat} ${searchQ}
+
+//prima contiamo quanti risultati ci sono 
 connection.query( `${selectCount} ${sort==="popular"? countQueryPopular: whereQ}`,(err, results)=>{
 	if (err)	return res.status(400).json({ error: "Query failed", details: err });
 	else {
