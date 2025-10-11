@@ -37,11 +37,13 @@ let searchQ;
 	console.log("query whereCat",whereCat)
 	console.log("query search",searchQ)
 
-// if (req.query.filter === "latest")
-// 		sortQ = " ORDER BY DATE(created_at) DESC;";
+if (sort === "latest"){
+
+	orderBy = " ORDER BY DATE(created_at) DESC";
+}
 
 // 	if (req.query.filter === "popular") {
-// 		sortQ = ` JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id ORDER BY sum(order_items.quantity) DESC;`;
+// 		sortQ = ` JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id;`;
 // 	}
 //prima contiamo quanti risultati ci sono ${whereCat} ${searchQ}
 connection.query( `${selectCount} ${whereCat}`,(err, results)=>{
@@ -51,7 +53,7 @@ connection.query( `${selectCount} ${whereCat}`,(err, results)=>{
 		resultCount=results[0].count
 		//calculating pages
 		if (rpp)   {
-			resultCount%rpp!=0 ? pages=parseInt(resultCount/rpp) : pages=resultCount/rpp
+			resultCount%rpp!=0 ? pages=parseInt(resultCount/rpp)+1 : pages=resultCount/rpp
 
 			console.log(page)
 			if(page>1)  limitOffset=limitOffset+` OFFSET ${(parseInt(page)-1)*rpp} ` 
