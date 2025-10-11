@@ -1,9 +1,11 @@
 const { connection } = require("../db/db.js");
 
+
 // Handler to get all products, with sorting/filter support
 const allProducts = (req, res) => {
-const selectAll="SELECT * FROM products"
-const selectCount="SELECT COUNT (*) as count FROM products"
+	console.log(req.query)
+let selectAll="SELECT * FROM products"
+let selectCount="SELECT COUNT(*) as count FROM products"
 const {search, sort, cat, order} = req.query;
 let {rpp, page} = req.query;
 rpp=parseInt(rpp)
@@ -35,8 +37,14 @@ let searchQ;
 	console.log("query whereCat",whereCat)
 	console.log("query search",searchQ)
 
-//prima contiamo quanti risultati ci sono
-connection.query(`${selectCount} ${whereCat} ${searchQ}`,(err, results)=>{
+// if (req.query.filter === "latest")
+// 		sortQ = " ORDER BY DATE(created_at) DESC;";
+
+// 	if (req.query.filter === "popular") {
+// 		sortQ = ` JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id ORDER BY sum(order_items.quantity) DESC;`;
+// 	}
+//prima contiamo quanti risultati ci sono ${whereCat} ${searchQ}
+connection.query( `${selectCount} ${whereCat}`,(err, results)=>{
 	if (err)	return res.status(503).json({ error: "Query failed", details: err });
 	else {
 		//extrapolating result count
@@ -52,15 +60,17 @@ connection.query(`${selectCount} ${whereCat} ${searchQ}`,(err, results)=>{
 	
 		
 	console.log(`results: ${resultCount} pages: ${pages}`)	
-		//poi costruiamo la query in base a i parametri di req.query 		 
-		connection.query(`${selectAll} ${whereCat} ${searchQ}  ${orderBy} ${limitOffset}`, (err, results) => {
+		//poi costruiamo la query in base a i parametri di req.query 	${searchQ}	 
+		connection.query(`${selectAll} ${whereCat} ${orderBy} ${limitOffset}`, (err, results) => {
 			if (err) return res.status(500).json({ error: "Query failed", details: err });
-			
-			results.map((result) => {
+			else {
+
+				results.map((result) => {
 				result.image_url = req.imagePath + result.image_url;
 				result.price = parseFloat(results[0].price);
 			});
 			res.status(200).json({results,resultCount,pages});
+			}
 		});
 
 	}

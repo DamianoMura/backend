@@ -253,19 +253,19 @@ const products = [
 		stock_quantity: 18,
 		image_url: "headCuff-1.jpg",
 		category_id: 3,
-		category_name: "Headset",
+		category_name: "Headsets",
 		created_at: "2025-07-01"
 	},
 	{
 		name: "NovaAudio Pro",
 		brand: "NovaTech",
-		description: "Headset wireless con bassi potenziati e comfort prolungato.",
+		description: "Headsets wireless con bassi potenziati e comfort prolungato.",
 		specs: "Bluetooth 5.2, autonomia 30h, padiglioni memory foam",
 		price: 149,
 		stock_quantity: 22,
 		image_url: "headCuff-2.jpg",
 		category_id: 3,
-		category_name: "Headset",
+		category_name: "Headsets",
 		created_at: "2025-07-01"
 	},
 	{
@@ -277,19 +277,19 @@ const products = [
 		stock_quantity: 30,
 		image_url: "headCuff-3.jpg",
 		category_id: 3,
-		category_name: "Headset",
+		category_name: "Headsets",
 		created_at: "2025-07-01"
 	},
 	{
 		name: "TitanVoice G5",
 		brand: "IronWare",
-		description: "Headset da competizione con isolamento acustico avanzato.",
+		description: "Headsets da competizione con isolamento acustico avanzato.",
 		specs: "USB, driver 53mm, microfono con filtro pop",
 		price: 159,
 		stock_quantity: 12,
 		image_url: "headCuff-4.jpg",
 		category_id: 3,
-		category_name: "Headset",
+		category_name: "Headsets",
 		created_at: "2025-07-01"
 	},
 	{
@@ -301,19 +301,19 @@ const products = [
 		stock_quantity: 40,
 		image_url: "headCuff-5.jpg",
 		category_id: 3,
-		category_name: "Headset",
+		category_name: "Headsets",
 		created_at: "2025-07-01"
 	},
 	{
 		name: "BlitzTalk Z1",
 		brand: "BlitzGear",
-		description: "Headset compatto per gamer in mobilità.",
+		description: "Headsets compatto per gamer in mobilità.",
 		specs: "Bluetooth, microfono integrato, autonomia 20h",
 		price: 89,
 		stock_quantity: 25,
 		image_url: "headCuff-6.jpg",
 		category_id: 3,
-		category_name: "Headset",
+		category_name: "Headsets",
 		created_at: "2025-07-01"
 	},
 	{
@@ -325,19 +325,19 @@ const products = [
 		stock_quantity: 16,
 		image_url: "headCuff-7.jpg",
 		category_id: 3,
-		category_name: "Headset",
+		category_name: "Headsets",
 		created_at: "2025-07-01"
 	},
 	{
 		name: "OmegaSound Prime",
 		brand: "OmegaPlay",
-		description: "Headset premium con audio Hi-Fi e struttura in alluminio.",
+		description: "Headsets premium con audio Hi-Fi e struttura in alluminio.",
 		specs: "USB-C, driver 60mm, microfono staccabile",
 		price: 179,
 		stock_quantity: 10,
 		image_url: "headCuff-8.jpg",
 		category_id: 3,
-		category_name: "Headset",
+		category_name: "Headsets",
 		created_at: "2025-07-01"
 	},
 	{
@@ -349,20 +349,20 @@ const products = [
 		stock_quantity: 28,
 		image_url: "headCuff-9.jpg",
 		category_id: 3,
-		category_name: "Headset",
+		category_name: "Headsets",
 		created_at: "2025-07-01"
 	},
 	{
 		name: "ShadowCom Elite",
 		brand: "DarkCore",
 		description:
-			"Headset da gioco con illuminazione interna e audio direzionale.",
+			"Headsets da gioco con illuminazione interna e audio direzionale.",
 		specs: "Surround 7.1, USB, microfono noise-cancelling",
 		price: 139,
 		stock_quantity: 14,
 		image_url: "headCuff-10.jpg",
 		category_id: 3,
-		category_name: "Headset",
+		category_name: "Headsets",
 		created_at: "2025-07-01"
 	},
 	{
