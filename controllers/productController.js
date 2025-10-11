@@ -40,6 +40,7 @@ else if  (order && order==="price_DESC")
 	else if (search) searchQ=`WHERE name LIKE '%${search}%' OR description LIKE '%${search}%'`
 
 	
+	if(sort==="all") whereQ ="LIMIT 8";
 	if(sort==="latest") whereQ =" WHERE created_at like '2025%' ";
 	if(sort==="popular") whereQ =" JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id ";
 
@@ -47,7 +48,7 @@ else if  (order && order==="price_DESC")
 // 		sortQ = ` JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id;`;
 // 	}
 //prima contiamo quanti risultati ci sono ${whereCat} ${searchQ}
-connection.query( `${selectCount} ${sort==="popular"? countQueryPopular :whereQ}`,(err, results)=>{
+connection.query( `${selectCount} ${sort==="popular"? countQueryPopular: whereQ}`,(err, results)=>{
 	if (err)	return res.status(400).json({ error: "Query failed", details: err });
 	else {
 		//extrapolating result count
@@ -58,10 +59,9 @@ connection.query( `${selectCount} ${sort==="popular"? countQueryPopular :whereQ}
 
 			console.log(page)
 			if(page>1)  limitOffset=limitOffset+` OFFSET ${(parseInt(page)-1)*rpp} ` 
-			// console.log("query : ",limitOffset)
+			
 		}
-	console.log("pages ",pages)
-	console.log("limitOffset ",limitOffset)
+	
 
 		//poi costruiamo la query in base a i parametri di req.query 	${searchQ}	 
 		connection.query(`${selectAll} ${whereQ} ${orderBy} ${limitOffset}`, (err, results) => {
