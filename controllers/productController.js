@@ -28,14 +28,15 @@ switch (order){
 //category filters
 let whereCat;
 // search filter
-let searchQ
+let searchQ;
 	if (cat) whereCat=` WHERE category_name LIKE '${cat}'`
-	if (cat && search)  searchQ=`AND name LIKE '${search}' OR description LIKE '${search}'`
-	else if (search) searchQ=`WHERE name LIKE '${search}' OR description LIKE '${search}'`
-	console.log("query",whereCat)
+	if (cat && search)  searchQ=`AND name LIKE '%${search}%' OR description LIKE '%${search}%'`
+	else if (search) searchQ=`WHERE name LIKE '%${search}%' OR description LIKE '%${search}%'`
+	console.log("query whereCat",whereCat)
+	console.log("query search",searchQ)
 
 //prima contiamo quanti risultati ci sono
-connection.query(`${selectCount} ${whereCat}`,(err, results)=>{
+connection.query(`${selectCount} ${whereCat} ${searchQ}`,(err, results)=>{
 	if (err)	return res.status(503).json({ error: "Query failed", details: err });
 	else {
 		//extrapolating result count
@@ -52,7 +53,7 @@ connection.query(`${selectCount} ${whereCat}`,(err, results)=>{
 		
 	console.log(`results: ${resultCount} pages: ${pages}`)	
 		//poi costruiamo la query in base a i parametri di req.query 		 
-		connection.query(`${selectAll} ${whereCat}  ${orderBy} ${limitOffset}`, (err, results) => {
+		connection.query(`${selectAll} ${whereCat} ${searchQ}  ${orderBy} ${limitOffset}`, (err, results) => {
 			if (err) return res.status(500).json({ error: "Query failed", details: err });
 			
 			results.map((result) => {
