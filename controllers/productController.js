@@ -20,7 +20,6 @@ let pages=1;
 //limit/offset query fragment
 let limitOffset="" ;
 let whereQ="";
-let groupBy="";
 // search filter
 let searchQ="";
 rpp ? limitOffset=`LIMIT ${rpp}`:limitOffset="";
@@ -53,7 +52,7 @@ connection.query( `${selectCount} ${sort==="popular"? countQueryPopular: whereQ}
 			resultCount%rpp!=0 ? pages=parseInt(resultCount/rpp)+1 : pages=resultCount/rpp
 
 			console.log(page)
-			if(page>1)  limitOffset=limitOffset+` OFFSET ${(parseInt(page)-1)*rpp} ` 
+			if(page>1)  limitOffset=limitOffset+` OFFSET ${(page-1)*rpp} ` 
 			
 		}
 	
