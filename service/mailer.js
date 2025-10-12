@@ -1,0 +1,31 @@
+require('dotenv').config();
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport({
+  host: process.env.MAIL_HOST,
+  port: process.env.MAIL_PORT,
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS
+  }
+});
+
+const sendConfirmationEmail = async (to, nome) => {
+  const info = await transporter.sendMail({
+    from: '"E-commerce Test" <no-reply@tuodominio.com>',
+    to,
+    subject: 'Conferma ordine (Mailtrap)',
+    html: `
+      <div style="font-family:Arial, sans-serif; padding:20px; background:#f9f9f9;">
+        <h2 style="color:#4CAF50;">Ordine Confermato!</h2>
+        <p>Ciao <b>${nome}</b>,</p>
+        <p>Il tuo ordine è stato ricevuto con successo.</p>
+        <p style="font-size:14px; color:#555;">Grazie per aver acquistato da noi!</p>
+      </div>
+    `
+  });
+
+  console.log('Email di test inviata:', info.messageId);
+};
+
+module.exports = { sendConfirmationEmail };
