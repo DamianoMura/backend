@@ -1,4 +1,6 @@
+
 const { APP_PORT } = process.env;
+
 const db_connection = require("./db/db.js");
 console.log("starting up index.js"); //debug
 //importing express
@@ -13,8 +15,6 @@ app.use(express.static("public"));
 // app.use('/images', express.static(path.join(__dirname, 'assets/public/imgs')));
 
 app.use(express.json());
-const setImagePath = require("./middlewares/imagePathMiddleware.js");
-app.use(imagePathMiddleware);
 const cors = require("cors");
 const corsOptions = {
 	origin: "http://localhost:5173",
@@ -26,17 +26,16 @@ app.use(cors(corsOptions));
 const categoriesRoutes = require("./routes/categoriesRoutes.js");
 const productsRoutes = require("./routes/productsRoutes.js");
 const ordersRoutes = require("./routes/ordersRoutes.js");
-const discountCodesRoutes = require("./routes/discountCodesRoutes..js");
+const discountCodesRoutes = require("./routes/discountCodesRoutes.js");
 // const orderItemsRoutes = require("./routes/orderItemsRoutes.js");
 
 // routes usage
 app.use("/orders", ordersRoutes);
 app.use("/categories", categoriesRoutes);
-app.use("/products", productsRoutes);
 app.use("/discount-codes", discountCodesRoutes);
-app.use('/products', productsRoutes, setImagePath);
-// app.use("/order-items", orderItemsRoutes);
+app.use("/products", imagePathMiddleware, productsRoutes);
 
+// app.use("/order-items", orderItemsRoutes);
 
 
 app.get("/", (req, res) => {
