@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const discountCodesController = require("../controllers/discountCodesController");
+const discountCodesController = require("../controllers/discountCodesController.js");
+
 
 // Route for getting all discount codes
 router.get("/", discountCodesController.index);
