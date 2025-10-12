@@ -75,6 +75,14 @@ const create = (req, res) => {
 		discount_code_id,
 		items,
 	} = req.body;
+
+  // Validazione carrello vuoto
+    if (!items || !Array.isArray(items) || items.length === 0) {
+        return res.status(400).json({
+          error: "Il carrello è vuoto. Nessun ordine effettuato.",
+        });
+    }
+
 	const order_date= new Date();
 	const billing =`${order_date.getFullYear()}-${order_date.getTime()/90}`;
 
