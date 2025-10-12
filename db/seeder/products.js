@@ -974,7 +974,7 @@ const products = [
 		stock_quantity: 15,
 		image_url: "keyboard-9.jpg",
 		category_id: 8,
-		category_name: "keyboards",
+		category_name: "Keyboards",
 		created_at: "2024-09-14"
 	},
 	{
