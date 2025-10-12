@@ -37,9 +37,17 @@ app.use("/discount-codes", discountCodesRoutes);
 app.use('/products', productsRoutes, setImagePath);
 // app.use("/order-items", orderItemsRoutes);
 
+
+
 app.get("/", (req, res) => {
 	res.send("API server main page");
 });
+
+const notFound = require("./middlewares/notFound.js");
+const errorsHandler = require("./middlewares/errorsHandler.js");
+
+app.use(notFound);
+app.use(errorsHandler);
 
 
 app.listen(APP_PORT, () => {
