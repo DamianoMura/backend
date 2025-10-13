@@ -17,12 +17,12 @@ const sendConfirmationEmail = async (to, nome) => {
     subject: 'Conferma ordine (Mailtrap)',
     html: `
       <div style="font-family:Arial, sans-serif; padding:20px; background:#f9f9f9;">
-        <h2 style="color:#4CAF50;">Ordine Confermato!</h2>
+        <h2 style="color:#9F2E8C;">Ordine Confermato!</h2>
         <p>Ciao <b>${nome}</b>,</p>
         <p>Il tuo ordine è stato ricevuto con successo.</p>
-        <p style="font-size:14px; color:#555;">Grazie per aver acquistato da noi!</p>
+        <p style="font-size:14px; color:#9F2E8C;">Grazie per aver acquistato da noi!</p>
         <hr style="margin:20px 0; border:none; border-top:1px solid #ddd;">
-        <p style="font-size:12px; color:#999;">Email inviata da <b>NerdNest</b></p>
+        <p style="font-size:12px; color:#9F2E8C;">Email inviata da <b>NerdNest</b></p>
       </div>
     `
   });
