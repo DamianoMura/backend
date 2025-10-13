@@ -17,6 +17,13 @@ const discountCodes = [
 			valid_from: "2025-09-01",
 			valid_until: "2025-10-31",
 		},
+{
+			code: "AUGUST15",
+			discount_percent: 15,
+			valid_from: "2025-08-01",
+			valid_until: "2025-08-31",
+		}
+
 	];
 
   module.exports = discountCodes;
