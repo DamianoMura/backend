@@ -148,9 +148,9 @@ const seedOrderItems = () => {
 };
 
 const seedDiscountedItems = () => {
-	listDiscountedItems.map((item)=>{
+	listDiscountedItems.map((item,index)=>{
 				pool.query(
-			"INSERT INTO discounted-items ( product_id, discount_value) VALUES ( ?, ?)",
+			"INSERT INTO discounted_items ( product_id, discount_value) VALUES ( ?, ?)",
 			[
 				
 				parseInt(item.product_id),

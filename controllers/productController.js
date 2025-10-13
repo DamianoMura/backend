@@ -2,6 +2,12 @@ const { connection } = require("../db/db.js");
 
 // Handler to get all products, with sorting/filter support
 const allProducts = (req, res) => {
+    const discountedItems= [];
+    connection.query("SELECT * FROM discounted_items",(err,results)=>{
+        if (err) return res.status(500).json({ error: "Query failed", details: err });
+        else results.map((item)=> discountedItems.push(item))
+          
+    })
     const { search, sort, cat, order } = req.query;
     let { rpp, page } = req.query;
     rpp = parseInt(rpp);
@@ -32,6 +38,7 @@ const allProducts = (req, res) => {
         whereQ = "JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id";
         orderBy = "ORDER BY COUNT(order_items.order_item_id) DESC";
     }
+    // discounted items 
 
     // Pagination logic
     let limitOffset = "";
@@ -70,8 +77,14 @@ const allProducts = (req, res) => {
             if (err) return res.status(400).json({ error: "Query failed", details: err });
 
             results.forEach((result) => {
+                
                 result.image_url = req.imagePath + result.image_url;
                 result.price = parseFloat(result.price);
+                discountedItems.map((item)=>{
+                    if(item.product_id==result.product_id) result.discount_percent = item.discount_value;
+                    
+                })
+                
             });
             res.status(200).json({ results, resultCount, pages });
         });
@@ -81,18 +94,28 @@ const allProducts = (req, res) => {
 // Handler to get a single product by id
 const showProduct = (req, res) => {
     const { slug } = req.params;
-
+    const discountedItems= [];
+    connection.query("SELECT * FROM discounted_items",(err,results)=>{
+        if (err) return res.status(500).json({ error: "Query failed", details: err });
+        else results.map((item)=> discountedItems.push(item))
+          
+    })
     connection.query(
         "SELECT * FROM products WHERE slug = ?",
         [slug],
-        (err, results) => {
+        (err, result) => {
             if (err)
                 return res.status(500).json({ error: "Query failed", details: err });
-            if (!results.length)
+            if (!result.length)
                 return res.status(404).json({ error: "Product not found!" });
-            results[0].image_url = req.imagePath + results[0].image_url;
-            results[0].price = parseFloat(results[0].price);
-            res.status(200).json(results[0]);
+
+            discountedItems.map((item)=>{
+                    if(item.product_id==result[0].product_id) result[0].discount_percent = item.discount_value;
+                    
+                })
+            result[0].image_url = req.imagePath + result[0].image_url;
+            result[0].price = parseFloat(result[0].price);
+            res.status(200).json(result[0]);
         }
     );
 };
