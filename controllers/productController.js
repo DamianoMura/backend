@@ -45,13 +45,10 @@ const allProducts = (req, res) => {
         whereQ = "JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id";
         orderBy = "ORDER BY COUNT(order_items.order_item_id) DESC";
     }
-   
-    
-       
+      
     
     // discounted items 
 
-    // Pagination logic
 
 
     // Count total results
@@ -64,6 +61,7 @@ const allProducts = (req, res) => {
         ? `${selectCount} ${countQueryPopular} GROUP BY products.product_id`
         : `${selectCount} ${whereQ}`;
 
+    // Pagination logic
     connection.query(countQuery, (err, results) => {
         if (err) return res.status(400).json({ error: "Query failed", details: err });
          // For "popular", results.length is the count, otherwise results[0].count
