@@ -1,5 +1,6 @@
 const { connection } = require("../db/db.js");
-
+//results gaps
+const resultGap =[4,8,12,16,20]
 // Handler to get all products, with sorting/filter support
 const allProducts = (req, res) => {
     const discountedItems= [];
@@ -11,8 +12,12 @@ const allProducts = (req, res) => {
     const { search, sort, cat, order } = req.query;
     let { rpp, page } = req.query;
     rpp = parseInt(rpp);
-    if(rpp>32) rpp=32;
-    if(rpp!=4 && rpp!=8 && rpp!=16) rpp=4;
+    if(rpp>20) rpp=20;
+    if(resultGap.indexOf(rpp)<0) {
+
+        rpp%4>2 ? rpp++ : rpp=rpp- rpp%4
+
+    }
     page = parseInt(page);
 
     // Compose WHERE clause dynamically, search only on product name (all words, any order)
