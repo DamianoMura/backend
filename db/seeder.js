@@ -5,6 +5,7 @@ const mysql = require("mysql2");
 const sluggedProducts =require('./seeder/products')
 const categories = require("./seeder/categories");
 const discountCodes = require("./seeder/discountCodes");
+const listDiscountedItems = require("./seeder/discountedItems");
 const orders = require("./seeder/orders");
 const orderItems = require("./seeder/orderItems");
 
@@ -30,6 +31,8 @@ pool.connect((err) => {
 		seedOrders();
 		console.log("Start seeding order_items");
 		seedOrderItems();
+		console.log("Start seeding discounted_items");
+		seedDiscountedItems();
 	}
 });
 
@@ -142,4 +145,23 @@ const seedOrderItems = () => {
 			}
 		);
 	});
+};
+
+const seedDiscountedItems = () => {
+	listDiscountedItems.map((item)=>{
+				pool.query(
+			"INSERT INTO discounted-items ( product_id, discount_value) VALUES ( ?, ?)",
+			[
+				
+				parseInt(item.product_id),
+				parseInt(item.discount_value)
+				
+			],
+			(err) => {
+				if (err) console.log("query failed", err);
+				else
+					console.log(`query ${index + 1} of ${orderItems.length}  succeded`);
+			}
+		);
+	})
 };
