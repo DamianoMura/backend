@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 
 const sendConfirmationEmail = async (to, nome) => {
   const info = await transporter.sendMail({
-    from: '"E-commerce Test" <no-reply@tuodominio.com>',
+    from: '"NerdNest" <no-reply@nerdnest.com>', // nome del sito nel campo From
     to,
     subject: 'Conferma ordine (Mailtrap)',
     html: `
@@ -21,6 +21,8 @@ const sendConfirmationEmail = async (to, nome) => {
         <p>Ciao <b>${nome}</b>,</p>
         <p>Il tuo ordine è stato ricevuto con successo.</p>
         <p style="font-size:14px; color:#555;">Grazie per aver acquistato da noi!</p>
+        <hr style="margin:20px 0; border:none; border-top:1px solid #ddd;">
+        <p style="font-size:12px; color:#999;">Email inviata da <b>NerdNest</b></p>
       </div>
     `
   });
