@@ -12,7 +12,7 @@ const allProducts = (req, res) => {
     let { rpp, page } = req.query;
     rpp = parseInt(rpp);
     if(rpp>32) rpp=32;
-    if(rpp!=4 || rpp!=8 || rpp!=16) rpp=4;
+    if(rpp!=4 && rpp!=8 && rpp!=16) rpp=4;
     page = parseInt(page);
 
     // Compose WHERE clause dynamically, search only on product name (all words, any order)
@@ -40,6 +40,10 @@ const allProducts = (req, res) => {
         whereQ = "JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id";
         orderBy = "ORDER BY COUNT(order_items.order_item_id) DESC";
     }
+   
+    
+       
+    
     // discounted items 
 
     // Pagination logic
