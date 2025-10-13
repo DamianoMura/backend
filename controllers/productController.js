@@ -11,6 +11,8 @@ const allProducts = (req, res) => {
     const { search, sort, cat, order } = req.query;
     let { rpp, page } = req.query;
     rpp = parseInt(rpp);
+    if(rpp>32) rpp=32;
+    if(rpp!=4 || rpp!=8 || rpp!=16) rpp=4;
     page = parseInt(page);
 
     // Compose WHERE clause dynamically, search only on product name (all words, any order)
@@ -53,7 +55,7 @@ const allProducts = (req, res) => {
     let selectAll = "SELECT products.* FROM products";
     let selectCount = "SELECT COUNT(*) as count FROM products";
     let countQueryPopular = "JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id";
-
+   
     // Choose count query based on "popular" sort
     let countQuery = sort === "popular"
         ? `${selectCount} ${countQueryPopular} GROUP BY products.product_id`
@@ -77,16 +79,15 @@ const allProducts = (req, res) => {
             if (err) return res.status(400).json({ error: "Query failed", details: err });
 
             results.forEach((result) => {
-                
+                  
                 result.image_url = req.imagePath + result.image_url;
                 result.price = parseFloat(result.price);
                 discountedItems.map((item)=>{
                     if(item.product_id==result.product_id) result.discount_percent = item.discount_value;
-                    
                 })
                 
             });
-            res.status(200).json({ results, resultCount, pages });
+            res.status(200).json({ results, resultCount, pages, rpp });
         });
     });
 };
@@ -110,9 +111,9 @@ const showProduct = (req, res) => {
                 return res.status(404).json({ error: "Product not found!" });
 
             discountedItems.map((item)=>{
-                    if(item.product_id==result[0].product_id) result[0].discount_percent = item.discount_value;
-                    
-                })
+                if(item.product_id==result[0].product_id) result[0].discount_percent = item.discount_value;
+            })
+              
             result[0].image_url = req.imagePath + result[0].image_url;
             result[0].price = parseFloat(result[0].price);
             res.status(200).json(result[0]);
