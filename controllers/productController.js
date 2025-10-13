@@ -52,13 +52,7 @@ const allProducts = (req, res) => {
     // discounted items 
 
     // Pagination logic
-    let limitOffset = "";
-    if (rpp && !isNaN(rpp)) {
-        limitOffset = `LIMIT ${rpp}`;
-        if (page && !isNaN(page) && page > 1) {
-            limitOffset += ` OFFSET ${(page - 1) * rpp}`;
-        }
-    }
+
 
     // Count total results
     let selectAll = "SELECT products.* FROM products";
@@ -72,16 +66,25 @@ const allProducts = (req, res) => {
 
     connection.query(countQuery, (err, results) => {
         if (err) return res.status(400).json({ error: "Query failed", details: err });
-
-        // For "popular", results.length is the count, otherwise results[0].count
+         // For "popular", results.length is the count, otherwise results[0].count
         let resultCount = sort === "popular" ? results.length : (results[0]?.count || 0);
 
-        // Calculate pages
+          // Calculate pages
         let pages = 1;
         if (rpp && resultCount > 0) {
             pages = Math.ceil(resultCount / rpp);
         }
+        if (page>pages) page=pages
 
+        let limitOffset = "";
+        if (rpp && !isNaN(rpp)) {
+            limitOffset = `LIMIT ${rpp}`;
+        if (page && !isNaN(page) && page > 1) {
+            limitOffset += ` OFFSET ${(page - 1) * rpp}`;
+        }
+    }
+       
+      
         // Actual data query
         let dataQuery = `${selectAll} ${whereQ} ${orderBy} ${limitOffset}`;
         connection.query(dataQuery, (err, results) => {
@@ -96,7 +99,7 @@ const allProducts = (req, res) => {
                 })
                 
             });
-            res.status(200).json({ results, resultCount, pages, rpp });
+            res.status(200).json({ results, resultCount, pages, rpp, page });
         });
     });
 };
