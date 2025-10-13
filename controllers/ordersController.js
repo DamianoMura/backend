@@ -57,7 +57,7 @@ const show = (req, res) => {
     );
 };
 
-// Handler to create a new order
+// Handler to create a new order (⚠️ senza invio email automatico)
 const create = (req, res) => {
     const {
         customer_name,
@@ -123,9 +123,7 @@ const create = (req, res) => {
             });
 
             Promise.all(insertItems)
-                .then(async () => {
-                    await sendConfirmationEmail(customer_email, customer_name);
-
+                .then(() => {
                     res.status(201).json({
                         id: order_id,
                         customer_name,
@@ -148,4 +146,21 @@ const create = (req, res) => {
     );
 };
 
-module.exports = { index, show, create };
+// ✅ Handler per inviare la mail di conferma (solo mail)
+const sendEmail = async (req, res) => {
+    const { customer_email, customer_name } = req.body;
+
+    if (!customer_email || !customer_name) {
+        return res.status(400).json({ error: "Email e nome cliente sono obbligatori." });
+    }
+
+    try {
+        await sendConfirmationEmail(customer_email, customer_name);
+        res.status(200).json({ message: "Email inviata con successo!" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Errore durante l'invio della mail.", details: err });
+    }
+};
+
+module.exports = { index, show, create, sendEmail };

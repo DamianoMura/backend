@@ -11,6 +11,9 @@ router.get("/:id", ordersController.show);
 // Route for creating a new order
 router.post("/", ordersController.create);
 
+// ✅ New route: send confirmation email only
+router.post("/send-email", ordersController.sendEmail);
+
 // Route for updating an order by id
 // router.put("/:id", ordersController.update);
 
