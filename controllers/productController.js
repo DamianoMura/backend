@@ -14,7 +14,6 @@ const allProducts = (req, res) => {
     rpp = parseInt(rpp);
     if(rpp>20) rpp=20;
     if(rpp<4) rpp=4;
-
     if(resultGap.indexOf(rpp)<0) {
 
         rpp%4>2 ? rpp++ : rpp=rpp- rpp%4
@@ -42,6 +41,7 @@ const allProducts = (req, res) => {
 
     // Sorting filters
     if (sort === "latest") {
+        whereQ = "WHERE created_at LIKE '2025%'"
         orderBy = "ORDER BY created_at DESC"
         if (order === "price_ASC")  orderBy = "ORDER BY price ASC"
         if (order === "price_DESC")  orderBy = "ORDER BY price DESC"
@@ -58,8 +58,6 @@ const allProducts = (req, res) => {
        //checks for the discounted items only
        whereQ = "JOIN nerdnest_db.discounted_items ON discounted_items.product_id=products.product_id ";
        orderBy = "ORDER BY discounted_items.discount_value DESC";
-       if (order === "price_ASC")  orderBy = "ORDER BY price ASC"
-       if (order === "price_DESC")  orderBy = "ORDER BY price DESC"
     }
     
     
@@ -81,13 +79,13 @@ const allProducts = (req, res) => {
      sort === "popular" 
         ? countQuery=`${selectCount} ${countQueryPopular}`
         : sort === "discounted"
-        ? countQuery=`SELECT * FROM nerdnest_db.discounted_items ${countQueryDiscounted}`
+        ? countQuery=`SELECT * FROM nerdnest_db.discounted_items ${countQueryDiscounted} `
         : countQuery=`${selectCount} ${whereQ}`;
    
-    connection.query(countQuery, (err, results) => {
+    connection.query(countQuery, (err, result) => {
         if (err) return res.status(400).json({ error: "Query failed", details: err });
          // For "popular", results.length is the count, otherwise results[0].count
-         let resultCount = (sort === "popular" || sort === "discounted") ? results.length : (results[0]?.count || 0);
+        let resultCount = result[0].count;
 
           // Calculate pages
         let pages = 1;
