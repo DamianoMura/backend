@@ -13,6 +13,8 @@ const allProducts = (req, res) => {
     let { rpp, page } = req.query;
     rpp = parseInt(rpp);
     if(rpp>20) rpp=20;
+    if(rpp<4) rpp=4;
+
     if(resultGap.indexOf(rpp)<0) {
 
         rpp%4>2 ? rpp++ : rpp=rpp- rpp%4
@@ -39,33 +41,53 @@ const allProducts = (req, res) => {
     else if (order === "price_DESC") orderBy += " DESC";
 
     // Sorting filters
-    if (sort === "latest") orderBy = "ORDER BY created_at DESC";
+    if (sort === "latest") {
+        orderBy = "ORDER BY created_at DESC"
+        if (order === "price_ASC")  orderBy = "ORDER BY price ASC"
+        if (order === "price_DESC")  orderBy = "ORDER BY price DESC"
+    }
+    
     else if (sort === "popular") {
         // Popular = join with order_items and group by product
         whereQ = "JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id";
         orderBy = "ORDER BY COUNT(order_items.order_item_id) DESC";
+        if (order === "price_ASC")  orderBy = "ORDER BY price ASC"
+        if (order === "price_DESC")  orderBy = "ORDER BY price DESC"
     }
-      
+    else if (sort === "discounted") {
+       //checks for the discounted items only
+       whereQ = "JOIN nerdnest_db.discounted_items ON discounted_items.product_id=products.product_id ";
+       orderBy = "ORDER BY discounted_items.discount_value DESC";
+       if (order === "price_ASC")  orderBy = "ORDER BY price ASC"
+       if (order === "price_DESC")  orderBy = "ORDER BY price DESC"
+    }
+    
+    
+       
     
     // discounted items 
 
+    // Pagination logic
 
 
     // Count total results
     let selectAll = "SELECT products.* FROM products";
     let selectCount = "SELECT COUNT(*) as count FROM products";
     let countQueryPopular = "JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id";
+    let countQueryDiscounted = "JOIN nerdnest_db.products ON discounted_items.product_id=products.product_id";
    
     // Choose count query based on "popular" sort
-    let countQuery = sort === "popular"
-        ? `${selectCount} ${countQueryPopular} GROUP BY products.product_id`
-        : `${selectCount} ${whereQ}`;
-
-    // Pagination logic
+    let countQuery="";
+     sort === "popular" 
+        ? countQuery=`${selectCount} ${countQueryPopular}`
+        : sort === "discounted"
+        ? countQuery=`SELECT * FROM nerdnest_db.discounted_items ${countQueryDiscounted}`
+        : countQuery=`${selectCount} ${whereQ}`;
+   
     connection.query(countQuery, (err, results) => {
         if (err) return res.status(400).json({ error: "Query failed", details: err });
          // For "popular", results.length is the count, otherwise results[0].count
-        let resultCount = sort === "popular" ? results.length : (results[0]?.count || 0);
+         let resultCount = (sort === "popular" || sort === "discounted") ? results.length : (results[0]?.count || 0);
 
           // Calculate pages
         let pages = 1;
