@@ -65,7 +65,7 @@ const allProducts = (req, res) => {
     
     // discounted items 
 
-    // Pagination logic
+    
 
 
     // Count total results
@@ -79,14 +79,14 @@ const allProducts = (req, res) => {
      sort === "popular" 
         ? countQuery=`${selectCount} ${countQueryPopular}`
         : sort === "discounted"
-        ? countQuery=`SELECT * FROM nerdnest_db.discounted_items ${countQueryDiscounted} `
+        ? countQuery=`SELECT COUNT(*) AS count FROM nerdnest_db.discounted_items ${countQueryDiscounted} `
         : countQuery=`${selectCount} ${whereQ}`;
    
     connection.query(countQuery, (err, result) => {
         if (err) return res.status(400).json({ error: "Query failed", details: err });
-         // For "popular", results.length is the count, otherwise results[0].count
+         //  Pagination logic getting resultCount from countQuery
         let resultCount = result[0].count;
-
+        console.log(result[0].count)
           // Calculate pages
         let pages = 1;
         if (rpp && resultCount > 0) {
@@ -117,7 +117,7 @@ const allProducts = (req, res) => {
                 })
                 
             });
-            res.status(200).json({ results, resultCount, pages, rpp, page });
+            res.status(200).json({ results, resultCount , pages, rpp, page });
         });
     });
 };
