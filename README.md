@@ -19,66 +19,113 @@ Spunti tecnici: confronto prodotti, doppia visualizzazione, gestione quantità
 
 ### Esempi pratici di chiamate
 
-- **Prodotti paginati (pagina 2, 12 per pagina):**
+l'endpoint products restiituisce dei risultati in base a vari filtri:
 
-  `GET /products?page=2&limit=12`
+#### sort:
 
-- **Ricerca prodotti per nome/descrizione (termine: "mouse", pagina 1, 10 per pagina):**
+1. se sort non è definita, restituisce la lista completa
+2. sort=latest => restituisce i prodotti inseriti nell'anno corrente (2025)
+3. sort = popular => restituisce i prodotti più venduti in ordine di quantità venduta
+4. sort = discounted => restituisce la lista dei prodotti in offerta partendo dalla percentuale di sconto più alta
 
-  `GET /products/search/page?term=mouse&page=1&limit=10`
+#### order: (se presente bypassa gli ordinamenti specifici del sort di discounted e popular)
 
-- **Ricerca prodotti e ordinamento per prezzo crescente:**
+1. order =price_ASC => restituisce i risultati per prezzo in ordine ascendente
+1. order =price_DESC => restituisce i risultati per prezzo in ordine ascendente
 
-  `GET /products/search/page?term=laptop&page=1&limit=8&sort=price_asc`
+#### rpp : (results per page) default al caricamento di /products rpp=4
 
-- **Solo ordinamento per categoria decrescente:**
+c'è la possibilità di avere 4, 8, 12, 16, o 20 risultati per pagina dividendo in tempo reale il numero di risultati in pagine
 
-  `GET /products?page=1&limit=10&sort=category_desc`
+#### page : default al caricamento di products/ page=1
+
+la query string di products/ viene popolata all'avvio con ?rpp=4&page=1 in modo da avere una query standard iniziale con la paginazione già calcolata
 
 ---
 
-### Funzionalità e parametri supportati
-
-- Tutte le chiamate restituiscono i prodotti paginati (parametri `page` e `limit`).
-- Ordinamento di default: alfabetico per nome.
-- Ordinamento opzionale tramite parametro `sort`:
-  - `sort=price_asc` → prezzo crescente
-  - `sort=price_desc` → prezzo decrescente
-  - `sort=category_asc` → categoria crescente (poi nome)
-  - `sort=category_desc` → categoria decrescente (poi nome)
-- Ricerca per nome/descrizione con paginazione:
-  - `/products/search/page?term=mouse&page=1&limit=10&sort=price_desc`
-- Solo paginazione (senza ricerca):
-  - `/products?page=1&limit=10&sort=category_asc`
-
 #### Risposta delle API
 
-Tutte le risposte includono:
+ogni qual volta che viene richiamata la lista dei prodotti, riceviamo in risposta un'oggetto
 
-- `data`: array prodotti
-- `total`: numero totale risultati
-- `page`: pagina corrente
-- `totalPages`: numero totale pagine
-- `message`: riepilogo query
+obg = {
+results =[] => array dei risultati
+resultCount = int => numero di risultati
+rpp = int => results per page ()
+page = int => definisce l'offset dei risultati
+pages = int => numero di pagine calcolate in base ai risultati ottenuti e i risultati per pagina
+}
 
-## Recap funzionalità prodotti (API)
+## esempio:
 
-- Tutte le chiamate restituiscono i prodotti paginati (parametri `page` e `limit`).
-- Ordinamento di default: alfabetico per nome.
-- Ordinamento opzionale tramite parametro `sort`:
-  - `sort=price_asc` → prezzo crescente
-  - `sort=price_desc` → prezzo decrescente
-  - `sort=category_asc` → categoria crescente (poi nome)
-  - `sort=category_desc` → categoria decrescente (poi nome)
-- Ricerca per nome/descrizione con paginazione:
-  - `/products/search/page?term=mouse&page=1&limit=10&sort=price_desc`
-- Solo paginazione (senza ricerca):
-  - `/products?page=1&limit=10&sort=category_asc`
+### http://localhost:3000/products?sort=latest&order=price_ASC&rpp=4&page=1
 
-Tutte le risposte includono:
+### risultato:
 
-- `data`: array prodotti
-- `total`: numero totale risultati
-- `page`: pagina corrente
-- `totalPages`: numero totale pagine
-- `message`: riepilogo query
+{
+"results": [
+{
+"product_id": 25,
+"name": "EcoSound Lite",
+"brand": "GreenByte",
+"description": "Cuffie sostenibili con materiali riciclati e packaging eco.",
+"specs": "Jack 3.5mm, driver 40mm, compatibili con tutti i dispositivi",
+"price": 39,
+"stock_quantity": 40,
+"category_name": "Headsets",
+"slug": "greenbyte-ecosound-lite",
+"image_url": "http://localhost:3000/imgs/headCuff-5.jpg",
+"category_id": 3,
+"created_at": "2025-06-30T22:00:00.000Z"
+},
+{
+"product_id": 23,
+"name": "StealthCom S1",
+"brand": "StealthTech",
+"description": "Cuffie leggere e silenziose per ambienti professionali.",
+"specs": "Jack 3.5mm, microfono direzionale, design minimal",
+"price": 69,
+"stock_quantity": 30,
+"category_name": "Headsets",
+"slug": "stealthtech-stealthcom-s1",
+"image_url": "http://localhost:3000/imgs/headCuff-3.jpg",
+"category_id": 3,
+"created_at": "2025-06-30T22:00:00.000Z"
+},
+{
+"product_id": 26,
+"name": "BlitzTalk Z1",
+"brand": "BlitzGear",
+"description": "Headsets compatto per gamer in mobilità.",
+"specs": "Bluetooth, microfono integrato, autonomia 20h",
+"price": 89,
+"stock_quantity": 25,
+"category_name": "Headsets",
+"slug": "blitzgear-blitztalk-z1",
+"image_url": "http://localhost:3000/imgs/headCuff-6.jpg",
+"category_id": 3,
+"created_at": "2025-06-30T22:00:00.000Z"
+},
+{
+"product_id": 29,
+"name": "CityVoice Urban",
+"brand": "CityTech",
+"description": "Cuffie wireless per lavoro remoto e videoconferenze.",
+"specs": "Bluetooth, microfono ambientale, autonomia 25h",
+"price": 99,
+"stock_quantity": 28,
+"category_name": "Headsets",
+"slug": "citytech-cityvoice-urban",
+"image_url": "http://localhost:3000/imgs/headCuff-9.jpg",
+"category_id": 3,
+"created_at": "2025-06-30T22:00:00.000Z",
+"discount_percent": 10
+}
+],
+"resultCount": 20,
+"pages": 5,
+"rpp": 4,
+"page": 1
+}
+
+per ogni prodotto vengono modificati alcuni campi, per esempio image_url dove viene inserito l'indirizzo completo per mano di un middleware
+inoltre per ogni prodotto viene fatta una join per verificare se il prodotto è in offerta, e se lo è viene aggiunto il campo "discount_percent"
