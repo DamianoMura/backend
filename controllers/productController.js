@@ -58,6 +58,8 @@ const allProducts = (req, res) => {
        //checks for the discounted items only
        whereQ = "JOIN nerdnest_db.discounted_items ON discounted_items.product_id=products.product_id ";
        orderBy = "ORDER BY discounted_items.discount_value DESC";
+       if (order === "price_ASC")  orderBy = "ORDER BY price ASC"
+       if (order === "price_DESC")  orderBy = "ORDER BY price DESC"
     }
     
     
