@@ -50,7 +50,7 @@ const allProducts = (req, res) => {
     else if (sort === "popular") {
         // Popular = join with order_items and group by product
         whereQ = "JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id";
-        orderBy = "ORDER BY COUNT(order_items.order_item_id) DESC";
+        orderBy = "ORDER BY sum(order_items.quantity) DESC";
         if (order === "price_ASC")  orderBy = "ORDER BY price ASC"
         if (order === "price_DESC")  orderBy = "ORDER BY price DESC"
     }
