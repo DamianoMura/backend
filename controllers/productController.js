@@ -86,7 +86,7 @@ const allProducts = (req, res) => {
         if (err) return res.status(400).json({ error: "Query failed", details: err });
          //  Pagination logic getting resultCount from countQuery
         let resultCount = result[0].count;
-        console.log(result[0].count)
+        
           // Calculate pages
         let pages = 1;
         if (rpp && resultCount > 0) {
