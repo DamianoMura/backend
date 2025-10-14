@@ -26,14 +26,13 @@ const allProducts = (req, res) => {
     if (cat) whereQArr.push(`category_name LIKE '${cat}'`);
     if (search) {
         // Cerca tutte le parole SOLO nel nome prodotto
-        const words = search.split(/\s+/).filter(Boolean);
-        words.forEach(word => {
-            whereQArr.push(`(name LIKE '%${word}%')`);
-        });
+        
+            whereQArr.push(`(name LIKE '%${search}%' OR description LIKE '%${search}%')`);
+      
     }
     let whereQ = '';
     if (whereQArr.length) whereQ = 'WHERE ' + whereQArr.join(' AND ');
-
+    
     // Compose ORDER BY
     let orderBy = `ORDER BY price`;
     if (order === "price_ASC") orderBy += " ASC";
@@ -107,6 +106,7 @@ const allProducts = (req, res) => {
       
         // Actual data query
         let dataQuery = `${selectAll} ${whereQ} ${orderBy} ${limitOffset}`;
+        console.log(dataQuery)
         connection.query(dataQuery, (err, results) => {
             if (err) return res.status(400).json({ error: "Query failed", details: err });
 
