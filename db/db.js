@@ -9,6 +9,7 @@ const connection = mysql.createConnection({
 	password: DB_PWD,
 	database: DB_NAME,
 	decimalNumbers: true,
+	ssl: { rejectUnauthorized: false }
 });
 
 connection.connect((err) => {

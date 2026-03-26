@@ -48,14 +48,14 @@ const allProducts = (req, res) => {
     
     else if (sort === "popular") {
         // Popular = join with order_items and group by product
-        whereQ = "JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id GROUP BY products.product_id";
+        whereQ = "JOIN order_items ON order_items.product_id=products.product_id GROUP BY products.product_id";
         orderBy = "ORDER BY sum(order_items.quantity) DESC";
         if (order === "price_ASC")  orderBy = "ORDER BY price ASC"
         if (order === "price_DESC")  orderBy = "ORDER BY price DESC"
     }
     else if (sort === "discounted") {
        //checks for the discounted items only
-       whereQ = "JOIN nerdnest_db.discounted_items ON discounted_items.product_id=products.product_id ";
+       whereQ = "JOIN discounted_items ON discounted_items.product_id=products.product_id ";
        orderBy = "ORDER BY discounted_items.discount_value DESC";
        if (order === "price_ASC")  orderBy = "ORDER BY price ASC"
        if (order === "price_DESC")  orderBy = "ORDER BY price DESC"
@@ -72,15 +72,15 @@ const allProducts = (req, res) => {
     // Count total results
     let selectAll = "SELECT products.* FROM products";
     let selectCount = "SELECT COUNT(*) as count FROM products";
-    let countQueryPopular = "JOIN nerdnest_db.order_items ON order_items.product_id=products.product_id";
-    let countQueryDiscounted = "JOIN nerdnest_db.products ON discounted_items.product_id=products.product_id";
+    let countQueryPopular = "JOIN order_items ON order_items.product_id=products.product_id";
+    let countQueryDiscounted = "JOIN products ON discounted_items.product_id=products.product_id";
    
     // Choose count query based on "popular" sort
     let countQuery="";
      sort === "popular" 
         ? countQuery=`${selectCount} ${countQueryPopular}`
         : sort === "discounted"
-        ? countQuery=`SELECT COUNT(*) AS count FROM nerdnest_db.discounted_items ${countQueryDiscounted} `
+        ? countQuery=`SELECT COUNT(*) AS count FROM discounted_items ${countQueryDiscounted} `
         : countQuery=`${selectCount} ${whereQ}`;
    
     connection.query(countQuery, (err, result) => {
