@@ -19,8 +19,8 @@ app.use(express.static("public"));
 app.use(express.json());
 const cors = require("cors");
 const corsOptions = {
-	origin: "http://localhost:5173",
-	methods: "GET,POST,PUT,DELETE",
+    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
+    methods: "GET,POST,PUT,DELETE",
 };
 app.use(cors(corsOptions));
 
